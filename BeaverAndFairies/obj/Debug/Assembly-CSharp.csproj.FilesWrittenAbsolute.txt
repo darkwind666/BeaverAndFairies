@@ -1,0 +1,17 @@
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/obj/Debug/Assembly-CSharp.dll
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/UnityEngine.dll
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/UnityEditor.dll
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/Mono.Cecil.dll
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/Unity.DataContract.dll
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/sasha/Documents/Games/BeaverAndFairies/BeaverAndFairies/BeaverAndFairies/Temp/bin/Debug/Mono.Cecil.Mdb.dll
