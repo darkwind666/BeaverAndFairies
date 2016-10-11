@@ -73,28 +73,33 @@ public class GameLogicController : MonoBehaviour {
 			BlockTypeController blockTypeComponent = firstBlock.GetComponent<BlockTypeController>();
 			int blockType = blockTypeComponent.blockType;
 
-			if(blockType == 1 && _swipeDirectionController.mMessageIndex == 3)
-			{
-				removeFirstBlock();
+			bool rigthSwipe = false;
+
+			if (blockType == 1 && _swipeDirectionController.mMessageIndex == 3) {
+				removeFirstBlock ();
 				_score += 1;
+				rigthSwipe = true;
 			}
 
 			if(blockType == 2 && _swipeDirectionController.mMessageIndex == 4)
 			{
 				removeFirstBlock();
 				_score += 1;
+				rigthSwipe = true;
 			}
 
 			if(blockType == 3 && _swipeDirectionController.mMessageIndex == 2)
 			{
 				removeFirstBlock();
 				_score += 1;
+				rigthSwipe = true;
 			}
 
 			if(blockType == 4 && _swipeDirectionController.mMessageIndex == 1)
 			{
 				removeFirstBlock();
 				_score += 1;
+				rigthSwipe = true;
 			}
 
 			if(blockType == 5 && Input.GetMouseButtonDown(0) == true)
@@ -126,9 +131,30 @@ public class GameLogicController : MonoBehaviour {
 				GameObject firstChild = firstBlock.transform.GetChild(0).gameObject;
 				Destroy(firstChild);
 			}
+
+			if(blockType > 0 && blockType < 5 && rigthSwipe == false && _swipeDirectionController.mMessageIndex > 0){
+				showErrorSwipeAnimation();
+			}
 		}
 
 		_swipeDirectionController.mMessageIndex = 0;
+	}
+
+	void showErrorSwipeAnimation()
+	{
+		GameObject firstBlock = _currentBlocks.Peek();
+
+		foreach (Transform child in firstBlock.transform)
+		{
+			Vector3 startScale = child.localScale;
+			Vector3 newScale = new Vector3 (startScale.x * 1.5f, startScale.y * 1.5f, 0);
+			Sequence scaleSequence = DOTween.Sequence();
+			scaleSequence.Append(child.DOScale(newScale, 0.3f));
+			scaleSequence.Append(child.DOScale(startScale, 0.3f));
+
+			// do whatever you want with child transform object here
+		}
+
 	}
 
 	void removeFirstBlock()
@@ -140,8 +166,20 @@ public class GameLogicController : MonoBehaviour {
 
 		foreach (GameObject block in _currentBlocks) 
 		{
-			BlockTypeController blockTypeComponent = firstBlock.GetComponent<BlockTypeController>();
+			BlockTypeController blockTypeComponent = block.GetComponent<BlockTypeController>();
 			if (blockTypeComponent.placed == true) 
+			{
+				blockTypeComponent.placed = false;
+			}
+		}
+	}
+
+	void startFallBlocksAnimation()
+	{
+		foreach (GameObject block in _currentBlocks) 
+		{
+			BlockTypeController blockTypeComponent = block.GetComponent<BlockTypeController>();
+			if (blockTypeComponent.placed == true)
 			{
 				_stopGame = true;
 				Sequence fallShapesSequence = DOTween.Sequence();
@@ -150,21 +188,6 @@ public class GameLogicController : MonoBehaviour {
 				break;
 			}
 		}
-
-		foreach (GameObject block in _currentBlocks) 
-		{
-			BlockTypeController blockTypeComponent = firstBlock.GetComponent<BlockTypeController>();
-			if (blockTypeComponent.placed == true) 
-			{
-				Vector3 finalPosition = new Vector3(block.transform.localPosition.x, block.transform.localPosition.y - _blockHeight, 0);
-				block.transform.DOLocalMove(finalPosition, oneBlockAnimationDuration);
-			}
-		}
-	}
-
-	void startFallBlocksAnimation()
-	{
-
 	}
 
 	void moveDownBlocks()
@@ -200,7 +223,7 @@ public class GameLogicController : MonoBehaviour {
 					if(renderer.bounds.Intersects(blockForCollisionRenderer.bounds) == true || aBlock.transform.localPosition.y < loseHeight)
 					{
 						blockTypeComponent.placed = true;
-						Vector3 finalPosition = new Vector3(blockForCollision.transform.localPosition.x, blockForCollision.transform.localPosition.y + _blockHeight, 0);
+						Vector3 finalPosition = new Vector3(blockForCollision.transform.localPosition.x, blockForCollision.transform.localPosition.y + _blockHeight + 0.01f, 0);
 						aBlock.transform.localPosition = finalPosition;
 						break;
 					}
