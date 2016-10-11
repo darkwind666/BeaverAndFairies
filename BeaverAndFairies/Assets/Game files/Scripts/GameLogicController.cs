@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public class GameLogicController : MonoBehaviour {
 
@@ -12,11 +13,13 @@ public class GameLogicController : MonoBehaviour {
 	float _blockHeight;
 	float _loseHeight;
 	bool _lose;
+	bool _stopGame;
 	int _score;
 
 	public GameObject[] blockTemplates;
 	Queue<GameObject> _currentBlocks;
 
+	public float oneBlockAnimationDuration;
 	public int spawnTime;
 	int _currentSpawnTime;
 
@@ -35,7 +38,7 @@ public class GameLogicController : MonoBehaviour {
 		
 	void Update () {
 
-		if(_lose == false)
+		if(_lose == false && _stopGame == false)
 		{
 			spawnNewBlock();
 			_swipeDirectionController.getTouchDirection();
@@ -64,7 +67,6 @@ public class GameLogicController : MonoBehaviour {
 
 	void getUserInput()
 	{
-
 		if(_currentBlocks.Count > 0) 
 		{
 			GameObject firstBlock = _currentBlocks.Peek();
@@ -134,14 +136,35 @@ public class GameLogicController : MonoBehaviour {
 		GameObject firstBlock = _currentBlocks.Dequeue();
 		Destroy(firstBlock);
 
+		//startFallBlocksAnimation();
+
 		foreach (GameObject block in _currentBlocks) 
 		{
 			BlockTypeController blockTypeComponent = firstBlock.GetComponent<BlockTypeController>();
 			if (blockTypeComponent.placed == true) 
 			{
-				block.transform.localPosition = new Vector3(block.transform.localPosition.x, block.transform.localPosition.y - _blockHeight, 0);
+				_stopGame = true;
+				Sequence fallShapesSequence = DOTween.Sequence();
+				fallShapesSequence.AppendInterval(oneBlockAnimationDuration);
+				fallShapesSequence.AppendCallback(() => _stopGame = false);
+				break;
 			}
 		}
+
+		foreach (GameObject block in _currentBlocks) 
+		{
+			BlockTypeController blockTypeComponent = firstBlock.GetComponent<BlockTypeController>();
+			if (blockTypeComponent.placed == true) 
+			{
+				Vector3 finalPosition = new Vector3(block.transform.localPosition.x, block.transform.localPosition.y - _blockHeight, 0);
+				block.transform.DOLocalMove(finalPosition, oneBlockAnimationDuration);
+			}
+		}
+	}
+
+	void startFallBlocksAnimation()
+	{
+
 	}
 
 	void moveDownBlocks()
@@ -149,7 +172,6 @@ public class GameLogicController : MonoBehaviour {
 		foreach (GameObject block in _currentBlocks) 
 		{
 			BlockTypeController blockTypeComponent = block.GetComponent<BlockTypeController>();
-
 			if (blockTypeComponent.placed == false) 
 			{
 				tryToMoveDownBlock(block);
@@ -178,7 +200,8 @@ public class GameLogicController : MonoBehaviour {
 					if(renderer.bounds.Intersects(blockForCollisionRenderer.bounds) == true || aBlock.transform.localPosition.y < loseHeight)
 					{
 						blockTypeComponent.placed = true;
-						aBlock.transform.localPosition = new Vector3(blockForCollision.transform.localPosition.x, blockForCollision.transform.localPosition.y + _blockHeight, 0);
+						Vector3 finalPosition = new Vector3(blockForCollision.transform.localPosition.x, blockForCollision.transform.localPosition.y + _blockHeight, 0);
+						aBlock.transform.localPosition = finalPosition;
 						break;
 					}
 				}
