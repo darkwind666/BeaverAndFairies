@@ -6,25 +6,33 @@ using DG.Tweening;
 
 public class GameLogicController : MonoBehaviour {
 
+	public GameObject[] blockTemplates;
+	public int explosionsBonusCount;
 	public float blocksSpeed;
 	public int boardHeight;
 	public GameObject blockExample;
 	public Text scoreLabel;
-	float _blockHeight;
-	float _loseHeight;
-	bool _lose;
-	bool _stopGame;
-	int _score;
-
-	public GameObject[] blockTemplates;
-	Queue<GameObject> _currentBlocks;
 
 	public float oneBlockAnimationDuration;
 	public float scaleAnimationDuration;
 	public int spawnTime;
-	int _currentSpawnTime;
 
-	SwipeDirectionController _swipeDirectionController;
+	public int maxLightningBounsCount;
+	public int maxSlowdownBounsCount;
+
+	public float _blockHeight;
+	public int _score;
+	public Queue<GameObject> _currentBlocks;
+	public SwipeDirectionController _swipeDirectionController;
+
+	int _currentSpawnTime;
+	float _loseHeight;
+	bool _lose;
+	int _currentLightningBounsCount;
+	int _currentSlowdownBounsCount;
+
+	PlayerInputController _playerInputController;
+	MoveBlocksController _moveBlocksController;
 
 	void Start () {
 	
@@ -34,17 +42,23 @@ public class GameLogicController : MonoBehaviour {
 		_currentSpawnTime = 0;
 		_currentBlocks = new Queue<GameObject>();
 		_score = 0;
+		_playerInputController = new PlayerInputController();
+		_playerInputController.gameLogicController = this;
 		_swipeDirectionController = new SwipeDirectionController();
+		_moveBlocksController = new MoveBlocksController();
+		_moveBlocksController.gameLogicController = this;
+		_currentLightningBounsCount = maxLightningBounsCount;
+		_currentSlowdownBounsCount = maxSlowdownBounsCount;
 	}
 		
 	void Update () {
 
-		if(_lose == false && _stopGame == false)
+		if(_lose == false)
 		{
 			spawnNewBlock();
 			_swipeDirectionController.getTouchDirection();
-			getUserInput();
-			moveDownBlocks();
+			_playerInputController.getUserInput();
+			_moveBlocksController.moveDownBlocks();
 			checkGameResult();
 		}
 
@@ -66,85 +80,9 @@ public class GameLogicController : MonoBehaviour {
 		}
 	}
 
-	void getUserInput()
-	{
-		if(_currentBlocks.Count > 0) 
-		{
-			GameObject firstBlock = _currentBlocks.Peek();
-			BlockTypeController blockTypeComponent = firstBlock.GetComponent<BlockTypeController>();
-			int blockType = blockTypeComponent.blockType;
-
-			bool rigthSwipe = false;
-
-			if (blockType == 1 && _swipeDirectionController.mMessageIndex == 3) {
-				removeFirstBlock ();
-				_score += 1;
-				rigthSwipe = true;
-			}
-
-			if(blockType == 2 && _swipeDirectionController.mMessageIndex == 4)
-			{
-				removeFirstBlock();
-				_score += 1;
-				rigthSwipe = true;
-			}
-
-			if(blockType == 3 && _swipeDirectionController.mMessageIndex == 2)
-			{
-				removeFirstBlock();
-				_score += 1;
-				rigthSwipe = true;
-			}
-
-			if(blockType == 4 && _swipeDirectionController.mMessageIndex == 1)
-			{
-				removeFirstBlock();
-				_score += 1;
-				rigthSwipe = true;
-			}
-
-			if(blockType == 5 && Input.GetMouseButtonDown(0) == true)
-			{
-				removeFirstBlock();
-				_score += 1;
-			}
-
-			if(blockType == 6 && Input.touchCount == 2)
-			{
-				removeFirstBlock();
-				_score += 1;
-			}
-
-			if(blockType == 7 && Input.touchCount == 3)
-			{
-				removeFirstBlock();
-				_score += 1;
-			}
-
-			if(blockType == 8 && Input.touchCount == 4)
-			{
-				removeFirstBlock();
-				_score += 1;
-			}
-
-			if (Input.GetMouseButtonDown (0) == true && blockType > 5) {
-				blockTypeComponent.blockType -= 1;
-				GameObject firstChild = firstBlock.transform.GetChild(0).gameObject;
-				Destroy(firstChild);
-			}
-
-			if(blockType > 0 && blockType < 5 && rigthSwipe == false && _swipeDirectionController.mMessageIndex > 0){
-				showErrorSwipeAnimation();
-			}
-		}
-
-		_swipeDirectionController.mMessageIndex = 0;
-	}
-
-	void showErrorSwipeAnimation()
+	public void showErrorSwipeAnimation()
 	{
 		GameObject firstBlock = _currentBlocks.Peek();
-
 		foreach (Transform child in firstBlock.transform)
 		{
 			Vector3 startScale = child.localScale;
@@ -153,62 +91,23 @@ public class GameLogicController : MonoBehaviour {
 			scaleSequence.Append(child.DOScale(newScale, scaleAnimationDuration));
 			scaleSequence.Append(child.DOScale(startScale, scaleAnimationDuration));
 		}
-
 	}
 
-	void removeFirstBlock()
+	public void removeFirstBlock()
 	{
 		GameObject firstBlock = _currentBlocks.Dequeue();
 		Destroy(firstBlock);
+		startMoveUpBlocks();
+	}
 
+	void startMoveUpBlocks()
+	{
 		foreach (GameObject block in _currentBlocks) 
 		{
 			BlockTypeController blockTypeComponent = block.GetComponent<BlockTypeController>();
 			if (blockTypeComponent.placed == true) 
 			{
 				blockTypeComponent.placed = false;
-			}
-		}
-	}
-
-	void moveDownBlocks()
-	{
-		foreach (GameObject block in _currentBlocks) 
-		{
-			BlockTypeController blockTypeComponent = block.GetComponent<BlockTypeController>();
-			if (blockTypeComponent.placed == false) 
-			{
-				tryToMoveDownBlock(block);
-			}
-		}
-	}
-
-	void tryToMoveDownBlock(GameObject aBlock)
-	{
-		aBlock.transform.localPosition = new Vector3(aBlock.transform.localPosition.x, aBlock.transform.localPosition.y - blocksSpeed, 0);
-
-		BlockTypeController blockTypeComponent = aBlock.GetComponent<BlockTypeController>();
-		Renderer renderer = aBlock.GetComponent<Renderer>();
-
-		float loseHeight = (_blockHeight / 2);
-
-		if (aBlock.transform.localPosition.y < loseHeight) {
-			blockTypeComponent.placed = true;
-			aBlock.transform.localPosition = new Vector3 (aBlock.transform.localPosition.x, aBlock.transform.localPosition.y + blocksSpeed, 0);
-		} else {
-			foreach (GameObject blockForCollision in _currentBlocks)
-			{
-				if (aBlock != blockForCollision) 
-				{
-					Renderer blockForCollisionRenderer = blockForCollision.GetComponent<Renderer>();
-					if(renderer.bounds.Intersects(blockForCollisionRenderer.bounds) == true || aBlock.transform.localPosition.y < loseHeight)
-					{
-						blockTypeComponent.placed = true;
-						Vector3 finalPosition = new Vector3(blockForCollision.transform.localPosition.x, blockForCollision.transform.localPosition.y + _blockHeight + 0.01f, 0);
-						aBlock.transform.localPosition = finalPosition;
-						break;
-					}
-				}
 			}
 		}
 	}
@@ -224,6 +123,28 @@ public class GameLogicController : MonoBehaviour {
 				_lose = true;
 				break;
 			}
+		}
+	}
+
+	public void useLightningBonus()
+	{
+		if(_currentLightningBounsCount > 0)
+		{
+			int explosionsCount = explosionsBonusCount;
+			if(_currentBlocks.Count < explosionsBonusCount)
+			{
+				explosionsCount = _currentBlocks.Count;
+			}
+
+			for(int explosionIndex = 0; explosionIndex < explosionsCount; explosionIndex++)
+			{
+				GameObject firstBlock = _currentBlocks.Dequeue();
+				Destroy(firstBlock);
+			}
+
+			startMoveUpBlocks();
+
+			_currentLightningBounsCount--;
 		}
 	}
 }
