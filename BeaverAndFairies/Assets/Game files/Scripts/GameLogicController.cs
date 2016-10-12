@@ -20,6 +20,7 @@ public class GameLogicController : MonoBehaviour {
 	Queue<GameObject> _currentBlocks;
 
 	public float oneBlockAnimationDuration;
+	public float scaleAnimationDuration;
 	public int spawnTime;
 	int _currentSpawnTime;
 
@@ -149,10 +150,8 @@ public class GameLogicController : MonoBehaviour {
 			Vector3 startScale = child.localScale;
 			Vector3 newScale = new Vector3 (startScale.x * 1.5f, startScale.y * 1.5f, 0);
 			Sequence scaleSequence = DOTween.Sequence();
-			scaleSequence.Append(child.DOScale(newScale, 0.3f));
-			scaleSequence.Append(child.DOScale(startScale, 0.3f));
-
-			// do whatever you want with child transform object here
+			scaleSequence.Append(child.DOScale(newScale, scaleAnimationDuration));
+			scaleSequence.Append(child.DOScale(startScale, scaleAnimationDuration));
 		}
 
 	}
@@ -162,30 +161,12 @@ public class GameLogicController : MonoBehaviour {
 		GameObject firstBlock = _currentBlocks.Dequeue();
 		Destroy(firstBlock);
 
-		//startFallBlocksAnimation();
-
 		foreach (GameObject block in _currentBlocks) 
 		{
 			BlockTypeController blockTypeComponent = block.GetComponent<BlockTypeController>();
 			if (blockTypeComponent.placed == true) 
 			{
 				blockTypeComponent.placed = false;
-			}
-		}
-	}
-
-	void startFallBlocksAnimation()
-	{
-		foreach (GameObject block in _currentBlocks) 
-		{
-			BlockTypeController blockTypeComponent = block.GetComponent<BlockTypeController>();
-			if (blockTypeComponent.placed == true)
-			{
-				_stopGame = true;
-				Sequence fallShapesSequence = DOTween.Sequence();
-				fallShapesSequence.AppendInterval(oneBlockAnimationDuration);
-				fallShapesSequence.AppendCallback(() => _stopGame = false);
-				break;
 			}
 		}
 	}
