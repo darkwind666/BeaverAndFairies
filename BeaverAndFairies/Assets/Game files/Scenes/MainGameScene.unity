@@ -716,7 +716,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1978387182}
+      - m_Target: {fileID: 1405615856}
         m_MethodName: useLightningBonus
         m_Mode: 1
         m_Arguments:
@@ -770,6 +770,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 1023412024}
+  - 114: {fileID: 1023412025}
   m_Layer: 5
   m_Name: SlowdownBonus
   m_TagString: Untagged
@@ -797,6 +798,20 @@ RectTransform:
   m_AnchoredPosition: {x: 53, y: -190}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1023412025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023412023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea80bbc21b3e84e77a2f423e43b3adc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameLogicController: {fileID: 1978387182}
+  maxSlowdownBonusCount: 3
+  bonusGameSpeedSlowdownRate: 0.3
 --- !u!4 &1038635782 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011242060536, guid: 8ce282320a2b54923a6702d8feabefe9,
@@ -1161,7 +1176,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1365029759}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1023412025}
+        m_MethodName: useBonus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1365029759
@@ -1205,6 +1231,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 1405615855}
+  - 114: {fileID: 1405615856}
   m_Layer: 5
   m_Name: LightningBonus
   m_TagString: Untagged
@@ -1232,6 +1259,21 @@ RectTransform:
   m_AnchoredPosition: {x: 118, y: -190}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1405615856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1405615854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28fe50021ab744ddba172cffaafe812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionsBonusCount: 3
+  maxLightningBounsCount: 3
+  bonusRechargeTime: 0
+  gameLogicController: {fileID: 1978387182}
 --- !u!1001 &1478003369
 Prefab:
   m_ObjectHideFlags: 0
@@ -1394,7 +1436,6 @@ MonoBehaviour:
   - {fileID: 1000012231816840, guid: 6e42e8a7c74674a09832f0212125497e, type: 2}
   - {fileID: 1000013098524274, guid: 945374c7c7c264d64814459f1819264f, type: 2}
   - {fileID: 1000010337474858, guid: cbeda7e440fd04666b6057b8e9be6dc3, type: 2}
-  explosionsBonusCount: 3
   blocksSpeed: 0.04
   boardHeight: 9
   blockExample: {fileID: 1000013889455516, guid: 41a27ee01af6c4967a1666e446d731e6,
@@ -1403,8 +1444,6 @@ MonoBehaviour:
   oneBlockAnimationDuration: 0.25
   scaleAnimationDuration: 0.3
   spawnTime: 60
-  maxLightningBounsCount: 3
-  maxSlowdownBounsCount: 3
   _blockHeight: 0
   _score: 0
 --- !u!1001 &2003937278

@@ -7,7 +7,6 @@ using DG.Tweening;
 public class GameLogicController : MonoBehaviour {
 
 	public GameObject[] blockTemplates;
-	public int explosionsBonusCount;
 	public float blocksSpeed;
 	public int boardHeight;
 	public GameObject blockExample;
@@ -17,9 +16,6 @@ public class GameLogicController : MonoBehaviour {
 	public float scaleAnimationDuration;
 	public int spawnTime;
 
-	public int maxLightningBounsCount;
-	public int maxSlowdownBounsCount;
-
 	public float _blockHeight;
 	public int _score;
 	public Queue<GameObject> _currentBlocks;
@@ -28,14 +24,11 @@ public class GameLogicController : MonoBehaviour {
 	int _currentSpawnTime;
 	float _loseHeight;
 	bool _lose;
-	int _currentLightningBounsCount;
-	int _currentSlowdownBounsCount;
 
 	PlayerInputController _playerInputController;
 	MoveBlocksController _moveBlocksController;
 
 	void Start () {
-	
 		Renderer renderer = blockExample.GetComponent<Renderer>();
 		_blockHeight = renderer.bounds.size.y;
 		_loseHeight = (_blockHeight * boardHeight);
@@ -47,8 +40,6 @@ public class GameLogicController : MonoBehaviour {
 		_swipeDirectionController = new SwipeDirectionController();
 		_moveBlocksController = new MoveBlocksController();
 		_moveBlocksController.gameLogicController = this;
-		_currentLightningBounsCount = maxLightningBounsCount;
-		_currentSlowdownBounsCount = maxSlowdownBounsCount;
 	}
 		
 	void Update () {
@@ -100,7 +91,7 @@ public class GameLogicController : MonoBehaviour {
 		startMoveUpBlocks();
 	}
 
-	void startMoveUpBlocks()
+	public void startMoveUpBlocks()
 	{
 		foreach (GameObject block in _currentBlocks) 
 		{
@@ -123,28 +114,6 @@ public class GameLogicController : MonoBehaviour {
 				_lose = true;
 				break;
 			}
-		}
-	}
-
-	public void useLightningBonus()
-	{
-		if(_currentLightningBounsCount > 0)
-		{
-			int explosionsCount = explosionsBonusCount;
-			if(_currentBlocks.Count < explosionsBonusCount)
-			{
-				explosionsCount = _currentBlocks.Count;
-			}
-
-			for(int explosionIndex = 0; explosionIndex < explosionsCount; explosionIndex++)
-			{
-				GameObject firstBlock = _currentBlocks.Dequeue();
-				Destroy(firstBlock);
-			}
-
-			startMoveUpBlocks();
-
-			_currentLightningBounsCount--;
 		}
 	}
 }

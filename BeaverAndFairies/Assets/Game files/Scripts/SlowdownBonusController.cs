@@ -4,8 +4,9 @@ using System.Collections;
 public class SlowdownBonusController : MonoBehaviour {
 
 	public GameLogicController gameLogicController;
+	public int maxSlowdownBonusCount;
 	public float bonusGameSpeedSlowdownRate;
-	int _maxBonusTime;
+	public int maxBonusTime;
 	int _currentBonusTime;
 	float _startBonusGameSpeedSlowdown;
 
@@ -13,6 +14,7 @@ public class SlowdownBonusController : MonoBehaviour {
 	bool _startBonus;
 
 	void Start () {
+		_currentBonusCount = maxSlowdownBonusCount;
 		_currentBonusTime = 0;
 	}
 
@@ -21,7 +23,7 @@ public class SlowdownBonusController : MonoBehaviour {
 		if(_startBonus == true)
 		{
 			_currentBonusTime++;
-			if(_currentBonusTime >= _maxBonusTime)
+			if(_currentBonusTime >= maxBonusTime)
 			{
 				_currentBonusTime = 0;
 				_startBonus = false;
@@ -33,7 +35,7 @@ public class SlowdownBonusController : MonoBehaviour {
 
 	public void useBonus()
 	{
-		if(_currentBonusCount > 0)
+		if(_currentBonusCount > 0 && _startBonus == false)
 		{
 			float newSpeed = gameLogicController.blocksSpeed - gameLogicController.blocksSpeed * bonusGameSpeedSlowdownRate;
 			_startBonusGameSpeedSlowdown = gameLogicController.blocksSpeed * bonusGameSpeedSlowdownRate;
