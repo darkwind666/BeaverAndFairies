@@ -114,6 +114,7 @@ public class GameLogicController : MonoBehaviour {
 			if (blockTypeComponent.placed == true && block.transform.localPosition.y > (_loseHeight * _blockHeight)) 
 			{
 				_lose = true;
+				stopGame = true;
 				break;
 			}
 		}

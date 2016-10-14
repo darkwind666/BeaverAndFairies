@@ -132,6 +132,49 @@ Transform:
   m_PrefabParentObject: {fileID: 4000013592465958, guid: cbeda7e440fd04666b6057b8e9be6dc3,
     type: 2}
   m_PrefabInternal: {fileID: 1298036359}
+--- !u!1 &42198632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 42198633}
+  - 114: {fileID: 42198634}
+  m_Layer: 0
+  m_Name: FairyLightningController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &42198633
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 42198632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1458444979}
+  m_RootOrder: 0
+--- !u!114 &42198634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 42198632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420e9efbb75294924b1340ee657320df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionsCount: 1
+  bonusRechargeTime: 400
+  gameLogicController: {fileID: 1978387182}
 --- !u!1001 &64932222
 Prefab:
   m_ObjectHideFlags: 0
@@ -178,6 +221,50 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e42e8a7c74674a09832f0212125497e, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &111054829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 111054830}
+  - 114: {fileID: 111054831}
+  m_Layer: 0
+  m_Name: FairySlowdownController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &111054830
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111054829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1458444979}
+  m_RootOrder: 1
+--- !u!114 &111054831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111054829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5bf960ae20964ba68f89eaf2d2162fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameLogicController: {fileID: 1978387182}
+  bonusGameSpeedSlowdownRate: 0.3
+  maxBonusTime: 300
+  bonusRechargeTime: 300
 --- !u!1 &125720329
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +725,7 @@ Transform:
   m_Children:
   - {fileID: 1955724394}
   - {fileID: 38989710}
+  - {fileID: 1458444979}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1 &849548868
@@ -812,6 +900,7 @@ MonoBehaviour:
   gameLogicController: {fileID: 1978387182}
   maxSlowdownBonusCount: 3
   bonusGameSpeedSlowdownRate: 0.3
+  maxBonusTime: 300
 --- !u!4 &1038635782 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011242060536, guid: 8ce282320a2b54923a6702d8feabefe9,
@@ -1274,6 +1363,36 @@ MonoBehaviour:
   maxLightningBounsCount: 3
   bonusRechargeTime: 0
   gameLogicController: {fileID: 1978387182}
+--- !u!1 &1458444978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1458444979}
+  m_Layer: 0
+  m_Name: Fairy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1458444979
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1458444978}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 42198633}
+  - {fileID: 111054830}
+  m_Father: {fileID: 778433477}
+  m_RootOrder: 2
 --- !u!1001 &1478003369
 Prefab:
   m_ObjectHideFlags: 0
@@ -1446,6 +1565,7 @@ MonoBehaviour:
   spawnTime: 60
   _blockHeight: 0
   _score: 0
+  stopGame: 0
 --- !u!1001 &2003937278
 Prefab:
   m_ObjectHideFlags: 0
