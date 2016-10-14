@@ -20,6 +20,7 @@ public class GameLogicController : MonoBehaviour {
 	public int _score;
 	public Queue<GameObject> _currentBlocks;
 	public SwipeDirectionController _swipeDirectionController;
+	public bool stopGame;
 
 	int _currentSpawnTime;
 	float _loseHeight;
@@ -40,11 +41,12 @@ public class GameLogicController : MonoBehaviour {
 		_swipeDirectionController = new SwipeDirectionController();
 		_moveBlocksController = new MoveBlocksController();
 		_moveBlocksController.gameLogicController = this;
+		stopGame = false;
 	}
 		
 	void Update () {
 
-		if(_lose == false)
+		if(_lose == false && stopGame == false)
 		{
 			spawnNewBlock();
 			_swipeDirectionController.getTouchDirection();
