@@ -572,6 +572,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 258479629}
+--- !u!1 &311470621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 311470622}
+  m_Layer: 0
+  m_Name: BlocksTasksCountController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &311470622
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 311470621}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1364706989}
+  m_RootOrder: 2
 --- !u!1001 &448093364
 Prefab:
   m_ObjectHideFlags: 0
@@ -726,6 +754,7 @@ Transform:
   - {fileID: 1955724394}
   - {fileID: 38989710}
   - {fileID: 1458444979}
+  - {fileID: 1364706989}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1 &849548868
@@ -1031,6 +1060,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1178870423}
+--- !u!1 &1213817932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1213817933}
+  m_Layer: 0
+  m_Name: BlocksSpawnTimeController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1213817933
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1213817932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1364706989}
+  m_RootOrder: 1
 --- !u!4 &1277138334 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000014230857046, guid: 6e42e8a7c74674a09832f0212125497e,
@@ -1190,6 +1247,37 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ce282320a2b54923a6702d8feabefe9, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1364706988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1364706989}
+  m_Layer: 0
+  m_Name: GameBalance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1364706989
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1364706988}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1394071382}
+  - {fileID: 1213817933}
+  - {fileID: 311470622}
+  m_Father: {fileID: 778433477}
+  m_RootOrder: 3
 --- !u!1 &1365029756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,6 +1400,51 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1365029756}
+--- !u!1 &1394071381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1394071382}
+  - 114: {fileID: 1394071383}
+  m_Layer: 0
+  m_Name: BlocksSpeedController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1394071382
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1394071381}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1364706989}
+  m_RootOrder: 0
+--- !u!114 &1394071383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1394071381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26888a6c184a7410db318243c98ce96c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowSpeed: 0.02
+  mediumSpeed: 0.04
+  heightSpeed: 0.06
+  gameLogicController: {fileID: 1978387182}
+  speedTimeInterval: 400
 --- !u!1 &1405615854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,7 +1688,7 @@ MonoBehaviour:
   - {fileID: 1000012231816840, guid: 6e42e8a7c74674a09832f0212125497e, type: 2}
   - {fileID: 1000013098524274, guid: 945374c7c7c264d64814459f1819264f, type: 2}
   - {fileID: 1000010337474858, guid: cbeda7e440fd04666b6057b8e9be6dc3, type: 2}
-  blocksSpeed: 0.04
+  blocksSpeed: 0
   boardHeight: 9
   blockExample: {fileID: 1000013889455516, guid: 41a27ee01af6c4967a1666e446d731e6,
     type: 2}

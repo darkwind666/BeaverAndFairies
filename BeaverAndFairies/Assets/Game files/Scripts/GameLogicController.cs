@@ -110,7 +110,6 @@ public class GameLogicController : MonoBehaviour {
 		foreach (GameObject block in _currentBlocks) 
 		{
 			BlockTypeController blockTypeComponent = block.GetComponent<BlockTypeController>();
-
 			if (blockTypeComponent.placed == true && block.transform.localPosition.y > (_loseHeight * _blockHeight)) 
 			{
 				_lose = true;
