@@ -3,51 +3,62 @@ using System.Collections;
 
 public class BlocksSpawnTimeController : MonoBehaviour {
 
-	public int slowSpawn;
-	public int mediumSpawn;
-	public int heightSpawn;
+	public float bigGap;
+	public float mediumGap;
+	public float smallGap;
 
 	public GameLogicController gameLogicController;
-	public int spawnTimeInterval;
+	public BlocksSpeedController blocksSpeedController;
 
+	int _spawnTimeInterval;
 	int _currentTime;
+	int _blocksSpawnIndex;
 
 	void Start () {
 		_currentTime = 0;
-		setNewBlocksSpawnTime();
+		_blocksSpawnIndex = 0;
+		_spawnTimeInterval = blocksSpeedController.speedTimeInterval / 3;
 	}
 
 	void Update () {
+
 		if(gameLogicController.stopGame == false)
 		{
 			_currentTime++;
 
-			if(_currentTime >= spawnTimeInterval)
+			if(_currentTime >= _spawnTimeInterval)
 			{
 				_currentTime = 0;
+
+				_blocksSpawnIndex++;
+				if(_blocksSpawnIndex > 2)
+				{
+					_blocksSpawnIndex = 0;
+				}
+
 				setNewBlocksSpawnTime();
 			}
 		}
 	}
 
-	void setNewBlocksSpawnTime()
+	public void setNewBlocksSpawnTime()
 	{
-		int blocksSpawnIndex = Random.Range(0, 3);
-
-		if(blocksSpawnIndex == 0)
+		int spawnTime = 0;
+		if(_blocksSpawnIndex == 0)
 		{
-			gameLogicController.setBlocksSpawnTime(slowSpawn);
+			spawnTime = (int)((gameLogicController._blockHeight + bigGap) / gameLogicController.blocksSpeed);
 		}
 
-		if(blocksSpawnIndex == 1)
+		if(_blocksSpawnIndex == 1)
 		{
-			gameLogicController.setBlocksSpawnTime(mediumSpawn);
+			spawnTime = (int)((gameLogicController._blockHeight + mediumGap) / gameLogicController.blocksSpeed);
 		}
 
-		if(blocksSpawnIndex == 2)
+		if(_blocksSpawnIndex == 2)
 		{
-			gameLogicController.setBlocksSpawnTime(heightSpawn);
+			spawnTime = (int)((gameLogicController._blockHeight + smallGap) / gameLogicController.blocksSpeed);
 		}
+		gameLogicController.setBlocksSpawnTime(spawnTime);
 	}
 
 }

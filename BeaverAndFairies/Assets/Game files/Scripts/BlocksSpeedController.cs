@@ -17,7 +17,6 @@ public class BlocksSpeedController : MonoBehaviour {
 	void Start () {
 		_currentTime = 0;
 		_blocksSpeedIndex = 0;
-		setNewBlocksSpeed();
 	}
 
 	void Update () {
@@ -40,7 +39,7 @@ public class BlocksSpeedController : MonoBehaviour {
 		}
 	}
 
-	void setNewBlocksSpeed()
+	public void setNewBlocksSpeed()
 	{
 		if(_blocksSpeedIndex == 0)
 		{

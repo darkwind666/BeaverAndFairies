@@ -6,8 +6,6 @@ using DG.Tweening;
 
 public class GameLogicController : MonoBehaviour {
 
-
-
 	public GameObject[] blockTemplates;
 	public int boardHeight;
 	public GameObject blockExample;
@@ -15,13 +13,15 @@ public class GameLogicController : MonoBehaviour {
 
 	public float oneBlockAnimationDuration;
 	public float scaleAnimationDuration;
-	//public int spawnTime;
 
 	public float _blockHeight;
 	public int _score;
 	public Queue<GameObject> _currentBlocks;
 	public SwipeDirectionController _swipeDirectionController;
 	public bool stopGame;
+
+	public BlocksSpawnTimeController blocksSpawnTimeController;
+	public BlocksSpeedController blocksSpeedController;
 
 	float _blocksSpeed = -1.00f;
 	public float blocksSpeed { get { return _blocksSpeed; } }
@@ -49,6 +49,8 @@ public class GameLogicController : MonoBehaviour {
 		_moveBlocksController = new MoveBlocksController();
 		_moveBlocksController.gameLogicController = this;
 		stopGame = false;
+		blocksSpeedController.setNewBlocksSpeed();
+		blocksSpawnTimeController.setNewBlocksSpawnTime();
 	}
 		
 	void Update () {
@@ -132,20 +134,26 @@ public class GameLogicController : MonoBehaviour {
 		if(_spawnTime > 0)
 		{
 			float minSpeed = _blockHeight / _spawnTime;
-			if (aSpeed < minSpeed) {
-				_blocksSpeed = minSpeed + 0.02f;
+
+//			if (aSpeed <= minSpeed) {
+//				_blocksSpeed = minSpeed + 0.01f;
+//			}
+
+			if (aSpeed <= (minSpeed + 0.001f )) {
+				_blocksSpeed = minSpeed + 0.01f;
 			}
 		}
 	}
 
 	public void setBlocksSpawnTime(int aSpawnTime)
 	{
+		_currentSpawnTime = 0;
 		_spawnTime = aSpawnTime; 
 		if(_blocksSpeed > 0.0)
 		{
 			int minSpawnTime = (int) (_blockHeight / _blocksSpeed);
 			if (aSpawnTime < minSpawnTime) {
-				_spawnTime = minSpawnTime;
+				_spawnTime = minSpawnTime + 1;
 			}
 		}
 	}

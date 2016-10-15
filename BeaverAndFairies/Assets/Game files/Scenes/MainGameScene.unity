@@ -1100,11 +1100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5867a5108a849e9bb02cd6c6cd9e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowSpawn: 80
-  mediumSpawn: 60
-  heightSpawn: 40
+  bigGap: 1
+  mediumGap: 0.5
+  smallGap: 0.25
   gameLogicController: {fileID: 1978387182}
-  spawnTimeInterval: 0
+  blocksSpeedController: {fileID: 1394071383}
 --- !u!4 &1277138334 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000014230857046, guid: 6e42e8a7c74674a09832f0212125497e,
@@ -1714,6 +1714,8 @@ MonoBehaviour:
   _blockHeight: 0
   _score: 0
   stopGame: 0
+  blocksSpawnTimeController: {fileID: 1213817934}
+  blocksSpeedController: {fileID: 1394071383}
 --- !u!1001 &2003937278
 Prefab:
   m_ObjectHideFlags: 0
