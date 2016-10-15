@@ -6,15 +6,16 @@ using DG.Tweening;
 
 public class GameLogicController : MonoBehaviour {
 
+
+
 	public GameObject[] blockTemplates;
-	public float blocksSpeed;
 	public int boardHeight;
 	public GameObject blockExample;
 	public Text scoreLabel;
 
 	public float oneBlockAnimationDuration;
 	public float scaleAnimationDuration;
-	public int spawnTime;
+	//public int spawnTime;
 
 	public float _blockHeight;
 	public int _score;
@@ -22,12 +23,18 @@ public class GameLogicController : MonoBehaviour {
 	public SwipeDirectionController _swipeDirectionController;
 	public bool stopGame;
 
+	float _blocksSpeed = -1.00f;
+	public float blocksSpeed { get { return _blocksSpeed; } }
+	int _spawnTime;
+	public int spawnTime { get { return _spawnTime; } }
+
 	int _currentSpawnTime;
 	float _loseHeight;
 	bool _lose;
 
 	PlayerInputController _playerInputController;
 	MoveBlocksController _moveBlocksController;
+
 
 	void Start () {
 		Renderer renderer = blockExample.GetComponent<Renderer>();
@@ -115,6 +122,30 @@ public class GameLogicController : MonoBehaviour {
 				_lose = true;
 				stopGame = true;
 				break;
+			}
+		}
+	}
+
+	public void setBlocksSpeed(float aSpeed)
+	{
+		_blocksSpeed = aSpeed; 
+		if(_spawnTime > 0)
+		{
+			float minSpeed = _blockHeight / _spawnTime;
+			if (aSpeed < minSpeed) {
+				_blocksSpeed = minSpeed + 0.02f;
+			}
+		}
+	}
+
+	public void setBlocksSpawnTime(int aSpawnTime)
+	{
+		_spawnTime = aSpawnTime; 
+		if(_blocksSpeed > 0.0)
+		{
+			int minSpawnTime = (int) (_blockHeight / _blocksSpeed);
+			if (aSpawnTime < minSpawnTime) {
+				_spawnTime = minSpawnTime;
 			}
 		}
 	}

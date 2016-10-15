@@ -27,7 +27,7 @@ public class SlowdownBonusController : MonoBehaviour {
 			{
 				_currentBonusTime = 0;
 				_startBonus = false;
-				gameLogicController.blocksSpeed = gameLogicController.blocksSpeed + _startBonusGameSpeedSlowdown;
+				gameLogicController.setBlocksSpeed(gameLogicController.blocksSpeed + _startBonusGameSpeedSlowdown);
 			}
 		}
 
@@ -39,7 +39,7 @@ public class SlowdownBonusController : MonoBehaviour {
 		{
 			float newSpeed = gameLogicController.blocksSpeed - gameLogicController.blocksSpeed * bonusGameSpeedSlowdownRate;
 			_startBonusGameSpeedSlowdown = gameLogicController.blocksSpeed * bonusGameSpeedSlowdownRate;
-			gameLogicController.blocksSpeed = newSpeed;
+			gameLogicController.setBlocksSpeed(newSpeed);
 			_currentBonusTime = 0;
 			_startBonus = true;
 			_currentBonusCount--;

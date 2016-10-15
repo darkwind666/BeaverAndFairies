@@ -38,7 +38,7 @@ public class MoveBlocksController {
 					if(renderer.bounds.Intersects(blockForCollisionRenderer.bounds) == true || aBlock.transform.localPosition.y < loseHeight)
 					{
 						blockTypeComponent.placed = true;
-						Vector3 finalPosition = new Vector3(blockForCollision.transform.localPosition.x, blockForCollision.transform.localPosition.y + gameLogicController._blockHeight + 0.02f, 0);
+						Vector3 finalPosition = new Vector3(blockForCollision.transform.localPosition.x, blockForCollision.transform.localPosition.y + gameLogicController._blockHeight + 0.01f, 0);
 						aBlock.transform.localPosition = finalPosition;
 						break;
 					}

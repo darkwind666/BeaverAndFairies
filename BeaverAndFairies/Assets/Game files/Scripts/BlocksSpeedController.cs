@@ -44,17 +44,17 @@ public class BlocksSpeedController : MonoBehaviour {
 	{
 		if(_blocksSpeedIndex == 0)
 		{
-			gameLogicController.blocksSpeed = slowSpeed;
+			gameLogicController.setBlocksSpeed(slowSpeed);
 		}
 
 		if(_blocksSpeedIndex == 1)
 		{
-			gameLogicController.blocksSpeed = mediumSpeed;
+			gameLogicController.setBlocksSpeed(mediumSpeed);
 		}
 
 		if(_blocksSpeedIndex == 2)
 		{
-			gameLogicController.blocksSpeed = heightSpeed;
+			gameLogicController.setBlocksSpeed(heightSpeed);
 		}
 	}
 

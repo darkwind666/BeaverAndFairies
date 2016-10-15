@@ -24,7 +24,7 @@ public class FairySlowdownController : MonoBehaviour {
 				if (_currentBonusTime >= maxBonusTime) {
 					_currentBonusTime = 0;
 					_startSlowdown = false;
-					gameLogicController.blocksSpeed = gameLogicController.blocksSpeed + _startBonusGameSpeedSlowdown;
+					gameLogicController.setBlocksSpeed(gameLogicController.blocksSpeed + _startBonusGameSpeedSlowdown);
 				}
 			} else {
 				if (_currentBonusTime >= bonusRechargeTime) {
@@ -38,7 +38,7 @@ public class FairySlowdownController : MonoBehaviour {
 	{
 		float newSpeed = gameLogicController.blocksSpeed - gameLogicController.blocksSpeed * bonusGameSpeedSlowdownRate;
 		_startBonusGameSpeedSlowdown = gameLogicController.blocksSpeed * bonusGameSpeedSlowdownRate;
-		gameLogicController.blocksSpeed = newSpeed;
+		gameLogicController.setBlocksSpeed(newSpeed);
 		_currentBonusTime = 0;
 		_startSlowdown = true;
 	}

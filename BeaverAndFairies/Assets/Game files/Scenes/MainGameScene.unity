@@ -1068,6 +1068,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1213817933}
+  - 114: {fileID: 1213817934}
   m_Layer: 0
   m_Name: BlocksSpawnTimeController
   m_TagString: Untagged
@@ -1088,6 +1089,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1364706989}
   m_RootOrder: 1
+--- !u!114 &1213817934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1213817932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5867a5108a849e9bb02cd6c6cd9e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowSpawn: 80
+  mediumSpawn: 60
+  heightSpawn: 40
+  gameLogicController: {fileID: 1978387182}
+  spawnTimeInterval: 0
 --- !u!4 &1277138334 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000014230857046, guid: 6e42e8a7c74674a09832f0212125497e,
@@ -1688,14 +1705,12 @@ MonoBehaviour:
   - {fileID: 1000012231816840, guid: 6e42e8a7c74674a09832f0212125497e, type: 2}
   - {fileID: 1000013098524274, guid: 945374c7c7c264d64814459f1819264f, type: 2}
   - {fileID: 1000010337474858, guid: cbeda7e440fd04666b6057b8e9be6dc3, type: 2}
-  blocksSpeed: 0
   boardHeight: 9
   blockExample: {fileID: 1000013889455516, guid: 41a27ee01af6c4967a1666e446d731e6,
     type: 2}
   scoreLabel: {fileID: 2097243786}
   oneBlockAnimationDuration: 0.25
   scaleAnimationDuration: 0.3
-  spawnTime: 60
   _blockHeight: 0
   _score: 0
   stopGame: 0
