@@ -14,6 +14,7 @@ public class GameLogicController : MonoBehaviour {
 
 	public float oneBlockAnimationDuration;
 	public float scaleAnimationDuration;
+	public float distanceBetweeneTasks;
 
 	public float _blockHeight;
 	public int _score;
@@ -23,6 +24,7 @@ public class GameLogicController : MonoBehaviour {
 
 	public BlocksSpawnTimeController blocksSpawnTimeController;
 	public BlocksSpeedController blocksSpeedController;
+	public BlocksTasksCountController blocksTasksCountController;
 
 	float _blocksSpeed = -1.00f;
 	public float blocksSpeed { get { return _blocksSpeed; } }
@@ -54,6 +56,7 @@ public class GameLogicController : MonoBehaviour {
 		stopGame = false;
 		blocksSpeedController.setNewBlocksSpeed();
 		blocksSpawnTimeController.setNewBlocksSpawnTime();
+		blocksTasksCountController.setStartTasksCount();
 	}
 		
 	void Update () {
@@ -84,7 +87,10 @@ public class GameLogicController : MonoBehaviour {
 
 			BlockTasksController blockTasksController = block.GetComponent<BlockTasksController>();
 
-			for(int blockTaskIndex = 0; blockTaskIndex < blockTasksCount; blockTaskIndex++)
+			int taskCount = Random.Range(1, blockTasksCount + 1);
+			float tasksLength = 0.0f;
+
+			for(int blockTaskIndex = 0; blockTaskIndex < taskCount; blockTaskIndex++)
 			{
 				Vector3 blockTaskPosition = new Vector3(0,0,0);
 				int blockIndex = Random.Range(0, blockTemplates.Length);
@@ -92,6 +98,20 @@ public class GameLogicController : MonoBehaviour {
 				GameObject blockTask = Instantiate(blockTemplates[blockIndex], blockTaskPosition, blockTaskTemplate.transform.rotation) as GameObject;
 				blockTask.transform.SetParent(block.transform, false);
 				blockTasksController.blockTasks.Add(blockTask);
+
+				Renderer renderer = blockTask.GetComponent<Renderer>();
+				tasksLength += (renderer.bounds.size.x + distanceBetweeneTasks);
+			}
+
+			tasksLength -= distanceBetweeneTasks;
+			float startX = - tasksLength / 2.0f;
+
+			foreach(GameObject task in blockTasksController.blockTasks)
+			{
+				Renderer renderer = task.GetComponent<Renderer>();
+				float width = renderer.bounds.size.x;
+				task.transform.localPosition = new Vector3(startX + (width / 2) ,0,0);
+				startX += (width + distanceBetweeneTasks);
 			}
 
 			_currentBlocks.Enqueue(block);

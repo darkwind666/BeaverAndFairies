@@ -562,6 +562,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 311470622}
+  - 114: {fileID: 311470623}
   m_Layer: 0
   m_Name: BlocksTasksCountController
   m_TagString: Untagged
@@ -582,6 +583,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1364706989}
   m_RootOrder: 2
+--- !u!114 &311470623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 311470621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29efc7089dbf4536a4524d19ffea2e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTasksCount: 5
+  gameLogicController: {fileID: 1978387182}
+  blocksSpeedController: {fileID: 1394071383}
 --- !u!1001 &350241803
 Prefab:
   m_ObjectHideFlags: 0
@@ -1969,12 +1984,14 @@ MonoBehaviour:
   scoreLabel: {fileID: 2097243786}
   oneBlockAnimationDuration: 0.25
   scaleAnimationDuration: 0.3
+  distanceBetweeneTasks: 0.3
   _blockHeight: 0
   _score: 0
   stopGame: 0
   blocksSpawnTimeController: {fileID: 1213817934}
   blocksSpeedController: {fileID: 1394071383}
-  blockTasksCount: 1
+  blocksTasksCountController: {fileID: 311470623}
+  blockTasksCount: 0
 --- !u!1001 &2037164880
 Prefab:
   m_ObjectHideFlags: 0
