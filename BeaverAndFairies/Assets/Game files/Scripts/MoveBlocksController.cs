@@ -9,7 +9,7 @@ public class MoveBlocksController {
 	{
 		foreach (GameObject block in gameLogicController._currentBlocks) 
 		{
-			BlockTypeController blockTypeComponent = block.GetComponent<BlockTypeController>();
+			BlockTasksController blockTypeComponent = block.GetComponent<BlockTasksController>();
 			if (blockTypeComponent.placed == false) 
 			{
 				tryToMoveDownBlock(block);
@@ -21,8 +21,10 @@ public class MoveBlocksController {
 	{
 		aBlock.transform.localPosition = new Vector3(aBlock.transform.localPosition.x, aBlock.transform.localPosition.y - gameLogicController.blocksSpeed, 0);
 
-		BlockTypeController blockTypeComponent = aBlock.GetComponent<BlockTypeController>();
-		Renderer renderer = aBlock.GetComponent<Renderer>();
+		BlockTasksController blockTypeComponent = aBlock.GetComponent<BlockTasksController>();
+
+		BlockTasksController blockTasksController = aBlock.GetComponent<BlockTasksController>();
+		Renderer renderer = blockTasksController.blockRect.GetComponent<Renderer>();
 
 		float loseHeight = (gameLogicController._blockHeight / 2);
 
@@ -34,7 +36,10 @@ public class MoveBlocksController {
 			{
 				if (aBlock != blockForCollision) 
 				{
-					Renderer blockForCollisionRenderer = blockForCollision.GetComponent<Renderer>();
+
+					BlockTasksController blockTasksControllerForCollision = blockForCollision.GetComponent<BlockTasksController>();
+					Renderer blockForCollisionRenderer = blockTasksControllerForCollision.blockRect.GetComponent<Renderer>();
+
 					if(renderer.bounds.Intersects(blockForCollisionRenderer.bounds) == true || aBlock.transform.localPosition.y < loseHeight)
 					{
 						blockTypeComponent.placed = true;

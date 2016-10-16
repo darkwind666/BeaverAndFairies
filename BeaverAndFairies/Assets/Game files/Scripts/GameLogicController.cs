@@ -7,6 +7,7 @@ using DG.Tweening;
 public class GameLogicController : MonoBehaviour {
 
 	public GameObject[] blockTemplates;
+	public GameObject blockPadTemplate;
 	public int boardHeight;
 	public GameObject blockExample;
 	public Text scoreLabel;
@@ -27,6 +28,7 @@ public class GameLogicController : MonoBehaviour {
 	public float blocksSpeed { get { return _blocksSpeed; } }
 	int _spawnTime;
 	public int spawnTime { get { return _spawnTime; } }
+	public int blockTasksCount;
 
 	int _currentSpawnTime;
 	float _loseHeight;
@@ -37,7 +39,8 @@ public class GameLogicController : MonoBehaviour {
 
 
 	void Start () {
-		Renderer renderer = blockExample.GetComponent<Renderer>();
+		BlockTasksController blockTasksController = blockExample.GetComponent<BlockTasksController>();
+		Renderer renderer = blockTasksController.blockRect.GetComponent<Renderer>();
 		_blockHeight = renderer.bounds.size.y;
 		_loseHeight = (_blockHeight * boardHeight);
 		_currentSpawnTime = 0;
@@ -74,10 +77,23 @@ public class GameLogicController : MonoBehaviour {
 		if(_currentSpawnTime >= spawnTime)
 		{
 			_currentSpawnTime = 0;
-			int blockIndex = Random.Range(0, blockTemplates.Length);
-			GameObject block = Instantiate(blockTemplates[blockIndex], transform.position, Quaternion.identity) as GameObject;
+
+			GameObject block = Instantiate(blockPadTemplate, transform.position, Quaternion.identity) as GameObject;
 			block.transform.SetParent(transform.parent, false);
 			block.transform.position = transform.position;
+
+			BlockTasksController blockTasksController = block.GetComponent<BlockTasksController>();
+
+			for(int blockTaskIndex = 0; blockTaskIndex < blockTasksCount; blockTaskIndex++)
+			{
+				Vector3 blockTaskPosition = new Vector3(0,0,0);
+				int blockIndex = Random.Range(0, blockTemplates.Length);
+				GameObject blockTaskTemplate = blockTemplates[blockIndex];
+				GameObject blockTask = Instantiate(blockTemplates[blockIndex], blockTaskPosition, blockTaskTemplate.transform.rotation) as GameObject;
+				blockTask.transform.SetParent(block.transform, false);
+				blockTasksController.blockTasks.Add(blockTask);
+			}
+
 			_currentBlocks.Enqueue(block);
 		}
 	}
@@ -85,14 +101,15 @@ public class GameLogicController : MonoBehaviour {
 	public void showErrorSwipeAnimation()
 	{
 		GameObject firstBlock = _currentBlocks.Peek();
-		foreach (Transform child in firstBlock.transform)
-		{
-			Vector3 startScale = child.localScale;
-			Vector3 newScale = new Vector3 (startScale.x * 1.5f, startScale.y * 1.5f, 0);
-			Sequence scaleSequence = DOTween.Sequence();
-			scaleSequence.Append(child.DOScale(newScale, scaleAnimationDuration));
-			scaleSequence.Append(child.DOScale(startScale, scaleAnimationDuration));
-		}
+
+		BlockTasksController blockTasksController = firstBlock.GetComponent<BlockTasksController>();
+		GameObject firstTask = blockTasksController.blockTasks[0];
+
+		Vector3 startScale = firstTask.transform.localScale;
+		Vector3 newScale = new Vector3 (startScale.x * 1.5f, startScale.y * 1.5f, 0);
+		Sequence scaleSequence = DOTween.Sequence();
+		scaleSequence.Append(firstTask.transform.DOScale(newScale, scaleAnimationDuration));
+		scaleSequence.Append(firstTask.transform.DOScale(startScale, scaleAnimationDuration));
 	}
 
 	public void removeFirstBlock()
@@ -106,7 +123,7 @@ public class GameLogicController : MonoBehaviour {
 	{
 		foreach (GameObject block in _currentBlocks) 
 		{
-			BlockTypeController blockTypeComponent = block.GetComponent<BlockTypeController>();
+			BlockTasksController blockTypeComponent = block.GetComponent<BlockTasksController>();
 			if (blockTypeComponent.placed == true) 
 			{
 				blockTypeComponent.placed = false;
@@ -118,7 +135,7 @@ public class GameLogicController : MonoBehaviour {
 	{
 		foreach (GameObject block in _currentBlocks) 
 		{
-			BlockTypeController blockTypeComponent = block.GetComponent<BlockTypeController>();
+			BlockTasksController blockTypeComponent = block.GetComponent<BlockTasksController>();
 			if (blockTypeComponent.placed == true && block.transform.localPosition.y > (_loseHeight * _blockHeight)) 
 			{
 				_lose = true;

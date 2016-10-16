@@ -4,7 +4,6 @@ using System.Collections;
 public class BlockTypeController : MonoBehaviour {
 
 	public int blockType;
-	public bool placed;
 
 	// Use this for initialization
 	void Start () {
