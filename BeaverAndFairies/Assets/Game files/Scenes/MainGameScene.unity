@@ -596,7 +596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTasksCount: 5
   gameLogicController: {fileID: 1978387182}
-  blocksSpeedController: {fileID: 1394071383}
+  blocksTaskCountInterval: 2100
 --- !u!1001 &350241803
 Prefab:
   m_ObjectHideFlags: 0
@@ -1350,8 +1350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5867a5108a849e9bb02cd6c6cd9e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bigGap: 1
-  mediumGap: 0.5
+  bigGap: 1.3
+  mediumGap: 0.7
   smallGap: 0.25
   gameLogicController: {fileID: 1978387182}
   blocksSpeedController: {fileID: 1394071383}
@@ -1659,8 +1659,11 @@ MonoBehaviour:
   slowSpeed: 0.02
   mediumSpeed: 0.04
   heightSpeed: 0.06
+  slowSpeedTimeInterval: 500
+  mediumSpeedTimeInterval: 200
+  heightSpeedTimeInterval: 80
   gameLogicController: {fileID: 1978387182}
-  speedTimeInterval: 400
+  speedTimeInterval: 0
 --- !u!1 &1405615854
 GameObject:
   m_ObjectHideFlags: 0
