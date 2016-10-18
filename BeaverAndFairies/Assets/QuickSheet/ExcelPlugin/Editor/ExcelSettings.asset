@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f75662a54ccdd4fac555acce15d166, type: 3}
+  m_Name: ExcelSettings
+  m_EditorClassIdentifier: 
+  AssetPath: 4173736574732f517569636b53686565742f457863656c506c7567696e2f456469746f722f
+  runTimePath: 
+  editorPath: 
