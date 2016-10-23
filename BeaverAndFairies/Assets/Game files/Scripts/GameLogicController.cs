@@ -22,15 +22,15 @@ public class GameLogicController : MonoBehaviour {
 	public SwipeDirectionController _swipeDirectionController;
 	public bool stopGame;
 
-	public BlocksSpawnTimeController blocksSpawnTimeController;
-	public BlocksSpeedController blocksSpeedController;
-	public BlocksTasksCountController blocksTasksCountController;
+	public GameBalanceController gameBalanceController;
 
 	float _blocksSpeed = -1.00f;
 	public float blocksSpeed { get { return _blocksSpeed; } }
 	int _spawnTime;
 	public int spawnTime { get { return _spawnTime; } }
 	public int blockTasksCount;
+	public int blockType;
+	public bool randomTasksCount;
 
 	int _currentSpawnTime;
 	float _loseHeight;
@@ -54,9 +54,7 @@ public class GameLogicController : MonoBehaviour {
 		_moveBlocksController = new MoveBlocksController();
 		_moveBlocksController.gameLogicController = this;
 		stopGame = false;
-		blocksSpeedController.setNewBlocksSpeed();
-		blocksSpawnTimeController.setNewBlocksSpawnTime();
-		blocksTasksCountController.setStartTasksCount();
+		gameBalanceController.setNewBalance();
 	}
 		
 	void Update () {
@@ -87,13 +85,23 @@ public class GameLogicController : MonoBehaviour {
 
 			BlockTasksController blockTasksController = block.GetComponent<BlockTasksController>();
 
-			int taskCount = Random.Range(1, blockTasksCount + 1);
+			int taskCount = blockTasksCount;
+			if(randomTasksCount)
+			{
+				taskCount = Random.Range(1, blockTasksCount + 1);
+			}
+				
 			float tasksLength = 0.0f;
-
 			for(int blockTaskIndex = 0; blockTaskIndex < taskCount; blockTaskIndex++)
 			{
 				Vector3 blockTaskPosition = new Vector3(0,0,0);
-				int blockIndex = Random.Range(0, blockTemplates.Length);
+
+				int blockIndex = blockType;
+				if(blockType == 0)
+				{
+					blockIndex = Random.Range(0, blockTemplates.Length);
+				}
+
 				GameObject blockTaskTemplate = blockTemplates[blockIndex];
 				GameObject blockTask = Instantiate(blockTemplates[blockIndex], blockTaskPosition, blockTaskTemplate.transform.rotation) as GameObject;
 				blockTask.transform.SetParent(block.transform, false);

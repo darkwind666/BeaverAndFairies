@@ -31,7 +31,7 @@ public class SwipeDirectionController {
 	// To recognize as a swipe the velocity of the swipe
 	// should be at least mMinVelocity
 	// Reduce or increase to control the swipe speed
-	private const float mMinVelocity  = 2000.0f;
+	private const float mMinVelocity  = 1000.0f;
 
 	private Vector2 mStartPosition;
 	private float mSwipeStartTime;

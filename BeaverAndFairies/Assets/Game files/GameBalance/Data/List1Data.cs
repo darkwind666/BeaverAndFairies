@@ -13,8 +13,8 @@ public class List1Data
   public int Stage { get {return stage; } set { stage = value;} }
   
   [SerializeField]
-  int timeinterval;
-  public int Timeinterval { get {return timeinterval; } set { timeinterval = value;} }
+  float timeinterval;
+  public float Timeinterval { get {return timeinterval; } set { timeinterval = value;} }
   
   [SerializeField]
   float speed;
