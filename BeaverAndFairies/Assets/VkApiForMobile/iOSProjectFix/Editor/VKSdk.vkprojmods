@@ -1,0 +1,23 @@
+{
+    "group": "VKSdk",
+    "libs": [],
+    "frameworks": ["SafariServices.framework","Security.framework"],
+    "librarysearchpaths":[],
+    "frameworksearchpaths":["VKSdk"],
+    "headerpaths": ["VKSdk"],
+    "files":
+        ["VKSdk/PGUtilities.h",
+         "VKSdk/PGUtilities.m:-fno-objc-arc",
+         "VKSdk/PGVKSdk.h",
+         "VKSdk/PGVKSdk.m:-fno-objc-arc",
+         "VKSdk/VKForUnityStarter.h",
+         "VKSdk/VKForUnityStarter.m:-fno-objc-arc",
+		 "VKSdk/PlayGenesisWebViewController.h"
+		 "VKSdk/PlayGenesisWebViewController.m:-fno-objc-arc",
+		 "VKSdk/PlayGenesisWebViewController.xib",
+                ],
+    "folders": [],
+    "excludes": ["^.*.meta$", "^.*.mdown$", "^.*.pdf$"],
+    "compiler_flags": [],
+    "linker_flags": []
+}

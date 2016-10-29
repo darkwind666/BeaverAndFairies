@@ -37,7 +37,7 @@ public class LoadGameController : MonoBehaviour {
         else
         {
             fadingController.startFade("MainMenuScreen", false);
-            //ServicesLocator.loadGameServices();
+            ServicesLocator.loadGameServices();
             enabled = false;
         }
 	}

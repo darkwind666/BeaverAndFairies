@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.vk.sdk"
+    android:versionCode="1"
+    android:versionName="1.0" >
+	
+	<uses-permission android:name="android.permission.INTERNET" />
+    
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="23" />
+
+    <application>
+        <activity
+            android:name=".VKServiceActivity"
+            android:label="ServiceActivity"
+            android:theme="@style/VK.Transparent" />
+
+        <receiver
+            android:name=".payments.VKPaymentsReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.playgenesis.vkunityplugin.WebViewActivity"
+            android:label="@string/title_activity_web_view" >
+        </activity>
+        <activity
+            android:name="com.playgenesis.vkunityplugin.LoginLogout">
+        </activity>
+    </application>
+
+</manifest>

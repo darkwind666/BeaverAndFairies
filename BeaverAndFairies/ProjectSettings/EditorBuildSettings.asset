@@ -7,3 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Game files/Scenes/MainGameScene.unity
+  - enabled: 1
+    path: Assets/Game files/Scenes/GameLoadingScene.unity
+  - enabled: 1
+    path: Assets/Game files/Scenes/MainMenuScreen.unity
