@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using com.playGenesis.VkUnityPlugin;
-using com.playGenesis.VkUnityPlugin.MiniJSON;
 using System;
 using System.Collections.Generic;
 using System.Collections;
@@ -23,13 +21,10 @@ public class MainMenuController : MonoBehaviour {
 	public GameGlobalSettings gameGlobalSettings;
 
 	GamePlayerDataController _playerData;
-	VkApi _vkapi;
 
     void Start () {
 
         _playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
-		_vkapi = VkApi.VkApiInstance;
-		_vkapi.LoggedIn += onVKLogin;
 
 		if(gameGlobalSettings.paidGame){
 			OneSignal.StartInit(gameGlobalSettings.hdOneSignalId, gameGlobalSettings.hdOneSignalProjectNumber).EndInit();;
@@ -55,11 +50,6 @@ public class MainMenuController : MonoBehaviour {
         backgroundSound.volume = _playerData.gameMusicVolume;
         buttonClickEffect.volume = _playerData.gameSoundEffectsVolume;
     }
-
-	void OnDisable()
-	{
-		_vkapi.LoggedIn -= onVKLogin;
-	}
 
     void Update () {
 
@@ -87,46 +77,9 @@ public class MainMenuController : MonoBehaviour {
         _playerData.savePlayerData();
     }
 
-	public void notNowPressed()
-	{
-		_playerData.notNowPressed = true;
-	}
-
-	public void logIn()
-	{
-		_vkapi.Login();
-	}
-
-	void onVKLogin()
-	{
-		VKRequest r = new VKRequest
-		{
-			url="users.get?",
-			CallBackFunction=OnGetUserInfo
-		};
-		_vkapi.Call (r);
-	}
-
-	public void OnGetUserInfo (VKRequest request)
-	{
-		if(request.error!=null)
-		{
-			return;
-		}
-
-		var dict=Json.Deserialize(request.response) as Dictionary<string,object>;
-		var users=(List<object>)dict["response"];
-		var user = VKUser.Deserialize (users [0]);
-		string fullPlayerName = user.first_name + " " + user.last_name;
-		_playerData.createNewPlayerWithName (fullPlayerName);
-		_playerData.playerScore += gameGlobalSettings.logInReward;
-		_playerData.logInVk = true;
-		_playerData.savePlayerData();
-		vkLogInPopUp.SetActive(false);
-	}
-
 	public void gameRecordsPressed()
 	{
 		
 	}
+
 }
