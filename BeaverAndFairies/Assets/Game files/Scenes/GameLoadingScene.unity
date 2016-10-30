@@ -317,6 +317,7 @@ MonoBehaviour:
   time: 2.5
   fadingController: {fileID: 421161681}
   gameAnaliticsController: {fileID: 627711003}
+  gameSettings: {fileID: 11400000, guid: bbd941705bb8444f88bf4b5186132ada, type: 2}
 --- !u!1 &1071382046
 GameObject:
   m_ObjectHideFlags: 0

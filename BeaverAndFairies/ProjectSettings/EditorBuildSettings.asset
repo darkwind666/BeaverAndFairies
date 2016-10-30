@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/Game files/Scenes/GameLoadingScene.unity
   - enabled: 1
     path: Assets/Game files/Scenes/MainMenuScreen.unity
+  - enabled: 1
+    path: Assets/Game files/Scenes/SelectLevelScreen.unity

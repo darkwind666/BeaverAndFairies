@@ -6,7 +6,6 @@ public class ESCButtonController : MonoBehaviour {
 
     public FadingScript fadingController;
 //	public EndlessLevelCondition endlessLevelCondition;
-//	public GlobalLeaderboardController globalLeaderboardController;
 //	public AdsController adsController;
 
     const string escape = "Cancel";

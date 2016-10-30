@@ -6,6 +6,7 @@ public class LoadGameController : MonoBehaviour {
     public float time;
     public FadingScript fadingController;
     public GameAnaliticsController gameAnaliticsController;
+	public GameGlobalSettings gameSettings;
 
     Image circularLoader;
 
@@ -36,7 +37,7 @@ public class LoadGameController : MonoBehaviour {
         }
         else
         {
-            fadingController.startFade("MainMenuScreen", false);
+			fadingController.startFade(gameSettings.mainMenuScreenName, false);
             ServicesLocator.loadGameServices();
             enabled = false;
         }

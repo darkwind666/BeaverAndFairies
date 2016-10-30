@@ -3,9 +3,9 @@ using System.Collections;
 
 public class GameGlobalSettings : ScriptableObject {
 
-    public string gameShopName;
-    public string gameShopForReviewUrl;
-	public string paidGameVersionUrl;
+	public string mainMenuScreenName;
+	public string mainGameScreenName;
+	public string selectLevelSceneName;
 
 	public string vkGameGroupId;
 
@@ -20,7 +20,6 @@ public class GameGlobalSettings : ScriptableObject {
 	public bool blockAds;
 	public bool showVungleAds;
 	public bool showAppodealAds;
-	public bool showUnionAds;
 	public bool paidGame;
 	public string androidFreeAppodealId;
 	public string androidHdAppodealId;

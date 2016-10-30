@@ -10,10 +10,9 @@ public class MainMenuController : MonoBehaviour {
 
     public FadingScript fadingController;
 
-    public GameObject selectLevelButton;
-    public GameObject soundSettingsPopUp;
+    public GameObject gameSettingsPopUp;
 	public GameObject vkLogInPopUp;
-	public GameObject endlessLevelButton;
+	public GameObject gameShopPopUp;
 
     public Slider musicSlider;
     public Slider effectsSlider;
@@ -21,8 +20,6 @@ public class MainMenuController : MonoBehaviour {
     public AudioSource buttonClickEffect;
     public AudioSource backgroundSound;
 
-    public string selectLevelSceneName;
-	public string endlessLevelSceneName;
 	public GameGlobalSettings gameGlobalSettings;
 
 	GamePlayerDataController _playerData;
@@ -40,18 +37,11 @@ public class MainMenuController : MonoBehaviour {
 			OneSignal.StartInit(gameGlobalSettings.freeOneSignalId, gameGlobalSettings.freeOneSignalProjectNumber).EndInit();;
 		}
 			
-		//OneSignal.EnableInAppAlertNotification(true);
-
-        if (_playerData.playerExist == false) {
-            selectLevelButton.SetActive(false);
-			endlessLevelButton.SetActive(false);
-        }
-			
 		if (_playerData.playerExist == false && _playerData.notNowPressed == false) {
 			vkLogInPopUp.SetActive (true);
 		} 
 
-        setupAudio();
+       // setupAudio();
     }
 
 	private static void HandleNotification(string message, Dictionary<string, object> additionalData, bool isActive) {
@@ -72,34 +62,17 @@ public class MainMenuController : MonoBehaviour {
 	}
 
     void Update () {
-	
+
 	}
 
-    public void newGameButtonPressed()
+    public void goToMapButtonPressed()
     {
-        _playerData.cleanPlayer();
-        fadingController.startFade(selectLevelSceneName, false);
-    }
-
-	public void endlessLevelButtonPressed()
-	{
-		_playerData.selectEndlessLevel = true;
-		fadingController.startFade(endlessLevelSceneName, false);
-	}
-
-    public void settingsButtonPressed()
-    {
-        soundSettingsPopUp.SetActive(true);
+		fadingController.startFade(gameGlobalSettings.selectLevelSceneName, false);
     }
 
     public void exitButtonPressed()
     {
         Application.Quit();
-    }
-
-    public void closeSoundSettingsPressed()
-    {
-        soundSettingsPopUp.SetActive(false);
     }
 
     public void gameMusicVolumeChanged(float aVolume)
@@ -149,31 +122,11 @@ public class MainMenuController : MonoBehaviour {
 		_playerData.playerScore += gameGlobalSettings.logInReward;
 		_playerData.logInVk = true;
 		_playerData.savePlayerData();
-		selectLevelButton.SetActive(true);
-		endlessLevelButton.SetActive(true);
 		vkLogInPopUp.SetActive(false);
-		getPlayerRewardForGroup ();
 	}
 
-	void getPlayerRewardForGroup()
+	public void gameRecordsPressed()
 	{
-		VKRequest r1 = new VKRequest (){
-			url="groups.isMember?group_id=" + gameGlobalSettings.vkGameGroupId,
-			CallBackFunction=onPlayerRewardForGroup
-		};
-		_vkapi.Call (r1);
+		
 	}
-
-	void onPlayerRewardForGroup(VKRequest request)
-	{
-		var dict = Json.Deserialize(request.response) as Dictionary<string,object>;
-		bool inGroup = Convert.ToBoolean(dict ["response"]);
-
-		if (inGroup) {
-			_playerData.playerScore += gameGlobalSettings.joinGroupReward;
-			_playerData.inVkGameGroup = true;
-			_playerData.savePlayerData();
-		}
-	}
-
 }

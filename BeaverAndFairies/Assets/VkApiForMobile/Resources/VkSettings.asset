@@ -13,13 +13,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VkAppId: 4473713
   scope:
-  - 6e6f74696679
-  - 667269656e6473
-  - 70686f746f73
-  - 77616c6c
-  - 67726f757073
-  - 6e6f74696669636174696f6e73
-  - 6f66666c696e65
+  - notify
+  - friends
+  - photos
+  - wall
+  - groups
+  - notifications
+  - offline
   forceOAuth: 0
   revoke: 1
   apiVersion: 352e3530
