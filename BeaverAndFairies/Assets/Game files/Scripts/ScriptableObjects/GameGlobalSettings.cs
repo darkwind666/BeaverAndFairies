@@ -7,6 +7,12 @@ public class GameGlobalSettings : ScriptableObject {
 	public string mainGameScreenName;
 	public string selectLevelSceneName;
 
+	public int boardHeight;
+	public float oneBlockAnimationDuration;
+	public float scaleAnimationDuration;
+	public float distanceBetweeneTasks;
+
+
 	public string vkGameGroupId;
 
 	public int logInReward;

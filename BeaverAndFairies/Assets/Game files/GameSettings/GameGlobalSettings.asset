@@ -14,6 +14,10 @@ MonoBehaviour:
   mainMenuScreenName: MainMenuScreen
   mainGameScreenName: MainGameScene
   selectLevelSceneName: SelectLevelScreen
+  boardHeight: 9
+  oneBlockAnimationDuration: 0.25
+  scaleAnimationDuration: 0.3
+  distanceBetweeneTasks: 0.3
   vkGameGroupId: 
   logInReward: 0
   joinGroupReward: 0

@@ -8,18 +8,15 @@ public class GameLogicController : MonoBehaviour {
 
 	public GameObject[] blockTemplates;
 	public GameObject blockPadTemplate;
-	public int boardHeight;
 	public GameObject blockExample;
 	public Text scoreLabel;
-
-	public float oneBlockAnimationDuration;
-	public float scaleAnimationDuration;
-	public float distanceBetweeneTasks;
+	public GameObject endGamePopUp;
 
 	public float _blockHeight;
 	public int _score;
 	public Queue<GameObject> _currentBlocks;
 	public SwipeDirectionController _swipeDirectionController;
+
 	public bool stopGame;
 
 	public GameBalanceController gameBalanceController;
@@ -39,12 +36,15 @@ public class GameLogicController : MonoBehaviour {
 	PlayerInputController _playerInputController;
 	MoveBlocksController _moveBlocksController;
 
+	public GameGlobalSettings gameSettings;
+	public FadingScript fadingController;
+
 
 	void Start () {
 		BlockTasksController blockTasksController = blockExample.GetComponent<BlockTasksController>();
 		Renderer renderer = blockTasksController.blockRect.GetComponent<Renderer>();
 		_blockHeight = renderer.bounds.size.y;
-		_loseHeight = (_blockHeight * boardHeight);
+		_loseHeight = (_blockHeight * gameSettings.boardHeight);
 		_currentSpawnTime = 0;
 		_currentBlocks = new Queue<GameObject>();
 		_score = 0;
@@ -108,10 +108,10 @@ public class GameLogicController : MonoBehaviour {
 				blockTasksController.blockTasks.Add(blockTask);
 
 				Renderer renderer = blockTask.GetComponent<Renderer>();
-				tasksLength += (renderer.bounds.size.x + distanceBetweeneTasks);
+				tasksLength += (renderer.bounds.size.x + gameSettings.distanceBetweeneTasks);
 			}
 
-			tasksLength -= distanceBetweeneTasks;
+			tasksLength -= gameSettings.distanceBetweeneTasks;
 			float startX = - tasksLength / 2.0f;
 
 			foreach(GameObject task in blockTasksController.blockTasks)
@@ -119,7 +119,7 @@ public class GameLogicController : MonoBehaviour {
 				Renderer renderer = task.GetComponent<Renderer>();
 				float width = renderer.bounds.size.x;
 				task.transform.localPosition = new Vector3(startX + (width / 2) ,0,0);
-				startX += (width + distanceBetweeneTasks);
+				startX += (width + gameSettings.distanceBetweeneTasks);
 			}
 
 			_currentBlocks.Enqueue(block);
@@ -136,8 +136,8 @@ public class GameLogicController : MonoBehaviour {
 		Vector3 startScale = firstTask.transform.localScale;
 		Vector3 newScale = new Vector3 (startScale.x * 1.5f, startScale.y * 1.5f, 0);
 		Sequence scaleSequence = DOTween.Sequence();
-		scaleSequence.Append(firstTask.transform.DOScale(newScale, scaleAnimationDuration));
-		scaleSequence.Append(firstTask.transform.DOScale(startScale, scaleAnimationDuration));
+		scaleSequence.Append(firstTask.transform.DOScale(newScale, gameSettings.scaleAnimationDuration));
+		scaleSequence.Append(firstTask.transform.DOScale(startScale, gameSettings.scaleAnimationDuration));
 	}
 
 	public void removeFirstBlock()
@@ -168,6 +168,7 @@ public class GameLogicController : MonoBehaviour {
 			{
 				_lose = true;
 				stopGame = true;
+				endGamePopUp.SetActive(true);
 				break;
 			}
 		}
@@ -179,11 +180,6 @@ public class GameLogicController : MonoBehaviour {
 		if(_spawnTime > 0)
 		{
 			float minSpeed = _blockHeight / _spawnTime;
-
-//			if (aSpeed <= minSpeed) {
-//				_blocksSpeed = minSpeed + 0.01f;
-//			}
-
 			if (aSpeed <= (minSpeed + 0.001f )) {
 				_blocksSpeed = minSpeed + 0.01f;
 			}
@@ -202,4 +198,20 @@ public class GameLogicController : MonoBehaviour {
 			}
 		}
 	}
+
+	public void pauseGame()
+	{
+		stopGame = true;
+	}
+
+	public void resumeGame()
+	{
+		stopGame = false;
+	}
+
+	public void backToSelectLevel()
+	{
+		fadingController.startFade(gameSettings.selectLevelSceneName, false);
+	}
+
 }
