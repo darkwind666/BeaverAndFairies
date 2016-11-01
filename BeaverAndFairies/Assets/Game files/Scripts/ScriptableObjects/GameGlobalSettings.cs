@@ -12,8 +12,13 @@ public class GameGlobalSettings : ScriptableObject {
 	public float scaleAnimationDuration;
 	public float distanceBetweeneTasks;
 
-
 	public string vkGameGroupId;
+	public string vkGamesOfficialGroupId;
+	public string vkDeveloperId;
+
+	public string inviteTextKey;
+	public string addDeveloperToFriendKey;
+	public string vkURLTemplate;
 
 	public int logInReward;
 	public int joinGroupReward;

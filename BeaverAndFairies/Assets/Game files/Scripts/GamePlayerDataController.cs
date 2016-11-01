@@ -123,10 +123,9 @@ public class GamePlayerDataController {
         file.Close();
     }
 
-    public void createNewPlayerWithName(string aPlayerName)
+    public void createNewPlayer()
     {
         playerExist = true;
-        playerName = aPlayerName;
         completedLevelsCount = 0;
         playerScore = 60;
 		endlessLevelPlayedTime = 0;

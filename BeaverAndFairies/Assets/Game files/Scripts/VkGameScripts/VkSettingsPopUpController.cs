@@ -29,15 +29,9 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 
 	public GameGlobalSettings gameSettings;
 
-	public string vkGamesOfficialGroupId;
-	public string vkDeveloperId;
-
 	VkApi _vkapi;
 	VKUser _currentUser;
-	string inviteTextKey = "BeaverTime.InviteFriendText";
-	string addDeveloperToFriendKey = "BeaverTime.AddDeveloperToFriendText";
 	GamePlayerDataController _playerData;
-	string vkURLTemplate = "https://vk.com/public";
 	Downloader _downloader;
 
 	void Start () {
@@ -50,11 +44,11 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 
 		playerImage.enabled = false;
 
-		if (_vkapi.IsUserLoggedIn) {
+		if (_vkapi.IsUserLoggedIn == true) {
 			logInButton.SetActive (false);
 			logOutButton.SetActive (true);
 			logInRewardText.SetActive (false);
-			getUserInfo ();
+			getUserInfo();
 		} 
 		else 
 		{
@@ -122,7 +116,7 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 
 	public void inviteFriend(string friendId, string friendName, Action aCallback)
 	{
-		string inviteTextTemplate = SmartLocalization.LanguageManager.Instance.GetTextValue(inviteTextKey);
+		string inviteTextTemplate = SmartLocalization.LanguageManager.Instance.GetTextValue(gameSettings.inviteTextKey);
 		string inviteText = string.Format(inviteTextTemplate, friendName);
 
 		VKRequest r1 = new VKRequest (){
@@ -177,10 +171,10 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 
 	public void addDeveloperToFriends()
 	{
-		string developerToFriendText = SmartLocalization.LanguageManager.Instance.GetTextValue(addDeveloperToFriendKey);
+		string developerToFriendText = SmartLocalization.LanguageManager.Instance.GetTextValue(gameSettings.addDeveloperToFriendKey);
 		if (_vkapi.IsUserLoggedIn) {
 			VKRequest r1 = new VKRequest (){
-				url="friends.add?user_id="+vkDeveloperId+"&text="+developerToFriendText,
+				url="friends.add?user_id="+gameSettings.vkDeveloperId+"&text="+developerToFriendText,
 			};
 
 			acceptOperationController.SetActive(true);
@@ -216,7 +210,6 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 		setUpCurrentUserImage();
 		setUpCurrentUserFriends();
 		setUpVKGamesButton();
-		createNewPlayerWithName(fullPlayerName);
 		getPlayerRewardForLogIn();
 		getPlayerRewardForGroup();
 	}
@@ -267,14 +260,6 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 		_vkapi.Call (r1);
 	}
 
-	void createNewPlayerWithName(string aPlayerName)
-	{
-		if (_playerData.playerExist == false) {
-			_playerData.createNewPlayerWithName (aPlayerName);
-			_playerData.savePlayerData();
-		}
-	}
-
 	void getPlayerRewardForLogIn()
 	{
 		if (_playerData.logInVk == false) {
@@ -317,12 +302,7 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 		}
 	}
 
-	void getRewardForBeaverTimeGroup()
-	{
-		_playerData.playerScore += gameSettings.joinGroupReward;
-		_playerData.inVkGameGroup = true;
-		_playerData.savePlayerData();
-	}
+
 
 
 
@@ -331,7 +311,7 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 	{
 		if (_vkapi.IsUserLoggedIn) {
 			VKRequest r1 = new VKRequest (){
-				url="groups.join?group_id="+vkGamesOfficialGroupId,
+				url="groups.join?group_id="+gameSettings.vkGamesOfficialGroupId,
 				CallBackFunction=joinVKGamesHandler
 			};
 
@@ -386,10 +366,17 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 		goToBeaverTimeGroupButton.SetActive (true);
 	}
 
+	void getRewardForBeaverTimeGroup()
+	{
+		_playerData.playerScore += gameSettings.joinGroupReward;
+		_playerData.inVkGameGroup = true;
+		_playerData.savePlayerData();
+	}
+
 	void setUpVKGamesButton()
 	{
 		VKRequest r1 = new VKRequest (){
-			url="groups.isMember?group_id=" + vkGamesOfficialGroupId,
+			url="groups.isMember?group_id=" + gameSettings.vkGamesOfficialGroupId,
 			CallBackFunction=onVkGamesOfficialGroup
 		};
 		_vkapi.Call (r1);
@@ -416,11 +403,11 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 
 	public void goToBeaverTimeGroup()
 	{
-		Application.OpenURL(vkURLTemplate + gameSettings.vkGameGroupId);
+		Application.OpenURL(gameSettings.vkURLTemplate + gameSettings.vkGameGroupId);
 	}
 
 	public void goToVkGamesGroup()
 	{
-		Application.OpenURL(vkURLTemplate + vkGamesOfficialGroupId);
+		Application.OpenURL(gameSettings.vkURLTemplate + gameSettings.vkGamesOfficialGroupId);
 	}
 }

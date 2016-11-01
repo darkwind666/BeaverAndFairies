@@ -51,8 +51,6 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 		var dict=Json.Deserialize(request.response) as Dictionary<string,object>;
 		var users=(List<object>)dict["response"];
 		var user = VKUser.Deserialize (users [0]);
-		string fullPlayerName = user.first_name + " " + user.last_name;
-		_playerData.createNewPlayerWithName (fullPlayerName);
 		_playerData.playerScore += gameGlobalSettings.logInReward;
 		_playerData.logInVk = true;
 		_playerData.savePlayerData();

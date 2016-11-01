@@ -8,7 +8,6 @@ public class MainMenuController : MonoBehaviour {
 
     public FadingScript fadingController;
 
-    public GameObject gameSettingsPopUp;
 	public GameObject vkLogInPopUp;
 	public GameObject gameShopPopUp;
 
