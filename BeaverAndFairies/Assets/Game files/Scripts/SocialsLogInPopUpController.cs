@@ -3,10 +3,13 @@ using com.playGenesis.VkUnityPlugin;
 using com.playGenesis.VkUnityPlugin.MiniJSON;
 using System.Collections;
 using System.Collections.Generic;
+using Facebook.Unity;
 
 public class SocialsLogInPopUpController : MonoBehaviour {
 
 	public GameGlobalSettings gameGlobalSettings;
+	public GameObject vkButton;
+	public GameObject fbButton;
 
 	GamePlayerDataController _playerData;
 	VkApi _vkapi;
@@ -48,18 +51,35 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 			return;
 		}
 
-		var dict=Json.Deserialize(request.response) as Dictionary<string,object>;
-		var users=(List<object>)dict["response"];
-		var user = VKUser.Deserialize (users [0]);
 		_playerData.playerScore += gameGlobalSettings.logInReward;
 		_playerData.logInVk = true;
 		_playerData.savePlayerData();
-		gameObject.SetActive(false);
+		vkButton.SetActive(false);
+
+		if(fbButton.activeSelf == false)
+		{
+			gameObject.SetActive(false);
+		}
 	}
 
 	public void logInFacebook()
 	{
+		var perms = new List<string>(){"public_profile", "email", "user_friends"};
+		FB.LogInWithReadPermissions(perms, AuthCallback);
+	}
 
+	private void AuthCallback (ILoginResult result) {
+		if (FB.IsLoggedIn) {
+			_playerData.playerScore += gameGlobalSettings.logInReward;
+			_playerData.logInFb = true;
+			_playerData.savePlayerData();
+			fbButton.SetActive(false);
+		}
+
+		if(vkButton.activeSelf == false)
+		{
+			gameObject.SetActive(false);
+		}
 	}
 
 	public void notNowPressed()

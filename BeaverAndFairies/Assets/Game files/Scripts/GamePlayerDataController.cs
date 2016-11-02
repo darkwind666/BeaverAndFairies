@@ -34,6 +34,7 @@ public class GamePlayerDataController {
 	public int globalHeightScore { get; set; }
 	public bool simplifyLevel { get; set; }
 	public bool logInVk { get; set; }
+	public bool logInFb { get; set; }
 	public bool inVkGameGroup { get; set; }
 	public bool notNowPressed { get; set; }
 
@@ -53,7 +54,7 @@ public class GamePlayerDataController {
 
 	string getPlayerDataFileName()
 	{
-		string fileName = "/playerData.xml";
+		string fileName = "/bamPlayerData.xml";
 
 		#if UNITY_STANDALONE_OSX || UNITY_IOS
 		fileName = "/playerData.bt";
@@ -84,7 +85,6 @@ public class GamePlayerDataController {
             playerExist = data.playerExist;
             gameMusicVolume = data.gameMusicVolume;
             gameSoundEffectsVolume = data.gameSoundEffectsVolume;
-            playerName = data.playerName;
             completedLevelsCount = data.completedLevelsCount;
             playerScore = data.playerScore;
 			endlessLevelPlayedTime = data.endlessLevelPlayedTime;
@@ -93,6 +93,7 @@ public class GamePlayerDataController {
 			showJoinGroupSuggestion = data.showJoinGroupSuggestion;
 			showInviteFriendsSuggestion = data.showInviteFriendsSuggestion;
 			logInVk = data.logInVk;
+			logInFb = data.logInFb;
 			inVkGameGroup = data.inVkGameGroup;
 
             file.Close();
@@ -108,7 +109,6 @@ public class GamePlayerDataController {
         savingData.playerExist = playerExist;
         savingData.gameMusicVolume = gameMusicVolume;
         savingData.gameSoundEffectsVolume = gameSoundEffectsVolume;
-        savingData.playerName = playerName;
         savingData.completedLevelsCount = completedLevelsCount;
         savingData.playerScore = playerScore;
 		savingData.endlessLevelPlayedTime = endlessLevelPlayedTime;
@@ -117,6 +117,7 @@ public class GamePlayerDataController {
 		savingData.showJoinGroupSuggestion = showJoinGroupSuggestion;
 		savingData.showInviteFriendsSuggestion = showInviteFriendsSuggestion;
 		savingData.logInVk = logInVk;
+		savingData.logInFb = logInFb;
 		savingData.inVkGameGroup = inVkGameGroup;
 
         formatter.Serialize(file, savingData);
@@ -136,6 +137,7 @@ public class GamePlayerDataController {
 		showJoinGroupSuggestion = false;
 		showInviteFriendsSuggestion = false;
 		logInVk = false;
+		logInFb = false;
 		inVkGameGroup = false;
         savePlayerData();
     }
@@ -143,7 +145,6 @@ public class GamePlayerDataController {
     public void cleanPlayer()
     {
         playerExist = false;
-        playerName = "";
         completedLevelsCount = 0;
         playerScore = 0;
 		endlessLevelPlayedTime = 0;
@@ -155,6 +156,7 @@ public class GamePlayerDataController {
 		showReviewSuggestion = false;
 		showInviteFriendsSuggestion = false;
 		logInVk = false;
+		logInFb = false;
 		inVkGameGroup = false;
         savePlayerData();
     }
@@ -187,6 +189,7 @@ public class PlayerData
 	public bool showJoinGroupSuggestion;
 	public bool showInviteFriendsSuggestion;
 	public bool logInVk;
+	public bool logInFb;
 	public bool inVkGameGroup;
 }
 
