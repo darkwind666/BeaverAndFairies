@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using Facebook.Unity;
 using Facebook.MiniJSON;
+using System;
+
 
 public class FbSettingsPopUpController : MonoBehaviour {
 
@@ -15,31 +18,32 @@ public class FbSettingsPopUpController : MonoBehaviour {
 	public GameObject logInRewardText;
 
 	public GameObject logOutButton;
-	public GameObject inviteFriendsPopUp;
-	public InviteFriendsController inviteFriendsController;
 
 	public GameObject joinBeaverTimeGroupButton;
 	public GameObject goToBeaverTimeGroupButton;
-
-	public GameObject acceptOperationController;
-	public Button acceptButton;
 
 	public GameGlobalSettings gameSettings;
 
 	void Start () {
 	
+		setUpFacebookSettins();
+	}
+
+	void setUpFacebookSettins()
+	{
 		if (FB.IsLoggedIn == true) {
 			logInButton.SetActive (false);
 			logOutButton.SetActive (true);
 			logInRewardText.SetActive (false);
 			getUserInfo();
+			getUserAvatar();
+			getPlayerRewardForLogIn();
 		} 
 		else 
 		{
 			logInButton.SetActive (true);
 			logOutButton.SetActive (false);
 		}
-
 	}
 
 	void Update () {
@@ -54,6 +58,94 @@ public class FbSettingsPopUpController : MonoBehaviour {
 			}
 
 		});
+	}
+
+	void getUserAvatar()
+	{
+		FB.API("/me/picture", HttpMethod.GET, this.ProfilePhotoCallback);
+	}
+
+	void ProfilePhotoCallback(IGraphResult result)
+	{
+		if (string.IsNullOrEmpty(result.Error) && result.Texture != null)
+		{
+			Texture2D tex=result.Texture;
+
+			if (playerImage.sprite != null)
+			{
+				DestroyObject(playerImage.sprite);
+			}
+
+			playerImage.sprite=Sprite.Create(tex,new Rect(0,0,50,50),new Vector2(0.5f,0.5f));
+			playerImage.enabled = true;
+		}
+	}
+
+	public void logIn()
+	{
+		var perms = new List<string>(){"public_profile", "email", "user_friends"};
+		FB.LogInWithReadPermissions(perms, AuthCallback);
+	}
+
+	private void AuthCallback (ILoginResult result) {
+		if (FB.IsLoggedIn) {
+			getPlayerRewardForLogIn();
+			setUpFacebookSettins();
+		}
+	}
+
+	void getPlayerRewardForLogIn()
+	{
+		if (_playerData.logInFb == false) {
+			_playerData.playerScore += gameSettings.logInReward;
+			_playerData.logInFb = true;
+			_playerData.savePlayerData();
+		}
+	}
+
+	public void logOut()
+	{
+		FB.LogOut();
+		setUpFacebookSettins();
+	}
+
+	public void inviteFriends()
+	{
+		if (FB.IsLoggedIn == true) {
+			FB.Mobile.AppInvite(new Uri("https://fb.me/" + FB.AppId));
+		} 
+		else 
+		{
+			logIn();
+		}
+
+	}
+
+	public void joinGameGroup()
+	{
+		if (FB.IsLoggedIn == true) {
+			if(_playerData.inFbGameGroup == false)
+			{
+				FB.GameGroupJoin(
+					gameSettings.fbGameGroupId,
+					groupJoinCallBack);
+			}
+		} 
+		else 
+		{
+			logIn();
+		}
+	}
+
+	void groupJoinCallBack (IGroupJoinResult result) {
+		Debug.Log(result.RawResult);
+
+		_playerData.playerScore += gameSettings.joinGroupReward;
+		_playerData.inFbGameGroup = true;
+		_playerData.savePlayerData();
+
+		joinBeaverTimeGroupButton.SetActive (false);
+		goToBeaverTimeGroupButton.SetActive (true);
 	}
 
 }

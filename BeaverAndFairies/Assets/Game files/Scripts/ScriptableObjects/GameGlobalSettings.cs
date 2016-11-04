@@ -12,6 +12,8 @@ public class GameGlobalSettings : ScriptableObject {
 	public float scaleAnimationDuration;
 	public float distanceBetweeneTasks;
 
+	public string fbGameGroupId;
+
 	public string vkGameGroupId;
 	public string vkGamesOfficialGroupId;
 	public string vkDeveloperId;
@@ -42,6 +44,8 @@ public class GameGlobalSettings : ScriptableObject {
 	public string hdOneSignalProjectNumber;
 	public string freeVKId;
 	public string hdVKId;
+	public string freeFbId;
+	public string hdFbId;
 	public string freeGameName;
 	public string hdGameName;
 	public string freeGameBundleId;

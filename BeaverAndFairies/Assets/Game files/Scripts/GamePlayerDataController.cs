@@ -34,8 +34,9 @@ public class GamePlayerDataController {
 	public int globalHeightScore { get; set; }
 	public bool simplifyLevel { get; set; }
 	public bool logInVk { get; set; }
-	public bool logInFb { get; set; }
 	public bool inVkGameGroup { get; set; }
+	public bool logInFb { get; set; }
+	public bool inFbGameGroup { get; set; }
 	public bool notNowPressed { get; set; }
 
 
@@ -95,6 +96,7 @@ public class GamePlayerDataController {
 			logInVk = data.logInVk;
 			logInFb = data.logInFb;
 			inVkGameGroup = data.inVkGameGroup;
+			inFbGameGroup = data.inFbGameGroup;
 
             file.Close();
         }
@@ -119,6 +121,7 @@ public class GamePlayerDataController {
 		savingData.logInVk = logInVk;
 		savingData.logInFb = logInFb;
 		savingData.inVkGameGroup = inVkGameGroup;
+		savingData.inFbGameGroup = inFbGameGroup;
 
         formatter.Serialize(file, savingData);
         file.Close();
@@ -139,6 +142,7 @@ public class GamePlayerDataController {
 		logInVk = false;
 		logInFb = false;
 		inVkGameGroup = false;
+		inFbGameGroup = false;
         savePlayerData();
     }
 
@@ -158,6 +162,7 @@ public class GamePlayerDataController {
 		logInVk = false;
 		logInFb = false;
 		inVkGameGroup = false;
+		inFbGameGroup = false;
         savePlayerData();
     }
 
@@ -191,6 +196,7 @@ public class PlayerData
 	public bool logInVk;
 	public bool logInFb;
 	public bool inVkGameGroup;
+	public bool inFbGameGroup;
 }
 
 public class PlayerDataXMLFormatter: IFormatter

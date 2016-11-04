@@ -954,6 +954,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81da8019600984d4b86709879bca74c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: {fileID: 143881653}
+  playerImage: {fileID: 1323408073}
+  logInButton: {fileID: 2057802346}
+  logInRewardText: {fileID: 366645700}
+  logOutButton: {fileID: 337978451}
+  inviteFriendsPopUp: {fileID: 1081513503}
+  inviteFriendsController: {fileID: 0}
+  joinBeaverTimeGroupButton: {fileID: 624204122}
+  goToBeaverTimeGroupButton: {fileID: 713627997}
+  acceptOperationController: {fileID: 562059485}
+  acceptButton: {fileID: 985776541}
+  gameSettings: {fileID: 11400000, guid: bbd941705bb8444f88bf4b5186132ada, type: 2}
 --- !u!1 &247332942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,7 +1271,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 277462890}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -6753,7 +6765,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1323408071}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
