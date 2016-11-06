@@ -25,7 +25,7 @@ public class FbSettingsPopUpController : MonoBehaviour {
 	public GameGlobalSettings gameSettings;
 
 	void Start () {
-	
+		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 		setUpFacebookSettins();
 	}
 
