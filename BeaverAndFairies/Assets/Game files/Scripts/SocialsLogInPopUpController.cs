@@ -64,7 +64,7 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 
 	public void logInFacebook()
 	{
-		var perms = new List<string>(){"public_profile", "email", "user_friends"};
+		var perms = new List<string>(){"public_profile", "email", "user_friends", "publish_actions"};
 		FB.LogInWithReadPermissions(perms, AuthCallback);
 	}
 

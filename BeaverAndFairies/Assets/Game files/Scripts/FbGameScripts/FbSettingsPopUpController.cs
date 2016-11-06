@@ -83,7 +83,7 @@ public class FbSettingsPopUpController : MonoBehaviour {
 
 	public void logIn()
 	{
-		var perms = new List<string>(){"public_profile", "email", "user_friends"};
+		var perms = new List<string>(){"public_profile", "email", "user_friends", "publish_actions"};
 		FB.LogInWithReadPermissions(perms, AuthCallback);
 	}
 
@@ -135,6 +135,11 @@ public class FbSettingsPopUpController : MonoBehaviour {
 		{
 			logIn();
 		}
+	}
+
+	public void goToGameGroup()
+	{
+		Application.OpenURL(gameSettings.facebookPageURL);
 	}
 
 	void groupJoinCallBack (IGroupJoinResult result) {

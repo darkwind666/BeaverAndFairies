@@ -13,6 +13,7 @@ public class GameGlobalSettings : ScriptableObject {
 	public float distanceBetweeneTasks;
 
 	public string fbGameGroupId;
+	public string facebookPageURL;
 
 	public string vkGameGroupId;
 	public string vkGamesOfficialGroupId;

@@ -410,4 +410,22 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 	{
 		Application.OpenURL(gameSettings.vkURLTemplate + gameSettings.vkGamesOfficialGroupId);
 	}
+
+	public void allowMessagesFromGroup()
+	{
+		if (_vkapi.IsUserLoggedIn) {
+			VKRequest r1 = new VKRequest () {
+				url = "messages.allowMessagesFromGroup?group_id=" + gameSettings.vkGameGroupId
+			};
+
+			acceptOperationController.SetActive(true);
+			acceptButton.onClick.AddListener(() => { 
+				_vkapi.Call (r1);
+			});
+
+		} else {
+			logIn();
+		}
+	}
+
 }

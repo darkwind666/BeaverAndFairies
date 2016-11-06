@@ -7,8 +7,10 @@ public class GameBalanceController : MonoBehaviour {
 	public List1 gameBalaceData;
 	public GameLogicController gameLogicController;
 	public Text stageLabel;
+	public MainGameSocialsController socialsController;
 
 	int _currentStageIndex;
+	int _currentPlayerLevel;
 	int _currentStageTimeInterval;
 	int _currentStageTime;
 
@@ -16,6 +18,7 @@ public class GameBalanceController : MonoBehaviour {
 
 	void Start () {
 		_currentStageIndex = 0;
+		_currentPlayerLevel = 0;
 		_currentStageTime = 0;
 	}
 
@@ -39,6 +42,13 @@ public class GameBalanceController : MonoBehaviour {
 
 				} else {
 					_currentStageIndex = Random.Range(0, gameBalaceData.dataArray.Length);
+				}
+
+				_currentPlayerLevel++;
+
+				if((_currentPlayerLevel % 5) == 0)
+				{
+					socialsController.sendInVkPlayerLevel(_currentPlayerLevel);
 				}
 
 				stageLabel.text = _currentStageIndex.ToString();
