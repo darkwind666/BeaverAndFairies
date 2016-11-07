@@ -10,9 +10,6 @@ public class GameLogicController : MonoBehaviour {
 	public GameObject blockPadTemplate;
 	public GameObject blockExample;
 	public Text scoreLabel;
-	public GameObject endGamePopUp;
-	public MainGameVkController vkController;
-	public MainGameFbController fbController;
 
 	public float _blockHeight;
 	public int _score;
@@ -41,8 +38,12 @@ public class GameLogicController : MonoBehaviour {
 	public GameGlobalSettings gameSettings;
 	public FadingScript fadingController;
 
+	GamePlayerDataController _playerData;
+	public EndGameController endGameController;
+
 
 	void Start () {
+		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 		BlockTasksController blockTasksController = blockExample.GetComponent<BlockTasksController>();
 		Renderer renderer = blockTasksController.blockRect.GetComponent<Renderer>();
 		_blockHeight = renderer.bounds.size.y;
@@ -170,9 +171,7 @@ public class GameLogicController : MonoBehaviour {
 			{
 				_lose = true;
 				stopGame = true;
-				endGamePopUp.SetActive(true);
-				vkController.sendInVkPlayerScore(_score);
-				fbController.sendInFbPlayerScore(_score);
+				endGameController.endMainGame();
 				break;
 			}
 		}

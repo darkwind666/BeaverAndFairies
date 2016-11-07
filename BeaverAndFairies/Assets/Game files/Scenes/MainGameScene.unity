@@ -1690,7 +1690,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &376717866
 RectTransform:
@@ -3094,7 +3094,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &737244521
 RectTransform:
@@ -3419,6 +3419,7 @@ Transform:
   - {fileID: 38989710}
   - {fileID: 1458444979}
   - {fileID: 1364706989}
+  - {fileID: 1608248048}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1 &781910952
@@ -6362,6 +6363,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScreenshotName: BeaverAndFairies
+--- !u!1 &1608248047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1608248048}
+  - 114: {fileID: 1608248049}
+  m_Layer: 0
+  m_Name: EndGameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1608248048
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1608248047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 778433477}
+  m_RootOrder: 4
+--- !u!114 &1608248049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1608248047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6642c652e237547769cce57628d2c185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endGamePopUp: {fileID: 1223929570}
+  vkController: {fileID: 1133136509}
+  fbController: {fileID: 954644458}
+  gameLogicController: {fileID: 1978387182}
+  joinGameGroupPopUp: {fileID: 2130560268}
+  inviteFriendsPopUp: {fileID: 737244517}
+  rateGamePopUp: {fileID: 1809043816}
 --- !u!1 &1695732880
 GameObject:
   m_ObjectHideFlags: 0
@@ -6434,7 +6482,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &1695732884
 RectTransform:
@@ -6739,7 +6787,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1809043820
 RectTransform:
@@ -7232,9 +7280,6 @@ MonoBehaviour:
   blockExample: {fileID: 1000010253136166, guid: bf96d50e93ce8460b9c0acddfb7d9321,
     type: 2}
   scoreLabel: {fileID: 2097243786}
-  endGamePopUp: {fileID: 1223929570}
-  vkController: {fileID: 1133136509}
-  fbController: {fileID: 0}
   _blockHeight: 0
   _score: 0
   stopGame: 0
@@ -7244,6 +7289,7 @@ MonoBehaviour:
   randomTasksCount: 0
   gameSettings: {fileID: 11400000, guid: bbd941705bb8444f88bf4b5186132ada, type: 2}
   fadingController: {fileID: 1103751294}
+  endGameController: {fileID: 1608248049}
 --- !u!1 &2006759470
 GameObject:
   m_ObjectHideFlags: 0
@@ -7690,7 +7736,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &2130560272
 RectTransform:
