@@ -7,9 +7,10 @@ using com.playGenesis.VkUnityPlugin;
 using com.playGenesis.VkUnityPlugin.MiniJSON;
 using Facebook.Unity;
 
-public class MainGameSocialsController : MonoBehaviour {
+public class MainGameShareController : MonoBehaviour {
 
 	public GameGlobalSettings gameSettings;
+	public NativeShare shareController;
 
 	void Start () {
 	}
@@ -20,7 +21,7 @@ public class MainGameSocialsController : MonoBehaviour {
 
 	public void shareGameResult()
 	{
-		
+		shareController.ShareScreenshotWithText("Sasha");
 	}
 
 }
