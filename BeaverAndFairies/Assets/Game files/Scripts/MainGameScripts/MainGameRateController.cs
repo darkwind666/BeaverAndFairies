@@ -7,7 +7,7 @@ using com.playGenesis.VkUnityPlugin;
 using com.playGenesis.VkUnityPlugin.MiniJSON;
 using Facebook.Unity;
 
-public class MainGameShareController : MonoBehaviour {
+public class MainGameRateController : MonoBehaviour {
 
 	public GameGlobalSettings gameSettings;
 	public NativeShare shareController;
@@ -19,9 +19,9 @@ public class MainGameShareController : MonoBehaviour {
 	
 	}
 
-	public void shareGameResult()
+	public void rateGamePressed()
 	{
-		shareController.ShareScreenshotWithText("Sasha");
+		
 	}
 
 }

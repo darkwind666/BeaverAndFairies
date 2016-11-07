@@ -821,8 +821,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 1604465249}
+  m_Children: []
   m_Father: {fileID: 781910954}
   m_RootOrder: 2
 --- !u!114 &136814096
@@ -5248,6 +5247,7 @@ RectTransform:
   - {fileID: 632016686}
   - {fileID: 74611633}
   - {fileID: 1227665936}
+  - {fileID: 1604465249}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
@@ -5268,6 +5268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadingController: {fileID: 1103751294}
   gameSettings: {fileID: 11400000, guid: bbd941705bb8444f88bf4b5186132ada, type: 2}
+  shareController: {fileID: 1604465250}
 --- !u!1 &1227665935
 GameObject:
   m_ObjectHideFlags: 0
@@ -6125,7 +6126,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 136814096}
-        m_MethodName: shareGameResult
+        m_MethodName: rateGamePressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6344,13 +6345,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1604465248}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 140.22537, y: 247.67137, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 136814095}
-  m_RootOrder: 0
+  m_Father: {fileID: 1223929574}
+  m_RootOrder: 4
 --- !u!114 &1604465250
 MonoBehaviour:
   m_ObjectHideFlags: 0

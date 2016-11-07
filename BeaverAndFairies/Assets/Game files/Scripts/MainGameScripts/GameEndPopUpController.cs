@@ -5,6 +5,7 @@ public class GameEndPopUpController : MonoBehaviour {
 
 	public FadingScript fadingController;
 	public GameGlobalSettings gameSettings;
+	public NativeShare shareController;
 
 	void Start () {
 	
@@ -26,6 +27,6 @@ public class GameEndPopUpController : MonoBehaviour {
 
 	public void sharePressed()
 	{
-
+		shareController.ShareScreenshotWithText("Sasha");
 	}
 }
