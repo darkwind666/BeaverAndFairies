@@ -11,7 +11,8 @@ public class GameLogicController : MonoBehaviour {
 	public GameObject blockExample;
 	public Text scoreLabel;
 	public GameObject endGamePopUp;
-	public MainGameSocialsController socialsController;
+	public MainGameVkController vkController;
+	public MainGameFbController fbController;
 
 	public float _blockHeight;
 	public int _score;
@@ -170,8 +171,8 @@ public class GameLogicController : MonoBehaviour {
 				_lose = true;
 				stopGame = true;
 				endGamePopUp.SetActive(true);
-				socialsController.sendInVkPlayerScore(_score);
-				socialsController.sendInFbPlayerScore(_score);
+				vkController.sendInVkPlayerScore(_score);
+				fbController.sendInFbPlayerScore(_score);
 				break;
 			}
 		}

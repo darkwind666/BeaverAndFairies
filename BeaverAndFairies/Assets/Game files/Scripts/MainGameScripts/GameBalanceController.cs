@@ -7,7 +7,7 @@ public class GameBalanceController : MonoBehaviour {
 	public List1 gameBalaceData;
 	public GameLogicController gameLogicController;
 	public Text stageLabel;
-	public MainGameSocialsController socialsController;
+	public MainGameVkController vkController;
 
 	int _currentStageIndex;
 	int _currentPlayerLevel;
@@ -48,7 +48,7 @@ public class GameBalanceController : MonoBehaviour {
 
 				if((_currentPlayerLevel % 5) == 0)
 				{
-					socialsController.sendInVkPlayerLevel(_currentPlayerLevel);
+					vkController.sendInVkPlayerLevel(_currentPlayerLevel);
 				}
 
 				stageLabel.text = _currentStageIndex.ToString();
