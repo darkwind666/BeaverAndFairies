@@ -757,7 +757,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 201742148}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1473449969}
+        m_MethodName: buySlowBonus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &201742148
@@ -3518,6 +3529,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22492706, guid: de9c2ec912e8f2d4cae1a7a05f83655a,
     type: 2}
   m_PrefabInternal: {fileID: 630304656}
+--- !u!114 &630304658 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11446006, guid: de9c2ec912e8f2d4cae1a7a05f83655a,
+    type: 2}
+  m_PrefabInternal: {fileID: 630304656}
+  m_Script: {fileID: 11500000, guid: 8a7de34a4ce5e68488499cbe778ad79d, type: 3}
 --- !u!1 &638434999
 GameObject:
   m_ObjectHideFlags: 0
@@ -5891,7 +5908,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1021089695}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1473449969}
+        m_MethodName: buyDamageBonus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1021089695
@@ -8400,6 +8428,7 @@ GameObject:
   - 223: {fileID: 1473449967}
   - 114: {fileID: 1473449966}
   - 114: {fileID: 1473449965}
+  - 114: {fileID: 1473449969}
   m_Layer: 5
   m_Name: GameShopPopUp
   m_TagString: Untagged
@@ -8488,6 +8517,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1473449969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1473449964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a2e60401de84653b9fcaf003e36723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_cellPrefab: {fileID: 114000013345764884, guid: a6490b91ea0b74baaa8862e287a49dfa,
+    type: 2}
+  m_tableView: {fileID: 630304658}
+  fairiesDataSource: {fileID: 11400000, guid: 37bcedd5f6e614a1d9cdf4a651071193, type: 2}
+  slowBonusCountLabel: {fileID: 538652614}
+  damageBonusCountLabel: {fileID: 1356658661}
 --- !u!1 &1473734534
 GameObject:
   m_ObjectHideFlags: 0

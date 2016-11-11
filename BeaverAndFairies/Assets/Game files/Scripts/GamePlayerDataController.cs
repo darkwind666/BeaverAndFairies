@@ -38,7 +38,11 @@ public class GamePlayerDataController {
 	public bool logInFb { get; set; }
 	public bool inFbGameGroup { get; set; }
 	public bool notNowPressed { get; set; }
+	public int selectedFairyIndex { get; set; }
+	public int slowBonusCount { get; set; }
+	public int damageBonusCount { get; set; }
 
+	public List<int> playerFairies;
 
     string _dataPath;
 
@@ -97,6 +101,15 @@ public class GamePlayerDataController {
 			logInFb = data.logInFb;
 			inVkGameGroup = data.inVkGameGroup;
 			inFbGameGroup = data.inFbGameGroup;
+			selectedFairyIndex = data.selectedFairyIndex;
+			playerFairies = data.playerFairies;
+			slowBonusCount = data.slowBonusCount;
+			damageBonusCount = data.damageBonusCount;
+
+			if (playerFairies == null)
+			{
+				playerFairies = new List<int>();
+			}
 
             file.Close();
         }
@@ -122,6 +135,10 @@ public class GamePlayerDataController {
 		savingData.logInFb = logInFb;
 		savingData.inVkGameGroup = inVkGameGroup;
 		savingData.inFbGameGroup = inFbGameGroup;
+		savingData.selectedFairyIndex = selectedFairyIndex;
+		savingData.playerFairies = playerFairies;
+		savingData.slowBonusCount = slowBonusCount;
+		savingData.damageBonusCount = damageBonusCount;
 
         formatter.Serialize(file, savingData);
         file.Close();
@@ -136,28 +153,9 @@ public class GamePlayerDataController {
         completedTutorialsCount = 0;
         selectedLevelIndex = 0;
         completedTutorialsCount = 0;
+		selectedFairyIndex = 0;
         showReviewSuggestion = false;
 		showJoinGroupSuggestion = false;
-		showInviteFriendsSuggestion = false;
-		logInVk = false;
-		logInFb = false;
-		inVkGameGroup = false;
-		inFbGameGroup = false;
-        savePlayerData();
-    }
-
-    public void cleanPlayer()
-    {
-        playerExist = false;
-        completedLevelsCount = 0;
-        playerScore = 0;
-		endlessLevelPlayedTime = 0;
-        gameMusicVolume = 0.5f;
-        gameSoundEffectsVolume = 0.5f;
-        selectedLevelIndex = 0;
-        completedTutorialsCount = 0;
-		showJoinGroupSuggestion = false;
-		showReviewSuggestion = false;
 		showInviteFriendsSuggestion = false;
 		logInVk = false;
 		logInFb = false;
@@ -197,6 +195,10 @@ public class PlayerData
 	public bool logInFb;
 	public bool inVkGameGroup;
 	public bool inFbGameGroup;
+	public int selectedFairyIndex;
+	public List<int> playerFairies;
+	public int slowBonusCount;
+	public int damageBonusCount;
 }
 
 public class PlayerDataXMLFormatter: IFormatter

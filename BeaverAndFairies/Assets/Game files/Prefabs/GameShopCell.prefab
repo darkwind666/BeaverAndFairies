@@ -373,6 +373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7774125d8f494827b0f6d19d984bde6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fairyButton: {fileID: 114000011729937390}
+  price: {fileID: 114000011514074436}
+  selectFairyToggle: {fileID: 114000011014074222}
 --- !u!222 &222000010747806008
 CanvasRenderer:
   m_ObjectHideFlags: 1

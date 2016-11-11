@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dcd9cf9c844349a983625a2bd3c674c, type: 3}
+  m_Name: FairiesDataList
+  m_EditorClassIdentifier: 
+  dataArray:
+  - fairyTexture: {fileID: 2800000, guid: 00636953ddeb3497fb9b2e1bd33eca55, type: 3}
+    fairyPrice: 100
+    fairyCreateSlowBonusTime: 1000
+    fairyCreateDamageBonusTime: 2000
+  - fairyTexture: {fileID: 2800000, guid: 00636953ddeb3497fb9b2e1bd33eca55, type: 3}
+    fairyPrice: 200
+    fairyCreateSlowBonusTime: 900
+    fairyCreateDamageBonusTime: 1800

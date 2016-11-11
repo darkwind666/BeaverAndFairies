@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+using Tacticsoft;
 
-public class GameShopCell : MonoBehaviour {
+public class GameShopCell : TableViewCell {
 
-	// Use this for initialization
+	public Button fairyButton;
+	public Text price;
+	public Toggle selectFairyToggle;
+
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 	
 	}
