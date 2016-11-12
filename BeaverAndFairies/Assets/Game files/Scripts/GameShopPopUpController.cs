@@ -10,8 +10,8 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 	public TableView m_tableView;
 	public FairiesDataList fairiesDataSource;
 
-	public Text slowBonusCountLabel;
-	public Text damageBonusCountLabel;
+	public Text slowBonusPrice;
+	public Text damageBonusPrice;
 
 	GamePlayerDataController _playerData;
 	int _lastSelectedFairyIndex;
@@ -20,6 +20,8 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 		m_tableView.dataSource = this;
 		_lastSelectedFairyIndex = _playerData.selectedFairyIndex;
+		slowBonusPrice.text = fairiesDataSource.slowBonusPrice.ToString();
+		damageBonusPrice.text = fairiesDataSource.damageBonusPrice.ToString();
 	}
 
 	void Update () {
@@ -107,7 +109,6 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 		{
 			_playerData.slowBonusCount++;
 			_playerData.playerScore -= fairiesDataSource.slowBonusPrice;
-			slowBonusCountLabel.text = _playerData.slowBonusCount.ToString();
 			_playerData.savePlayerData();
 		}
 	}
@@ -118,7 +119,6 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 		{
 			_playerData.damageBonusCount++;
 			_playerData.playerScore -= fairiesDataSource.damageBonusPrice;
-			damageBonusCountLabel.text = _playerData.damageBonusCount.ToString();
 			_playerData.savePlayerData();
 		}
 	}
