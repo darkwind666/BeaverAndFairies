@@ -12,6 +12,11 @@ public class GameGlobalSettings : ScriptableObject {
 	public float scaleAnimationDuration;
 	public float distanceBetweeneTasks;
 
+	public string inAppProduct1ID;
+	public string inAppProduct2ID;
+	public string inAppProduct3ID;
+	public string inAppProduct4ID;
+
 	public string fbGameGroupId;
 	public string facebookPageURL;
 
