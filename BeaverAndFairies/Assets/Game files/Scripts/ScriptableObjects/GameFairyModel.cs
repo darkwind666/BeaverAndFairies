@@ -10,3 +10,11 @@ public class GameFairyModel {
 	public int fairyCreateDamageBonusTime;
 
 }
+
+[System.Serializable]
+public class ScoresCountInAppData {
+
+	public float price;
+	public int scoresCount;
+
+}

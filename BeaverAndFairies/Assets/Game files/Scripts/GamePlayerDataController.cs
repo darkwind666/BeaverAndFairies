@@ -41,6 +41,7 @@ public class GamePlayerDataController {
 	public int selectedFairyIndex { get; set; }
 	public int slowBonusCount { get; set; }
 	public int damageBonusCount { get; set; }
+	public bool blockAdsInAppBought { get; set; }
 
 	public List<int> playerFairies;
 
@@ -105,6 +106,7 @@ public class GamePlayerDataController {
 			playerFairies = data.playerFairies;
 			slowBonusCount = data.slowBonusCount;
 			damageBonusCount = data.damageBonusCount;
+			blockAdsInAppBought = data.blockAdsInAppBought;
 
 			if (playerFairies == null)
 			{
@@ -139,6 +141,7 @@ public class GamePlayerDataController {
 		savingData.playerFairies = playerFairies;
 		savingData.slowBonusCount = slowBonusCount;
 		savingData.damageBonusCount = damageBonusCount;
+		savingData.blockAdsInAppBought = blockAdsInAppBought;
 
         formatter.Serialize(file, savingData);
         file.Close();
@@ -161,6 +164,7 @@ public class GamePlayerDataController {
 		logInFb = false;
 		inVkGameGroup = false;
 		inFbGameGroup = false;
+		blockAdsInAppBought = false;
         savePlayerData();
     }
 
@@ -199,6 +203,7 @@ public class PlayerData
 	public List<int> playerFairies;
 	public int slowBonusCount;
 	public int damageBonusCount;
+	public bool blockAdsInAppBought;
 }
 
 public class PlayerDataXMLFormatter: IFormatter
