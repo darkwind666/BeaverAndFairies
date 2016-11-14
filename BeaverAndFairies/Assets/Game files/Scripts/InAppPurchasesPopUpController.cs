@@ -57,11 +57,11 @@ public class InAppPurchasesPopUpController : MonoBehaviour {
 
 	void setUpCounts()
 	{
-		buyScoresCount1.text = fairiesDataSource.inAppsDataArray[0].scoresCount.ToString();
-		buyScoresCount2.text = fairiesDataSource.inAppsDataArray[1].scoresCount.ToString();
-		buyScoresCount3.text = fairiesDataSource.inAppsDataArray[2].scoresCount.ToString();
-		buyScoresCount4.text = fairiesDataSource.inAppsDataArray[3].scoresCount.ToString();
-		buyScoresCount5.text = fairiesDataSource.inAppsDataArray[4].scoresCount.ToString();
+		buyScoresCount1.text = "+" + fairiesDataSource.inAppsDataArray[0].scoresCount.ToString();
+		buyScoresCount2.text = "+" + fairiesDataSource.inAppsDataArray[1].scoresCount.ToString();
+		buyScoresCount3.text = "+" + fairiesDataSource.inAppsDataArray[2].scoresCount.ToString();
+		buyScoresCount4.text = "+" + fairiesDataSource.inAppsDataArray[3].scoresCount.ToString();
+		buyScoresCount5.text = "+" + fairiesDataSource.inAppsDataArray[4].scoresCount.ToString();
 	}
 
 }

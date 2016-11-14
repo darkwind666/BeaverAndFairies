@@ -20,3 +20,17 @@ MonoBehaviour:
     fairyPrice: 200
     fairyCreateSlowBonusTime: 900
     fairyCreateDamageBonusTime: 1800
+  inAppsDataArray:
+  - price: 0.99
+    scoresCount: 100
+  - price: 1.99
+    scoresCount: 300
+  - price: 2.99
+    scoresCount: 700
+  - price: 3.99
+    scoresCount: 1500
+  - price: 4.99
+    scoresCount: 3100
+  slowBonusPrice: 100
+  damageBonusPrice: 100
+  blockAdsInAppPrice: 0.99

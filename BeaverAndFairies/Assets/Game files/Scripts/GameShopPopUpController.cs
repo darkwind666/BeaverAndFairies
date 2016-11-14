@@ -50,9 +50,6 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 			cell = (GameShopCell)GameObject.Instantiate(m_cellPrefab);
 		}
 
-		GameFairyModel cellData = fairiesDataSource.dataArray[row];
-		cell.fairyButton.image.sprite =  Sprite.Create(cellData.fairyTexture,new Rect(0,0,50,50),new Vector2(0.5f,0.5f));
-
 		setUpPrice(cell, row);
 		setUpBuyButton(cell, row);
 		setUpToggle(cell, row);
@@ -74,10 +71,11 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 	void setUpBuyButton(GameShopCell cell, int row)
 	{
 		GameFairyModel cellData = fairiesDataSource.dataArray[row];
+		cell.fairyButton.image.sprite =  Sprite.Create(cellData.fairyTexture,new Rect(0,0,50,50),new Vector2(0.5f,0.5f));
 		cell.fairyButton.onClick.RemoveAllListeners();
 		cell.fairyButton.onClick.AddListener(() => { 
 
-			if(_playerData.playerFairies.Contains(row) == false && _playerData.playerScore <= cellData.fairyPrice)
+			if(_playerData.playerFairies.Contains(row) == false && _playerData.playerScore >= cellData.fairyPrice)
 			{
 				_playerData.playerFairies.Add(row);
 				_playerData.playerScore -= cellData.fairyPrice;
@@ -95,7 +93,7 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 		cell.selectFairyToggle.onValueChanged.AddListener((bool value) => {
 
 			GameShopCell selectedFairyCell = m_tableView.GetCellAtRow(_lastSelectedFairyIndex) as GameShopCell;
-			selectedFairyCell.selectFairyToggle.Select();
+			selectedFairyCell.selectFairyToggle.isOn = false;
 
 			_playerData.selectedFairyIndex = row;
 			_lastSelectedFairyIndex = row;
@@ -105,7 +103,7 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 
 	public void buySlowBonus()
 	{
-		if(_playerData.playerScore <= fairiesDataSource.slowBonusPrice)
+		if(_playerData.playerScore >= fairiesDataSource.slowBonusPrice)
 		{
 			_playerData.slowBonusCount++;
 			_playerData.playerScore -= fairiesDataSource.slowBonusPrice;
@@ -115,7 +113,7 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 
 	public void buyDamageBonus()
 	{
-		if(_playerData.playerScore <= fairiesDataSource.damageBonusPrice)
+		if(_playerData.playerScore >= fairiesDataSource.damageBonusPrice)
 		{
 			_playerData.damageBonusCount++;
 			_playerData.playerScore -= fairiesDataSource.damageBonusPrice;
