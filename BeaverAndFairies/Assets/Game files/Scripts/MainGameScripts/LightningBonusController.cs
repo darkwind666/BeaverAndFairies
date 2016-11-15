@@ -1,43 +1,55 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class LightningBonusController : MonoBehaviour {
 
-	public int explosionsBonusCount;
-	public int maxLightningBounsCount;
-	public int bonusRechargeTime;
+	public FairiesDataList gameBalanceData;
 	public GameLogicController gameLogicController;
+	public GameObject gameShopPopUp;
+	public Text damageBonusCountLabel;
 
-	int _currentLightningBounsCount;
+	GamePlayerDataController _playerData;
 	int _currentBonusTime;
 
+
 	void Start () {
-		_currentLightningBounsCount = maxLightningBounsCount;
+		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 		_currentBonusTime = 0;
 	}
 
 	void Update () {
-
+		damageBonusCountLabel.text = _playerData.damageBonusCount.ToString();
+		_currentBonusTime++;
+		if(_currentBonusTime >= gameBalanceData.damageBonusRechargeTime)
+		{
+			_currentBonusTime = gameBalanceData.damageBonusRechargeTime;
+		}
 	}
 
 	public void useLightningBonus()
 	{
-		if(_currentLightningBounsCount > 0)
-		{
-			int explosionsCount = explosionsBonusCount;
-			if(gameLogicController._currentBlocks.Count < explosionsBonusCount)
+		if (_playerData.damageBonusCount > 0) {
+
+			if(_currentBonusTime >= gameBalanceData.damageBonusRechargeTime)
 			{
-				explosionsCount = gameLogicController._currentBlocks.Count;
+				int explosionsCount = gameBalanceData.damageExplosionsBonusCount;
+				if (gameLogicController._currentBlocks.Count < gameBalanceData.damageExplosionsBonusCount) {
+					explosionsCount = gameLogicController._currentBlocks.Count;
+				}
+
+				for (int explosionIndex = 0; explosionIndex < explosionsCount; explosionIndex++) {
+					GameObject firstBlock = gameLogicController._currentBlocks.Dequeue ();
+					Destroy (firstBlock);
+				}
+
+				gameLogicController.startMoveUpBlocks ();
+				_currentBonusTime = 0;
+				_playerData.damageBonusCount--;
 			}
 
-			for(int explosionIndex = 0; explosionIndex < explosionsCount; explosionIndex++)
-			{
-				GameObject firstBlock = gameLogicController._currentBlocks.Dequeue();
-				Destroy(firstBlock);
-			}
-
-			gameLogicController.startMoveUpBlocks();
-			_currentLightningBounsCount--;
+		} else {
+			gameShopPopUp.SetActive(true);
 		}
 	}
 }

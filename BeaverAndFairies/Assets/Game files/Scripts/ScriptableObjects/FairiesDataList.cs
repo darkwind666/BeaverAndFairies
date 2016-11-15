@@ -10,4 +10,9 @@ public class FairiesDataList : ScriptableObject {
 	public int slowBonusPrice;
 	public int damageBonusPrice;
 	public float blockAdsInAppPrice;
+	public int damageBonusRechargeTime;
+	public int damageExplosionsBonusCount;
+	public float bonusGameSpeedSlowdownRate;
+	public int slowBonusMaxTime;
+	public int slowBonusRechargeTime;
 }

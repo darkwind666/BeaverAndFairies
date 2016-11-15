@@ -34,3 +34,8 @@ MonoBehaviour:
   slowBonusPrice: 100
   damageBonusPrice: 100
   blockAdsInAppPrice: 0.99
+  damageBonusRechargeTime: 400
+  damageExplosionsBonusCount: 3
+  bonusGameSpeedSlowdownRate: 0.3
+  slowBonusMaxTime: 100
+  slowBonusRechargeTime: 300
