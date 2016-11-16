@@ -8,6 +8,7 @@ public class LightningBonusController : MonoBehaviour {
 	public GameLogicController gameLogicController;
 	public GameObject gameShopPopUp;
 	public Text damageBonusCountLabel;
+	public Image circularRechargeIndicator;
 
 	GamePlayerDataController _playerData;
 	int _currentBonusTime;
@@ -15,11 +16,15 @@ public class LightningBonusController : MonoBehaviour {
 
 	void Start () {
 		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
-		_currentBonusTime = 0;
+		_currentBonusTime = gameBalanceData.damageBonusRechargeTime;
+		circularRechargeIndicator.fillAmount = 0f;
 	}
 
 	void Update () {
 		damageBonusCountLabel.text = _playerData.damageBonusCount.ToString();
+		float fillAmount = ((float)gameBalanceData.damageBonusRechargeTime - _currentBonusTime) / (float)gameBalanceData.damageBonusRechargeTime;
+		circularRechargeIndicator.fillAmount = fillAmount;
+
 		_currentBonusTime++;
 		if(_currentBonusTime >= gameBalanceData.damageBonusRechargeTime)
 		{

@@ -1,46 +1,44 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class FairySlowdownController : MonoBehaviour {
 
 	public GameLogicController gameLogicController;
-	public float bonusGameSpeedSlowdownRate;
-	public int maxBonusTime;
-	public int bonusRechargeTime;
-	int _currentBonusTime;
-	float _startBonusGameSpeedSlowdown;
+	public FairiesDataList gameBalanceDataSource;
+	public Image lineRechargeIndicator;
 
-	bool _startSlowdown;
+	GamePlayerDataController _playerData;
+
+	int _bonusRechargeTime;
+	int _currentBonusTime;
 
 	void Start () {
-		_currentBonusTime = 0;
-	}
+		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
+		_currentBonusTime = _bonusRechargeTime;
+		lineRechargeIndicator.fillAmount = 0f;
 
-	void Update () {
-		if(gameLogicController.stopGame == false)
+		if(_playerData.selectedFairyIndex >= 0)
 		{
-			_currentBonusTime++;
-			if (_startSlowdown == true) {
-				if (_currentBonusTime >= maxBonusTime) {
-					_currentBonusTime = 0;
-					_startSlowdown = false;
-					gameLogicController.setBlocksSpeed(gameLogicController.blocksSpeed + _startBonusGameSpeedSlowdown);
-				}
-			} else {
-				if (_currentBonusTime >= bonusRechargeTime) {
-					useBonus ();
-				}
-			}
+			_playerData.slowBonusCount--;
+			GameFairyModel fairyModel = gameBalanceDataSource.dataArray[_playerData.selectedFairyIndex];
+			_bonusRechargeTime = fairyModel.fairyCreateSlowBonusTime;
 		}
 	}
 
-	public void useBonus()
-	{
-		float newSpeed = gameLogicController.blocksSpeed - gameLogicController.blocksSpeed * bonusGameSpeedSlowdownRate;
-		_startBonusGameSpeedSlowdown = gameLogicController.blocksSpeed * bonusGameSpeedSlowdownRate;
-		gameLogicController.setBlocksSpeed(newSpeed);
-		_currentBonusTime = 0;
-		_startSlowdown = true;
+	void Update () {
+		float fillAmount = ((float)_bonusRechargeTime - _currentBonusTime) / (float)_bonusRechargeTime;
+		lineRechargeIndicator.fillAmount = 1 - fillAmount;
+
+		if(gameLogicController.stopGame == false && _playerData.selectedFairyIndex >= 0)
+		{
+			_currentBonusTime++;
+			if(_currentBonusTime > _bonusRechargeTime)
+			{
+				_playerData.slowBonusCount++;
+				_currentBonusTime = 0;
+			}
+		}
 	}
 
 }

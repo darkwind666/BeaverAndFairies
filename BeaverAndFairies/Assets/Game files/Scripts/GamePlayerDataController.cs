@@ -156,7 +156,7 @@ public class GamePlayerDataController {
         completedTutorialsCount = 0;
         selectedLevelIndex = 0;
         completedTutorialsCount = 0;
-		selectedFairyIndex = 0;
+		selectedFairyIndex = -1;
         showReviewSuggestion = false;
 		showJoinGroupSuggestion = false;
 		showInviteFriendsSuggestion = false;

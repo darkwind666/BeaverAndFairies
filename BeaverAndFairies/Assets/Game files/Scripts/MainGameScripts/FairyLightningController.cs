@@ -1,45 +1,45 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class FairyLightningController : MonoBehaviour {
 
-	public int explosionsCount;
-	public int bonusRechargeTime;
 	public GameLogicController gameLogicController;
+	public FairiesDataList gameBalanceDataSource;
+	public Image lineRechargeIndicator;
 
+	GamePlayerDataController _playerData;
+
+	int _bonusRechargeTime;
 	int _currentBonusTime;
 
 	void Start () {
-		_currentBonusTime = 0;
+		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
+		_currentBonusTime = _bonusRechargeTime;
+		lineRechargeIndicator.fillAmount = 0f;
+
+		if(_playerData.selectedFairyIndex >= 0)
+		{
+			_playerData.damageBonusCount--;
+			GameFairyModel fairyModel = gameBalanceDataSource.dataArray[_playerData.selectedFairyIndex];
+			_bonusRechargeTime = fairyModel.fairyCreateSlowBonusTime;
+		}
+
 	}
 
 	void Update () {
-		if(gameLogicController.stopGame == false)
+		float fillAmount = ((float)_bonusRechargeTime - _currentBonusTime) / (float)_bonusRechargeTime;
+		lineRechargeIndicator.fillAmount = 1 - fillAmount;
+
+		if(gameLogicController.stopGame == false && _playerData.selectedFairyIndex >= 0)
 		{
 			_currentBonusTime++;
-			if(_currentBonusTime > bonusRechargeTime)
+			if(_currentBonusTime > _bonusRechargeTime)
 			{
-				useLightning();
+				_playerData.damageBonusCount++;
 				_currentBonusTime = 0;
 			}
 		}
-	}
-
-	void useLightning()
-	{
-		int explosionsCount = this.explosionsCount;
-		if(gameLogicController._currentBlocks.Count < explosionsCount)
-		{
-			explosionsCount = gameLogicController._currentBlocks.Count;
-		}
-
-		for(int explosionIndex = 0; explosionIndex < explosionsCount; explosionIndex++)
-		{
-			GameObject firstBlock = gameLogicController._currentBlocks.Dequeue();
-			Destroy(firstBlock);
-		}
-
-		gameLogicController.startMoveUpBlocks();
 	}
 
 }

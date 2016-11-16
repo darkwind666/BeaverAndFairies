@@ -8,6 +8,7 @@ public class SlowdownBonusController : MonoBehaviour {
 	public GameObject gameShopPopUp;
 	public Text slowBonusCountLabel;
 	public FairiesDataList gameBalanceData;
+	public Image circularRechargeIndicator;
     int _bonusRechargeTime;
 	int _currentBonusTime;
 	float _startBonusGameSpeedSlowdown;
@@ -18,11 +19,14 @@ public class SlowdownBonusController : MonoBehaviour {
 	void Start () {
 		_bonusRechargeTime = gameBalanceData.slowBonusRechargeTime + gameBalanceData.slowBonusMaxTime;
 		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
-		_currentBonusTime = 0;
+		_currentBonusTime = _bonusRechargeTime;
+		circularRechargeIndicator.fillAmount = 0f;
 	}
 
 	void Update () {
 		slowBonusCountLabel.text = _playerData.slowBonusCount.ToString();
+		float fillAmount = ((float)_bonusRechargeTime - _currentBonusTime) / (float)_bonusRechargeTime;
+		circularRechargeIndicator.fillAmount = fillAmount;
 
 		_currentBonusTime++;
 		if(_currentBonusTime >= _bonusRechargeTime)
