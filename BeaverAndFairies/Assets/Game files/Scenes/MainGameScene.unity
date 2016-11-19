@@ -2598,6 +2598,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 588597534}
+--- !u!1001 &598217698
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 223.00102
+      objectReference: {fileID: 0}
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 198.21062
+      objectReference: {fileID: 0}
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &599352483
 GameObject:
   m_ObjectHideFlags: 0
@@ -4477,7 +4519,7 @@ Prefab:
     - target: {fileID: 224000012958094772, guid: 709c36e766e4d43d8a54098275f40db7,
         type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 224000012958094772, guid: 709c36e766e4d43d8a54098275f40db7,
         type: 2}
@@ -4940,7 +4982,7 @@ Prefab:
     - target: {fileID: 224000011553120376, guid: 055c7892ce1554046b4b3d3b5fd28326,
         type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 224000011553120376, guid: 055c7892ce1554046b4b3d3b5fd28326,
         type: 2}

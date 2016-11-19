@@ -254,7 +254,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadingController: {fileID: 790366832}
   vkLogInPopUp: {fileID: 1277849967}
-  gameShopPopUp: {fileID: 0}
   musicSlider: {fileID: 0}
   effectsSlider: {fileID: 0}
   buttonClickEffect: {fileID: 0}
@@ -5784,7 +5783,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012530014676, guid: d192c2284828646a7808913c11adea94, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d192c2284828646a7808913c11adea94, type: 2}
@@ -9879,6 +9878,58 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1895696444}
+--- !u!1001 &2006443213
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 223.00102
+      objectReference: {fileID: 0}
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 198.21062
+      objectReference: {fileID: 0}
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 447720, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451738, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+      propertyPath: startGame
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 83413aaf1e6b1477ebc5bf550814b556, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &2006443214 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11451738, guid: 83413aaf1e6b1477ebc5bf550814b556,
+    type: 2}
+  m_PrefabInternal: {fileID: 2006443213}
+  m_Script: {fileID: 11500000, guid: 41056e5f9729743c09f757fff60b0871, type: 3}
 --- !u!1 &2018196808
 GameObject:
   m_ObjectHideFlags: 0
@@ -10146,8 +10197,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 28783677}
-        m_MethodName: gameRecordsPressed
+      - m_Target: {fileID: 2006443214}
+        m_MethodName: showGlobalLeaderboard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

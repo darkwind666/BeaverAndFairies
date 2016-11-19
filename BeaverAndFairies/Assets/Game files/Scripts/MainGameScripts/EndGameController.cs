@@ -7,6 +7,7 @@ public class EndGameController : MonoBehaviour {
 	public MainGameVkController vkController;
 	public MainGameFbController fbController;
 	public GameLogicController gameLogicController;
+	public GlobalLeaderboardController globalLeaderboardController;
 
 	public GameObject joinGameGroupPopUp;
 	public GameObject inviteFriendsPopUp;
@@ -24,9 +25,12 @@ public class EndGameController : MonoBehaviour {
 
 	public void endMainGame()
 	{
+		_playerData.playerScore += gameLogicController._score;
+		_playerData.savePlayerData();
 		endGamePopUp.SetActive(true);
 		vkController.sendInVkPlayerScore(gameLogicController._score);
 		fbController.sendInFbPlayerScore(gameLogicController._score);
+		globalLeaderboardController.sendPlayerRecord(gameLogicController._score);
 
 		int showSocialPopUpIndex = Random.Range(0,2);
 

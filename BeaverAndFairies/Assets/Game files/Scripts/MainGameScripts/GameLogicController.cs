@@ -38,12 +38,10 @@ public class GameLogicController : MonoBehaviour {
 	public GameGlobalSettings gameSettings;
 	public FadingScript fadingController;
 
-	GamePlayerDataController _playerData;
 	public EndGameController endGameController;
 
 
 	void Start () {
-		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 		BlockTasksController blockTasksController = blockExample.GetComponent<BlockTasksController>();
 		Renderer renderer = blockTasksController.blockRect.GetComponent<Renderer>();
 		_blockHeight = renderer.bounds.size.y;

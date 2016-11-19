@@ -10,7 +10,6 @@ public class MainMenuController : MonoBehaviour {
     public FadingScript fadingController;
 
 	public GameObject vkLogInPopUp;
-	public GameObject gameShopPopUp;
 
     public Slider musicSlider;
     public Slider effectsSlider;
@@ -101,10 +100,5 @@ public class MainMenuController : MonoBehaviour {
         _playerData.gameSoundEffectsVolume = aVolume;
         _playerData.savePlayerData();
     }
-
-	public void gameRecordsPressed()
-	{
 		
-	}
-
 }

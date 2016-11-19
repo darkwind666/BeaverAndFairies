@@ -12,6 +12,8 @@ public class GameGlobalSettings : ScriptableObject {
 	public float scaleAnimationDuration;
 	public float distanceBetweeneTasks;
 
+	public string googlePlayLeaderboardId;
+
 	public string inAppProductRemoveAdID;
 	public string inAppProductScoreCount1ID;
 	public string inAppProductScoreCount2ID;
