@@ -59,4 +59,9 @@ public class EndGameController : MonoBehaviour {
 		}
 	}
 
+	public void getAdditionalScores()
+	{
+		_playerData.playerScore += gameLogicController._score;
+	}
+
 }

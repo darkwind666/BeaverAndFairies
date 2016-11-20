@@ -15,4 +15,6 @@ public class FairiesDataList : ScriptableObject {
 	public float bonusGameSpeedSlowdownRate;
 	public int slowBonusMaxTime;
 	public int slowBonusRechargeTime;
+	public int finalChanceExplosionsBonusCount;
+	public int showButtonTime;
 }
