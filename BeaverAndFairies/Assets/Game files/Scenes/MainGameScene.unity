@@ -248,6 +248,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 32308880}
+--- !u!1 &33197457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 33197458}
+  m_Layer: 0
+  m_Name: FinalChanceController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &33197458
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 33197457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 778433477}
+  m_RootOrder: 5
 --- !u!1 &38989709
 GameObject:
   m_ObjectHideFlags: 0
@@ -3609,6 +3637,7 @@ Transform:
   - {fileID: 1458444979}
   - {fileID: 1364706989}
   - {fileID: 1608248048}
+  - {fileID: 33197458}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1 &781910952
@@ -6925,6 +6954,7 @@ MonoBehaviour:
   vkController: {fileID: 1133136509}
   fbController: {fileID: 954644458}
   gameLogicController: {fileID: 1978387182}
+  globalLeaderboardController: {fileID: 0}
   joinGameGroupPopUp: {fileID: 2130560268}
   inviteFriendsPopUp: {fileID: 737244517}
   rateGamePopUp: {fileID: 1809043816}

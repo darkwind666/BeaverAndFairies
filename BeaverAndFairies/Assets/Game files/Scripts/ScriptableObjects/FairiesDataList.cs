@@ -17,4 +17,5 @@ public class FairiesDataList : ScriptableObject {
 	public int slowBonusRechargeTime;
 	public int finalChanceExplosionsBonusCount;
 	public int showButtonTime;
+	public int maxStopAdsCount;
 }

@@ -8,6 +8,7 @@ public class BlockAdsController : MonoBehaviour {
 	public int stopAdsCount;
 	public AdsController adsController;
 	public GameObject adsAndHDVersionPad;
+	public FairiesDataList gameBalanceData;
 
 	public GameObject button;
 	public Text countText;
@@ -24,7 +25,7 @@ public class BlockAdsController : MonoBehaviour {
 			button.SetActive(false);
 		}
 
-		stopAdsCount = settings.maxStopAdsCount;
+		stopAdsCount = gameBalanceData.maxStopAdsCount;
 		countText.text = stopAdsCount.ToString();
 	}
 
