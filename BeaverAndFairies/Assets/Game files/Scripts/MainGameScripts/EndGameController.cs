@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class EndGameController : MonoBehaviour {
@@ -8,6 +9,9 @@ public class EndGameController : MonoBehaviour {
 	public MainGameFbController fbController;
 	public GameLogicController gameLogicController;
 	public GlobalLeaderboardController globalLeaderboardController;
+	public AdsController adsController;
+	public Button doubleScoreButton;
+	public Text gameResultScoreLabel;
 
 	public GameObject joinGameGroupPopUp;
 	public GameObject inviteFriendsPopUp;
@@ -31,6 +35,7 @@ public class EndGameController : MonoBehaviour {
 		vkController.sendInVkPlayerScore(gameLogicController._score);
 		fbController.sendInFbPlayerScore(gameLogicController._score);
 		globalLeaderboardController.sendPlayerRecord(gameLogicController._score);
+		gameResultScoreLabel.text = gameLogicController._score.ToString();
 
 		int showSocialPopUpIndex = Random.Range(0,2);
 
@@ -59,9 +64,16 @@ public class EndGameController : MonoBehaviour {
 		}
 	}
 
+	public void doubleScorePressed()
+	{
+		adsController.showAdditionalScoreAd();
+	}
+
 	public void getAdditionalScores()
 	{
 		_playerData.playerScore += gameLogicController._score;
+		doubleScoreButton.gameObject.SetActive(false);
+		_playerData.savePlayerData();
 	}
 
 }

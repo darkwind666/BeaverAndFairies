@@ -12,6 +12,7 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 
 	public Text slowBonusPrice;
 	public Text damageBonusPrice;
+	public Text bonusesForAdsCountLabel;
 
 	GamePlayerDataController _playerData;
 	int _lastSelectedFairyIndex;
@@ -22,6 +23,7 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 		_lastSelectedFairyIndex = _playerData.selectedFairyIndex;
 		slowBonusPrice.text = fairiesDataSource.slowBonusPrice.ToString();
 		damageBonusPrice.text = fairiesDataSource.damageBonusPrice.ToString();
+		bonusesForAdsCountLabel.text = fairiesDataSource.scoresForAdsCount.ToString();
 	}
 
 	void Update () {
@@ -119,6 +121,12 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 			_playerData.playerScore -= fairiesDataSource.damageBonusPrice;
 			_playerData.savePlayerData();
 		}
+	}
+
+	public void getAdditionalScores()
+	{
+		_playerData.damageBonusCount += fairiesDataSource.scoresForAdsCount;
+		_playerData.savePlayerData();
 	}
 
 }

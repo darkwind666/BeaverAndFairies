@@ -77,7 +77,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000011241546214
 GameObject:
   m_ObjectHideFlags: 1
@@ -493,7 +493,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114000011081490462}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: showScoresInShopAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114000010164848934
@@ -801,6 +812,7 @@ MonoBehaviour:
   fairiesDataSource: {fileID: 11400000, guid: 37bcedd5f6e614a1d9cdf4a651071193, type: 2}
   slowBonusPrice: {fileID: 114000010438745766}
   damageBonusPrice: {fileID: 114000010596139132}
+  bonusesForAdsCountLabel: {fileID: 114000010261716594}
 --- !u!114 &114000011238735572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1829,7 +1841,7 @@ RectTransform:
   m_Father: {fileID: 224000013282067614}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

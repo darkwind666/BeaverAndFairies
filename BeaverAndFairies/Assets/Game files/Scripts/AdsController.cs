@@ -1,18 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
-using AppodealAds.Unity.Api;
-using AppodealAds.Unity.Common;
+//using AppodealAds.Unity.Api;
+//using AppodealAds.Unity.Common;
 
-public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
+// , INonSkippableVideoAdListener
+
+public class AdsController : MonoBehaviour {
 
 	public GameGlobalSettings settings;
 	public FinalChanceController chanceController;
 	public EndGameController levelResultsController;
+	public GameShopPopUpController gameShopPopUpController;
 
 	bool _finalChanceAd;
 	bool _simplifyGameAd;
 	bool _additionalScoreAd;
 	bool _adToBlockAd;
+	bool _scoresInShopAd;
 
 	BlockAdsController _currentBlockAdsController;
 
@@ -38,8 +42,8 @@ public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
 				#endif 
 			}
 
-			Appodeal.initialize(appodealId, Appodeal.NON_SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL | Appodeal.BANNER_TOP);
-			Appodeal.setNonSkippableVideoCallbacks(this);
+//			Appodeal.initialize(appodealId, Appodeal.NON_SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL | Appodeal.BANNER_TOP);
+//			Appodeal.setNonSkippableVideoCallbacks(this);
 		}
 
 	}
@@ -60,7 +64,7 @@ public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
 
 		if (settings.showAppodealAds) 
 		{
-			adAvailable = Appodeal.isLoaded(Appodeal.NON_SKIPPABLE_VIDEO);
+//			adAvailable = Appodeal.isLoaded(Appodeal.NON_SKIPPABLE_VIDEO);
 		}
 
 		return adAvailable;
@@ -85,6 +89,12 @@ public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
 			_currentBlockAdsController.addFinishShow();
 			_adToBlockAd = false;
 		}
+
+		if(_scoresInShopAd)
+		{
+			gameShopPopUpController.getAdditionalScores();
+			_scoresInShopAd = false;
+		}
 	}
 
 	public void showFinalChanceAd() {
@@ -105,6 +115,12 @@ public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
 		playGameAd();
 	}
 
+	public void showScoresInShopAd() {
+
+		_scoresInShopAd = true;
+		playGameAd();
+	}
+
 	public void showAdToBlockAdFromController(BlockAdsController aBlockAdController)
 	{
 		_currentBlockAdsController = aBlockAdController;
@@ -121,7 +137,7 @@ public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
 	{
 		if (settings.showAppodealAds) 
 		{
-			Appodeal.show(Appodeal.NON_SKIPPABLE_VIDEO);
+//			Appodeal.show(Appodeal.NON_SKIPPABLE_VIDEO);
 		}
 	}
 
@@ -132,10 +148,10 @@ public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
 		{
 			if (settings.showAppodealAds && settings.paidGame == false) 
 			{
-				if (Appodeal.isLoaded (Appodeal.INTERSTITIAL)) 
-				{
-					Appodeal.show(Appodeal.INTERSTITIAL);
-				}
+//				if (Appodeal.isLoaded (Appodeal.INTERSTITIAL)) 
+//				{
+//					Appodeal.show(Appodeal.INTERSTITIAL);
+//				}
 			}
 		}
 	}
@@ -144,10 +160,10 @@ public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
 	{
 		if (settings.showAppodealAds && settings.paidGame == false && settings.blockAds == false) 
 		{
-			if (Appodeal.isLoaded (Appodeal.INTERSTITIAL)) 
-			{
-				Appodeal.show(Appodeal.INTERSTITIAL);
-			}
+//			if (Appodeal.isLoaded (Appodeal.INTERSTITIAL)) 
+//			{
+//				Appodeal.show(Appodeal.INTERSTITIAL);
+//			}
 		}
 	}
 
@@ -155,10 +171,10 @@ public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
 	{
 		if (settings.showAppodealAds && settings.paidGame == false && settings.blockAds == false)
 		{
-			if (Appodeal.isLoaded (Appodeal.BANNER_TOP))
-			{
-				Appodeal.show(Appodeal.BANNER_TOP);
-			}
+//			if (Appodeal.isLoaded (Appodeal.BANNER_TOP))
+//			{
+//				Appodeal.show(Appodeal.BANNER_TOP);
+//			}
 		}
 	}
 
@@ -166,7 +182,7 @@ public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
 	{
 		if (settings.showAppodealAds) 
 		{
-			Appodeal.hide(Appodeal.BANNER_TOP);
+//			Appodeal.hide(Appodeal.BANNER_TOP);
 		}
 	}
 }

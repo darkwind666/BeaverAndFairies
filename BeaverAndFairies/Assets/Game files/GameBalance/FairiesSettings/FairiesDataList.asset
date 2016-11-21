@@ -39,3 +39,7 @@ MonoBehaviour:
   bonusGameSpeedSlowdownRate: 0.3
   slowBonusMaxTime: 100
   slowBonusRechargeTime: 300
+  finalChanceExplosionsBonusCount: 6
+  showButtonTime: 300
+  maxStopAdsCount: 2
+  scoresForAdsCount: 200

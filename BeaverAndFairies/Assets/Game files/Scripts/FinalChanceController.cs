@@ -7,6 +7,7 @@ public class FinalChanceController : MonoBehaviour {
 	public AdsController adsController;
 	public GameLogicController gameLogicController;
 	public FairiesDataList gameBalanceData;
+	public GameGlobalSettings gameSettings;
 
 	int _currentTimeState;
 
@@ -15,7 +16,7 @@ public class FinalChanceController : MonoBehaviour {
 	}
 
 	void Update () {
-		if(gameLogicController.stopGame == false && adsController.adAvailable())
+		if(gameLogicController.stopGame == false && adsController.adAvailable() && gameLogicController._currentBlocks.Count < (gameSettings.boardHeight - 2))
 		{
 			if (button.activeSelf == false)
 			{
@@ -42,6 +43,7 @@ public class FinalChanceController : MonoBehaviour {
 	{
 		_currentTimeState = 0;
 		button.SetActive(false);
+		gameLogicController.pauseGame();
 		adsController.showFinalChanceAd();
 	}
 
@@ -58,5 +60,6 @@ public class FinalChanceController : MonoBehaviour {
 		}
 
 		gameLogicController.startMoveUpBlocks();
+		gameLogicController.resumeGame();
 	}
 }

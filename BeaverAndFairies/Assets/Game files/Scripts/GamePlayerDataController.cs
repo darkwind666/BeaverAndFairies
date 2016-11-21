@@ -23,7 +23,7 @@ public class GamePlayerDataController {
     public int completedLevelsCount { get; set; }
     public int playerScore { get; set; }
     public int selectedLevelIndex { get; set; }
-    public int completedTutorialsCount { get; set; }
+	public bool completedTutorial { get; set; }
     public bool showReviewSuggestion { get; set; }
 	public bool showJoinGroupSuggestion { get; set; }
 	public bool showInviteFriendsSuggestion { get; set; }
@@ -91,10 +91,9 @@ public class GamePlayerDataController {
             playerExist = data.playerExist;
             gameMusicVolume = data.gameMusicVolume;
             gameSoundEffectsVolume = data.gameSoundEffectsVolume;
-            completedLevelsCount = data.completedLevelsCount;
             playerScore = data.playerScore;
 			endlessLevelPlayedTime = data.endlessLevelPlayedTime;
-            completedTutorialsCount = data.completedTutorialsCount;
+			completedTutorial = data.completedTutorial;
             showReviewSuggestion = data.showReviewSuggestion;
 			showJoinGroupSuggestion = data.showJoinGroupSuggestion;
 			showInviteFriendsSuggestion = data.showInviteFriendsSuggestion;
@@ -126,10 +125,9 @@ public class GamePlayerDataController {
         savingData.playerExist = playerExist;
         savingData.gameMusicVolume = gameMusicVolume;
         savingData.gameSoundEffectsVolume = gameSoundEffectsVolume;
-        savingData.completedLevelsCount = completedLevelsCount;
         savingData.playerScore = playerScore;
 		savingData.endlessLevelPlayedTime = endlessLevelPlayedTime;
-        savingData.completedTutorialsCount = completedTutorialsCount;
+		savingData.completedTutorial = completedTutorial;
         savingData.showReviewSuggestion = showReviewSuggestion;
 		savingData.showJoinGroupSuggestion = showJoinGroupSuggestion;
 		savingData.showInviteFriendsSuggestion = showInviteFriendsSuggestion;
@@ -153,9 +151,8 @@ public class GamePlayerDataController {
         completedLevelsCount = 0;
         playerScore = 60;
 		endlessLevelPlayedTime = 0;
-        completedTutorialsCount = 0;
+		completedTutorial = false;
         selectedLevelIndex = 0;
-        completedTutorialsCount = 0;
 		selectedFairyIndex = -1;
         showReviewSuggestion = false;
 		showJoinGroupSuggestion = false;
@@ -188,7 +185,7 @@ public class PlayerData
     public float gameMusicVolume;
     public float gameSoundEffectsVolume;
     public string playerName;
-    public int completedLevelsCount;
+	public bool completedTutorial;
     public int playerScore;
 	public int endlessLevelPlayedTime;
     public int completedTutorialsCount;
