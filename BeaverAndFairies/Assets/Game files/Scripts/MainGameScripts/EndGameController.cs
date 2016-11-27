@@ -36,6 +36,8 @@ public class EndGameController : MonoBehaviour {
 		fbController.sendInFbPlayerScore(gameLogicController._score);
 		globalLeaderboardController.sendPlayerRecord(gameLogicController._score);
 		gameResultScoreLabel.text = gameLogicController._score.ToString();
+		GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
+		analiticsController.sendFinishLevelWithScore(gameLogicController._score);
 
 		int showSocialPopUpIndex = Random.Range(0,2);
 
@@ -47,20 +49,25 @@ public class EndGameController : MonoBehaviour {
 
 	void showSocialPopUp()
 	{
+		GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
+		
 		if(_playerData.showJoinGroupSuggestion == false)
 		{
 			joinGameGroupPopUp.SetActive(true);
 			_playerData.showJoinGroupSuggestion = true;
+			analiticsController.showJoinGroupMainGamePopUp();
 		} 
 		else if (_playerData.showInviteFriendsSuggestion == false)
 		{
 			inviteFriendsPopUp.SetActive(true);
 			_playerData.showInviteFriendsSuggestion = true;
+			analiticsController.showInviteFriendsMainGamePopUp();
 		}
 		else if(_playerData.showReviewSuggestion == false)
 		{
 			rateGamePopUp.SetActive(true);
 			_playerData.showReviewSuggestion = true;
+			analiticsController.showRateGameMainGamePopUp();
 		}
 	}
 

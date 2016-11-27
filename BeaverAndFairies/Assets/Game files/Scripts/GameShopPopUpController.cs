@@ -9,6 +9,7 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 	public GameShopCell m_cellPrefab;
 	public TableView m_tableView;
 	public FairiesDataList fairiesDataSource;
+	public GameObject inAppPurchasesPopUp;
 
 	public Text slowBonusPrice;
 	public Text damageBonusPrice;
@@ -77,13 +78,20 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 		cell.fairyButton.onClick.RemoveAllListeners();
 		cell.fairyButton.onClick.AddListener(() => { 
 
-			if(_playerData.playerFairies.Contains(row) == false && _playerData.playerScore >= cellData.fairyPrice)
+			if(_playerData.playerFairies.Contains(row) == false)
 			{
-				_playerData.playerFairies.Add(row);
-				_playerData.playerScore -= cellData.fairyPrice;
-				_playerData.selectedFairyIndex = row;
-				_lastSelectedFairyIndex = row;
-				_playerData.savePlayerData();
+				if(_playerData.playerScore >= cellData.fairyPrice)
+				{
+					_playerData.playerFairies.Add(row);
+					_playerData.playerScore -= cellData.fairyPrice;
+					_playerData.selectedFairyIndex = row;
+					_lastSelectedFairyIndex = row;
+					_playerData.savePlayerData();
+					GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
+					analiticsController.buyFairyPressed();
+				} else {
+					inAppPurchasesPopUp.SetActive(true);
+				}
 			}
 
 		});
@@ -105,11 +113,12 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 
 	public void buySlowBonus()
 	{
-		if(_playerData.playerScore >= fairiesDataSource.slowBonusPrice)
-		{
+		if (_playerData.playerScore >= fairiesDataSource.slowBonusPrice) {
 			_playerData.slowBonusCount++;
 			_playerData.playerScore -= fairiesDataSource.slowBonusPrice;
-			_playerData.savePlayerData();
+			_playerData.savePlayerData ();
+		} else {
+			inAppPurchasesPopUp.SetActive(true);
 		}
 	}
 
@@ -120,6 +129,8 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 			_playerData.damageBonusCount++;
 			_playerData.playerScore -= fairiesDataSource.damageBonusPrice;
 			_playerData.savePlayerData();
+		} else {
+			inAppPurchasesPopUp.SetActive(true);
 		}
 	}
 

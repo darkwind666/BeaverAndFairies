@@ -14,9 +14,11 @@ public class InAppPurchasesController : MonoBehaviour, IStoreListener {
 	static IExtensionProvider m_StoreExtensionProvider;
 
 	GamePlayerDataController _playerData;
+	GameAnaliticsController _analiticsController;
 
 	void Start () {
 
+		_analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
 		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 
 		if (m_StoreController == null)
@@ -150,36 +152,42 @@ public class InAppPurchasesController : MonoBehaviour, IStoreListener {
 			_playerData.blockAdsInAppBought = true;
 			_playerData.playerScore += fairiesDataSource.inAppsDataArray[0].scoresCount;
 			_playerData.savePlayerData();
+			_analiticsController.userBuyBlockAd();
 		}
 		else if (String.Equals(args.purchasedProduct.definition.id, gameSettings.inAppProductScoreCount1ID, StringComparison.Ordinal))
 		{
 			_playerData.blockAdsInAppBought = true;
 			_playerData.playerScore += fairiesDataSource.inAppsDataArray[0].scoresCount;
 			_playerData.savePlayerData();
+			_analiticsController.userBuyScoresCount1();
 		}
 		else if (String.Equals(args.purchasedProduct.definition.id, gameSettings.inAppProductScoreCount2ID, StringComparison.Ordinal))
 		{
 			_playerData.blockAdsInAppBought = true;
 			_playerData.playerScore += fairiesDataSource.inAppsDataArray[1].scoresCount;
 			_playerData.savePlayerData();
+			_analiticsController.userBuyScoresCount2();
 		}
 		else if (String.Equals(args.purchasedProduct.definition.id, gameSettings.inAppProductScoreCount3ID, StringComparison.Ordinal))
 		{
 			_playerData.blockAdsInAppBought = true;
 			_playerData.playerScore += fairiesDataSource.inAppsDataArray[2].scoresCount;
 			_playerData.savePlayerData();
+			_analiticsController.userBuyScoresCount3();
 		}
 		else if (String.Equals(args.purchasedProduct.definition.id, gameSettings.inAppProductScoreCount4ID, StringComparison.Ordinal))
 		{
 			_playerData.blockAdsInAppBought = true;
 			_playerData.playerScore += fairiesDataSource.inAppsDataArray[3].scoresCount;
 			_playerData.savePlayerData();
+			_analiticsController.userBuyScoresCount4();
 		}
 		else if (String.Equals(args.purchasedProduct.definition.id, gameSettings.inAppProductScoreCount5ID, StringComparison.Ordinal))
 		{
 			_playerData.blockAdsInAppBought = true;
 			_playerData.playerScore += fairiesDataSource.inAppsDataArray[4].scoresCount;
 			_playerData.savePlayerData();
+			_analiticsController.userBuyScoresCount5();
 		}
 		else 
 		{

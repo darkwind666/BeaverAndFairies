@@ -26,32 +26,30 @@ public class GameTutorialController : MonoBehaviour {
 		{
 			gameLogicController._swipeDirectionController.getTouchDirection();
 
-			if (_currentTutorialIndex == 0 && gameLogicController._swipeDirectionController.mMessageIndex == 3) {
+			if (_currentTutorialIndex == 0 && gameLogicController._swipeDirectionController.mMessageIndex == 2) {
 				goToNextTutorial();
 			}
 
-			if(_currentTutorialIndex == 1 && gameLogicController._swipeDirectionController.mMessageIndex == 4)
+			if(_currentTutorialIndex == 1 && gameLogicController._swipeDirectionController.mMessageIndex == 1)
 			{
 				goToNextTutorial();
 			}
 
-			if(_currentTutorialIndex == 2 && gameLogicController._swipeDirectionController.mMessageIndex == 2)
+			if(_currentTutorialIndex == 2 && gameLogicController._swipeDirectionController.mMessageIndex == 3)
 			{
 				goToNextTutorial();
 			}
 
-			if(_currentTutorialIndex == 3 && gameLogicController._swipeDirectionController.mMessageIndex == 1)
-			{
-				goToNextTutorial();
-			}
-
-			if(_currentTutorialIndex == 4 && Input.GetMouseButtonDown(0) == true)
+			if(_currentTutorialIndex == 3 && gameLogicController._swipeDirectionController.mMessageIndex == 4)
 			{
 				_activeTutorial = false;
 				tutorialParts[_currentTutorialIndex].SetActive (false);
 				gameLogicController.resumeGame();
+				_playerData.completedTutorial = true;
+				_playerData.savePlayerData();
+				GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
+				analiticsController.finishGameTutorial();
 			}
-
 		}
 	}
 

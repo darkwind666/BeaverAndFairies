@@ -8,7 +8,6 @@ using Facebook.Unity;
 public class MainMenuController : MonoBehaviour {
 
     public FadingScript fadingController;
-
 	public GameObject vkLogInPopUp;
 
     public Slider musicSlider;
@@ -58,6 +57,8 @@ public class MainMenuController : MonoBehaviour {
 			
 		if (_playerData.playerExist == false && _playerData.notNowPressed == false) {
 			vkLogInPopUp.SetActive (true);
+			GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
+			analiticsController.showSocialsLogInPopUp();
 		} 
 
        // setupAudio();

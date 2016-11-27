@@ -54,7 +54,6 @@ public class GameLogicController : MonoBehaviour {
 		_swipeDirectionController = new SwipeDirectionController();
 		_moveBlocksController = new MoveBlocksController();
 		_moveBlocksController.gameLogicController = this;
-		stopGame = false;
 		gameBalanceController.setNewBalance();
 	}
 		

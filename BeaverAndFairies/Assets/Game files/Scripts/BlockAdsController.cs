@@ -15,7 +15,9 @@ public class BlockAdsController : MonoBehaviour {
 
 	void Start () {
 
-		if(settings.paidGame == true)
+		GamePlayerDataController playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
+
+		if(settings.paidGame == true || playerData.blockAdsInAppBought == true)
 		{
 			adsAndHDVersionPad.SetActive(false);
 		}
