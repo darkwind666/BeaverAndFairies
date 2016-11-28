@@ -117,6 +117,8 @@ public class GameAnaliticsController : MonoBehaviour {
 	public void inviteFbFriendsFromMainGame() { sendAnaliticMessage(gameAnaliticsMessages.inviteFbFriendsFromMainGame);}
 
 	public void rateGameFromMainGame() { sendAnaliticMessage(gameAnaliticsMessages.rateGameFromMainGame);}
+	public void rateGameFromGameSettings() { sendAnaliticMessage(gameAnaliticsMessages.rateGameFromGameSettings);}
 	public void contactDevelopersFromMainGame() { sendAnaliticMessage(gameAnaliticsMessages.contactDevelopersFromMainGame);}
+	public void contactDevelopersFromGameSettings() { sendAnaliticMessage(gameAnaliticsMessages.contactDevelopersFromGameSettings);}
 
 }

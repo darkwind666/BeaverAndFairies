@@ -80,7 +80,8 @@ public class GameAnaliticsMessages : ScriptableObject {
 	public string inviteVkFriendsFromMainGame;
 	public string inviteFbFriendsFromMainGame;
 	public string rateGameFromMainGame;
+	public string rateGameFromGameSettings;
 	public string contactDevelopersFromMainGame;
-
+	public string contactDevelopersFromGameSettings;
 
 }

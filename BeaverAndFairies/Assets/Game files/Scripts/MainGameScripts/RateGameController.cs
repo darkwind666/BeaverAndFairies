@@ -1,14 +1,27 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using com.playGenesis.VkUnityPlugin;
+using com.playGenesis.VkUnityPlugin.MiniJSON;
+using Facebook.Unity;
 
-public class ContactDevelopersController : MonoBehaviour {
+public class RateGameController : MonoBehaviour {
+
+	public GameGlobalSettings gameSettings;
+	public NativeShare shareController;
 
 	void Start () {
-	
 	}
 
 	void Update () {
 	
+	}
+
+	public void rateGamePressed()
+	{
+		
 	}
 
 	public void contactDeveloper()
@@ -28,4 +41,5 @@ public class ContactDevelopersController : MonoBehaviour {
 	{
 		return WWW.EscapeURL(url).Replace("+","%20");
 	}
+
 }
