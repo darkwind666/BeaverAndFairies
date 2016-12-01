@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using com.playGenesis.VkUnityPlugin;
 using com.playGenesis.VkUnityPlugin.MiniJSON;
 using System.Collections;
@@ -10,6 +11,8 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 	public GameGlobalSettings gameGlobalSettings;
 	public GameObject vkButton;
 	public GameObject fbButton;
+	public Text vklLogInReward;
+	public Text fblLogInReward;
 
 	GamePlayerDataController _playerData;
 	VkApi _vkapi;
@@ -18,6 +21,8 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 		_vkapi = VkApi.VkApiInstance;
 		_vkapi.LoggedIn += onVKLogin;
+		vklLogInReward.text = gameGlobalSettings.logInReward.ToString();
+		fblLogInReward.text = gameGlobalSettings.logInReward.ToString();
 	}
 
 	void OnDisable()

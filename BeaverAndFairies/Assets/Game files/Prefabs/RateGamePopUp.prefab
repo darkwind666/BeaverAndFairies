@@ -54,6 +54,7 @@ GameObject:
   - 224: {fileID: 224000013159546140}
   - 222: {fileID: 222000012212234750}
   - 114: {fileID: 114000013160116432}
+  - 114: {fileID: 114000012529288072}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -71,6 +72,7 @@ GameObject:
   - 224: {fileID: 224000012462550028}
   - 222: {fileID: 222000010753909224}
   - 114: {fileID: 114000012589184448}
+  - 114: {fileID: 114000013117674426}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -113,7 +115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000013217065696
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,8 +126,9 @@ GameObject:
   - 224: {fileID: 224000012115381578}
   - 222: {fileID: 222000011124371736}
   - 114: {fileID: 114000012845225982}
+  - 114: {fileID: 114000013195884136}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RateGameLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,6 +362,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000012529288072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012087167298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba390450cf8b4be18bf68e8a61280f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizedKey: BeaverGame.ContactUs
 --- !u!114 &114000012589184448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -425,6 +440,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: New Text
+--- !u!114 &114000013117674426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013151685800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba390450cf8b4be18bf68e8a61280f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizedKey: BeaverGame.RateGameButtonLabel
 --- !u!114 &114000013160116432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -458,6 +485,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Contact developers
+--- !u!114 &114000013195884136
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013217065696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba390450cf8b4be18bf68e8a61280f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizedKey: BeaverGame.RateGameProposal
 --- !u!114 &114000013381214146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -536,7 +575,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_MethodName: rateGameFromMainGame
+        m_MethodName: rateGameFromGameSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -653,7 +692,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_MethodName: contactDevelopersFromMainGame
+        m_MethodName: contactDevelopersFromGameSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

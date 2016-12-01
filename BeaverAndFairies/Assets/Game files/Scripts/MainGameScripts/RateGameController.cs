@@ -21,7 +21,38 @@ public class RateGameController : MonoBehaviour {
 
 	public void rateGamePressed()
 	{
-		
+		string targetUrl = "";
+
+		if (gameSettings.paidGame) 
+		{
+			#if UNITY_IOS
+			targetUrl = gameSettings.appStoreHD;
+			#endif 
+
+			#if UNITY_ANDROID
+			targetUrl = gameSettings.googlePlayHD;
+			#endif
+
+			#if UNITY_WP_8_1 || UNITY_WINRT_8_1
+			targetUrl = gameSettings.windowsPhoneStoreHD;
+			#endif
+		} 
+		else 
+		{
+			#if UNITY_IOS
+			targetUrl = gameSettings.appStoreFree;
+			#endif 
+
+			#if UNITY_ANDROID
+			targetUrl = gameSettings.googlePlayFree;
+			#endif
+
+			#if UNITY_WP_8_1 || UNITY_WINRT_8_1
+			targetUrl = gameSettings.windowsPhoneStoreFree;
+			#endif
+		}
+
+		Application.OpenURL(targetUrl);
 	}
 
 	public void contactDeveloper()

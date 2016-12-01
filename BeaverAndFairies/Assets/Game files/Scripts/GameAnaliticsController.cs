@@ -120,5 +120,6 @@ public class GameAnaliticsController : MonoBehaviour {
 	public void rateGameFromGameSettings() { sendAnaliticMessage(gameAnaliticsMessages.rateGameFromGameSettings);}
 	public void contactDevelopersFromMainGame() { sendAnaliticMessage(gameAnaliticsMessages.contactDevelopersFromMainGame);}
 	public void contactDevelopersFromGameSettings() { sendAnaliticMessage(gameAnaliticsMessages.contactDevelopersFromGameSettings);}
+	public void showDevelopersPressed() { sendAnaliticMessage(gameAnaliticsMessages.showDevelopersPressed);}
 
 }

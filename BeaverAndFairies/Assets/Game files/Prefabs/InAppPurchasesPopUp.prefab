@@ -169,7 +169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000011479324132
 GameObject:
   m_ObjectHideFlags: 1
@@ -180,6 +180,7 @@ GameObject:
   - 224: {fileID: 224000010369788696}
   - 222: {fileID: 222000013493171342}
   - 114: {fileID: 114000011113088684}
+  - 114: {fileID: 114000010858882436}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -662,6 +663,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000010858882436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011479324132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba390450cf8b4be18bf68e8a61280f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizedKey: BeaverGame.RestoreInApps
 --- !u!114 &114000011037990946
 MonoBehaviour:
   m_ObjectHideFlags: 1

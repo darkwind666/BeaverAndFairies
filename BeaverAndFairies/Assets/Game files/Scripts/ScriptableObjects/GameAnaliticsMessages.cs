@@ -83,5 +83,6 @@ public class GameAnaliticsMessages : ScriptableObject {
 	public string rateGameFromGameSettings;
 	public string contactDevelopersFromMainGame;
 	public string contactDevelopersFromGameSettings;
+	public string showDevelopersPressed;
 
 }

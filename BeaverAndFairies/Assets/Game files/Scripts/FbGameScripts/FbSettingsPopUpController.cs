@@ -15,7 +15,7 @@ public class FbSettingsPopUpController : MonoBehaviour {
 	public Image playerImage;
 
 	public GameObject logInButton;
-	public GameObject logInRewardText;
+	public Text logInRewardText;
 
 	public GameObject logOutButton;
 
@@ -31,10 +31,12 @@ public class FbSettingsPopUpController : MonoBehaviour {
 
 	void setUpFacebookSettins()
 	{
+		logInRewardText.text = gameSettings.logInReward.ToString();
+
 		if (FB.IsLoggedIn == true) {
 			logInButton.SetActive (false);
 			logOutButton.SetActive (true);
-			logInRewardText.SetActive (false);
+			logInRewardText.gameObject.SetActive (false);
 			getUserInfo();
 			getUserAvatar();
 			getPlayerRewardForLogIn();

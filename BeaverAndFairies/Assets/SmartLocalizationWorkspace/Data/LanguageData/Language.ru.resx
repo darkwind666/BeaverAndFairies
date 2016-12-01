@@ -116,7 +116,84 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-	<data name="MyFirst.Key" xml:space="preserve">
-		<value />
+	<data name="BeaverGame.AcceptVkActionQuestion" xml:space="preserve">
+		<value>Вы уверенны?</value>
+	</data>
+	<data name="BeaverGame.AddDeveloperToFriend" xml:space="preserve">
+		<value>Добавь друга!</value>
+	</data>
+	<data name="BeaverGame.AllowMessages" xml:space="preserve">
+		<value>Разрешить уведомления</value>
+	</data>
+	<data name="BeaverGame.ContactUs" xml:space="preserve">
+		<value>Написать нам</value>
+	</data>
+	<data name="BeaverGame.Designer" xml:space="preserve">
+		<value>Дизайнер</value>
+	</data>
+	<data name="BeaverGame.DesignerName" xml:space="preserve">
+		<value>Хотяшова Вероника</value>
+	</data>
+	<data name="BeaverGame.EasyGameMode" xml:space="preserve">
+		<value>Легко</value>
+	</data>
+	<data name="BeaverGame.GameName" xml:space="preserve">
+		<value>Название
+Игры</value>
+	</data>
+	<data name="BeaverGame.GoToGameGroup" xml:space="preserve">
+		<value>Группа игры</value>
+	</data>
+	<data name="BeaverGame.GoToVkGamesGroup" xml:space="preserve">
+		<value>Группа игры вк</value>
+	</data>
+	<data name="BeaverGame.HardGameMode" xml:space="preserve">
+		<value>Сложно</value>
+	</data>
+	<data name="BeaverGame.InviteFriends" xml:space="preserve">
+		<value>Пригласить друзей</value>
+	</data>
+	<data name="BeaverGame.InviteFriendsProposal" xml:space="preserve">
+		<value>Вы можете пригласить друзей в  игру!</value>
+	</data>
+	<data name="BeaverGame.JoinGameGroup" xml:space="preserve">
+		<value>Вступить в группу</value>
+	</data>
+	<data name="BeaverGame.JoinGameGroupProposal" xml:space="preserve">
+		<value>Вы можете вступить в группу игры!</value>
+	</data>
+	<data name="BeaverGame.JoinVkGamesGroup" xml:space="preserve">
+		<value>Вступить в группу игр вк</value>
+	</data>
+	<data name="BeaverGame.LogIn" xml:space="preserve">
+		<value>Войти</value>
+	</data>
+	<data name="BeaverGame.LogOut" xml:space="preserve">
+		<value>Выйти</value>
+	</data>
+	<data name="BeaverGame.NormalGameMode" xml:space="preserve">
+		<value>Нормально</value>
+	</data>
+	<data name="BeaverGame.NotNow" xml:space="preserve">
+		<value>Не сейчас</value>
+	</data>
+	<data name="BeaverGame.Programmer" xml:space="preserve">
+		<value>Программист</value>
+	</data>
+	<data name="BeaverGame.ProgrammerName" xml:space="preserve">
+		<value>Хотяшов Александр</value>
+	</data>
+	<data name="BeaverGame.RateGameButtonLabel" xml:space="preserve">
+		<value>Оценить</value>
+	</data>
+	<data name="BeaverGame.RateGameProposal" xml:space="preserve">
+		<value>Вы можете оценить игру :)</value>
+	</data>
+	<data name="BeaverGame.RestoreInApps" xml:space="preserve">
+		<value>Восстановить</value>
+	</data>
+	<data name="BeaverGame.SocialLogInProposal" xml:space="preserve">
+		<value>Подключи 
+социальный сети!</value>
 	</data>
 </root>

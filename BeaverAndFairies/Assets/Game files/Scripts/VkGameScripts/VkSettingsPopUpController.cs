@@ -29,6 +29,10 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 
 	public GameGlobalSettings gameSettings;
 
+	public Text logInVkRewardLabel;
+	public Text joinVkGroupRewardLabel;
+	public Text inviteVkFriendsRewardLabel;
+
 	VkApi _vkapi;
 	VKUser _currentUser;
 	GamePlayerDataController _playerData;
@@ -55,6 +59,11 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 			logInButton.SetActive (true);
 			logOutButton.SetActive (false);
 		}
+
+		logInVkRewardLabel.text = gameSettings.logInReward.ToString();
+		joinVkGroupRewardLabel.text = gameSettings.joinGroupReward.ToString();
+		inviteVkFriendsRewardLabel.text = (gameSettings.inviteFriendReward * 4).ToString();
+
 	}
 
 	void Update () {
