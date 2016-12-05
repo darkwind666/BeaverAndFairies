@@ -44,8 +44,8 @@ public class GameTutorialController : MonoBehaviour {
 			{
 				_activeTutorial = false;
 				tutorialParts[_currentTutorialIndex].SetActive (false);
-				gameLogicController.resumeGame();
 				_playerData.completedTutorial = true;
+				gameLogicController.resumeGame();
 				_playerData.savePlayerData();
 				GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
 				analiticsController.finishGameTutorial();

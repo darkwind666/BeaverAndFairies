@@ -60,6 +60,7 @@ public class SlowdownBonusController : MonoBehaviour {
 				
 		} else {
 			gameShopPopUp.SetActive(true);
+			gameLogicController.pauseGame();
 		}
 	}
 }

@@ -35,16 +35,19 @@ public class SelectLevelUIController : MonoBehaviour {
 
 	public void easyGameSelected()
 	{
+		_playerData.selectedLevelIndex = 0;
 		fadingController.startFade(gameSettings.mainGameScreenName, false);
 	}
 
 	public void normalGameSelected()
 	{
+		_playerData.selectedLevelIndex = 1;
 		fadingController.startFade(gameSettings.mainGameScreenName, false);
 	}
 
 	public void hardGameSelected()
 	{
+		_playerData.selectedLevelIndex = 2;
 		fadingController.startFade(gameSettings.mainGameScreenName, false);
 	}
 

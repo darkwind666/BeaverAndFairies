@@ -9,19 +9,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80e14a72067f1ad408ec8d661bc560ce, type: 3}
-  m_Name: New Import Setting
+  m_Name: NormalImportSetting
   m_EditorClassIdentifier: 
   templatePath: QuickSheet/ExcelPlugin/Templates
   scriptFilePath: Game files/GameBalance/Data
   editorScriptFilePath: Game files/GameBalance/Editor
-  sheetName: GameBalance.xls
+  sheetName: GameBalanceNormal.xls
   workSheetName: List1
   columnHeaderList:
   - type: 2
     name: stage
     isEnable: 0
     isArray: 0
-  - type: 4
+  - type: 2
     name: timeInterval
     isEnable: 0
     isArray: 0
@@ -45,8 +45,9 @@ MonoBehaviour:
     name: randomTaskCount
     isEnable: 0
     isArray: 0
-  excelFilePath: Assets/Game files/GameBalance/GameBalance.xls
+  excelFilePath: Assets/Game files/GameBalance/GameBalanceNormal.xls
   SheetNames:
   - List1
   - List2
+  - List3
   currentSelectedSheet: 0

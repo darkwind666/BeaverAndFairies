@@ -87,6 +87,10 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 					_playerData.selectedFairyIndex = row;
 					_lastSelectedFairyIndex = row;
 					_playerData.savePlayerData();
+
+					cell.selectFairyToggle.gameObject.SetActive(false);
+					cell.selectFairyToggle.isOn = true;
+
 					GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
 					analiticsController.buyFairyPressed();
 				} else {
@@ -99,11 +103,24 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 
 	void setUpToggle(GameShopCell cell, int row)
 	{
+		if(_playerData.playerFairies.Contains(row) == false)
+		{
+			cell.selectFairyToggle.gameObject.SetActive(false);
+		}
+
+		if(_lastSelectedFairyIndex == row)
+		{
+			cell.selectFairyToggle.isOn = true;
+		}
+
 		cell.selectFairyToggle.onValueChanged.RemoveAllListeners();
 		cell.selectFairyToggle.onValueChanged.AddListener((bool value) => {
 
-			GameShopCell selectedFairyCell = m_tableView.GetCellAtRow(_lastSelectedFairyIndex) as GameShopCell;
-			selectedFairyCell.selectFairyToggle.isOn = false;
+			if(_lastSelectedFairyIndex >= 0)
+			{
+				GameShopCell selectedFairyCell = m_tableView.GetCellAtRow(_lastSelectedFairyIndex) as GameShopCell;
+				selectedFairyCell.selectFairyToggle.isOn = false;
+			}
 
 			_playerData.selectedFairyIndex = row;
 			_lastSelectedFairyIndex = row;

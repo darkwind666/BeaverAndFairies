@@ -17,7 +17,7 @@ public class GameEndPopUpController : MonoBehaviour {
 
 	public void backPressed()
 	{
-		fadingController.startFade(gameSettings.selectLevelSceneName, false);
+		fadingController.startFade(gameSettings.mainMenuScreenName, false);
 	}
 
 	public void replayPressed()

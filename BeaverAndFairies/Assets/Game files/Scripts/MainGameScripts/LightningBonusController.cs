@@ -55,6 +55,7 @@ public class LightningBonusController : MonoBehaviour {
 
 		} else {
 			gameShopPopUp.SetActive(true);
+			gameLogicController.pauseGame();
 		}
 	}
 }

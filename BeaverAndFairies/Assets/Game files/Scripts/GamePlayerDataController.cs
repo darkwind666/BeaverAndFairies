@@ -20,7 +20,6 @@ public class GamePlayerDataController {
     public float gameSoundEffectsVolume { get; set; }
     public string playerName { get; set; }
 
-    public int completedLevelsCount { get; set; }
     public int playerScore { get; set; }
     public int selectedLevelIndex { get; set; }
 	public bool completedTutorial { get; set; }
@@ -60,10 +59,18 @@ public class GamePlayerDataController {
 
 	string getPlayerDataFileName()
 	{
-		string fileName = "/bamPlayerData.xml";
+		GameGlobalSettings globalSettings = ServicesLocator.getServiceForKey(typeof(GameGlobalSettings).Name) as GameGlobalSettings;
+		string fileName = "/";
+
+		if(globalSettings.paidGame)
+		{
+			fileName += "paid";
+		}
 
 		#if UNITY_STANDALONE_OSX || UNITY_IOS
-		fileName = "/playerData.bt";
+		fileName += "playerData.bt";
+		#else
+		fileName += "bamPlayerData.xml";
 		#endif
 
 		return fileName;
@@ -148,12 +155,12 @@ public class GamePlayerDataController {
     public void createNewPlayer()
     {
         playerExist = true;
-        completedLevelsCount = 0;
         playerScore = 60;
 		endlessLevelPlayedTime = 0;
 		completedTutorial = false;
         selectedLevelIndex = 0;
 		selectedFairyIndex = -1;
+		playerFairies = new List<int>();
         showReviewSuggestion = false;
 		showJoinGroupSuggestion = false;
 		showInviteFriendsSuggestion = false;

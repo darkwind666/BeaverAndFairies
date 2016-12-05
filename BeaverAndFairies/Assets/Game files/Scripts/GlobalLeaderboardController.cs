@@ -16,7 +16,7 @@ public class GlobalLeaderboardController : MonoBehaviour {
 	void Start () {
 
 		#if UNITY_IOS
-		googlePlayLeaderboardId = "grp." + gameSettings.googlePlayLeaderboardId;
+		gameSettings.googlePlayLeaderboardId = "grp." + gameSettings.googlePlayLeaderboardId;
 		#endif 
 
 		#if UNITY_ANDROID

@@ -11,41 +11,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8147652a2c23b4672b1c5f9c81a4ff33, type: 3}
   m_Name: GameAnaliticsMessages
   m_EditorClassIdentifier: 
-  createNewPlayer: 
-  playPressed: 
-  recordsPressed: 
-  shopPressed: 
-  settingsPressed: 
-  exitPressed: 
-  showSocialsLogInPopUp: 
-  logInVkPressed: 
-  logInFbPressed: 
-  notNowPressed: 
-  rateGamePressed: 
-  vkSettingsPressed: 
-  fbSettingsPressed: 
-  buyBlockAdPressed: 
-  showAdForBlockAdPressed: 
-  goToVkGameGroupPressed: 
-  joinVkGameGroupPressed: 
-  inviteVkFriendsPressed: 
-  allowMessagesPressed: 
-  goToVkGamesGroupPressed: 
-  joinVkGamesGroupPressed: 
-  addDeveloperToFriendPressed: 
-  logOutVkPressed: 
-  goToFbGameGroupPressed: 
-  joinFbGameGroupPressed: 
-  inviteFbFriendsPressed: 
-  logOutFbPressed: 
-  buySlowBonusPressed: 
-  buyDamageBonusPressed: 
-  buyFairyPressed: 
-  showVideoForScoresPressed: 
-  goToInAppPurchesesShopPressed: 
-  buyScoresCount1Pressed: 
-  buyScoresCount2Pressed: 
-  buyScoresCount3Pressed: 
-  buyScoresCount4Pressed: 
-  buyScoresCount5Pressed: 
-  restoreInAppPurchesesPressed: 
+  createNewPlayer: createNewPlayer
+  playPressed: playPressed
+  recordsPressed: recordsPressed
+  shopPressed: shopPressed
+  settingsPressed: settingsPressed
+  exitPressed: exitPressed
+  showSocialsLogInPopUp: showSocialsLogInPopUp
+  logInVkPressed: logInVkPressed
+  logInFbPressed: logInFbPressed
+  notNowPressed: notNowPressed
+  rateGamePressed: rateGamePressed
+  vkSettingsPressed: vkSettingsPressed
+  fbSettingsPressed: fbSettingsPressed
+  buyBlockAdPressed: buyBlockAdPressed
+  showAdForBlockAdPressed: showAdForBlockAdPressed
+  goToVkGameGroupPressed: goToVkGameGroupPressed
+  joinVkGameGroupPressed: joinVkGameGroupPressed
+  inviteVkFriendsPressed: inviteVkFriendsPressed
+  allowMessagesPressed: allowMessagesPressed
+  goToVkGamesGroupPressed: goToVkGamesGroupPressed
+  joinVkGamesGroupPressed: joinVkGamesGroupPressed
+  addDeveloperToFriendPressed: addDeveloperToFriendPressed
+  logOutVkPressed: logOutVkPressed
+  acceptPressed: acceptPressed
+  goToFbGameGroupPressed: goToFbGameGroupPressed
+  joinFbGameGroupPressed: joinFbGameGroupPressed
+  inviteFbFriendsPressed: inviteFbFriendsPressed
+  logOutFbPressed: logOutFbPressed
+  buySlowBonusPressed: buySlowBonusPressed
+  buyDamageBonusPressed: buyDamageBonusPressed
+  buyFairyPressed: buyFairyPressed
+  showVideoForScoresPressed: showVideoForScoresPressed
+  goToInAppPurchesesShopPressed: goToInAppPurchesesShopPressed
+  buyScoresCount1Pressed: buyScoresCount1Pressed
+  buyScoresCount2Pressed: buyScoresCount2Pressed
+  buyScoresCount3Pressed: buyScoresCount3Pressed
+  buyScoresCount4Pressed: buyScoresCount4Pressed
+  buyScoresCount5Pressed: buyScoresCount5Pressed
+  restoreInAppPurchesesPressed: restoreInAppPurchesesPressed
+  userBuyScoresCount1: userBuyScoresCount1
+  userBuyScoresCount2: userBuyScoresCount2
+  userBuyScoresCount3: userBuyScoresCount3
+  userBuyScoresCount4: userBuyScoresCount4
+  userBuyScoresCount5: userBuyScoresCount5
+  userBuyBlockAd: userBuyBlockAd
+  selectEasyGameMode: selectEasyGameMode
+  selectMediumGameMode: selectMediumGameMode
+  selectHardGameMode: selectHardGameMode
+  mainGamePausePressed: mainGamePausePressed
+  resumeGamePressed: resumeGamePressed
+  replayGamePressed: replayGamePressed
+  shareGameResultPressed: shareGameResultPressed
+  doubleScorePressed: doubleScorePressed
+  finalChancePressed: finalChancePressed
+  useSlowBonusPressed: useSlowBonusPressed
+  useDamageBonusPressed: useDamageBonusPressed
+  finishGame: finishGame
+  finishGameTutorial: finishGameTutorial
+  joinVkGroupFromMainGamePressed: joinVkGroupFromMainGamePressed
+  joinFbGroupFromMainGamePressed: joinFbGroupFromMainGamePressed
+  showJoinGroupMainGamePopUp: showJoinGroupMainGamePopUp
+  showInviteFriendsMainGamePopUp: showInviteFriendsMainGamePopUp
+  showRateGameMainGamePopUp: showRateGameMainGamePopUp
+  inviteVkFriendsFromMainGame: inviteVkFriendsFromMainGame
+  inviteFbFriendsFromMainGame: inviteFbFriendsFromMainGame
+  rateGameFromMainGame: rateGameFromMainGame
+  rateGameFromGameSettings: rateGameFromGameSettings
+  contactDevelopersFromMainGame: contactDevelopersFromMainGame
+  contactDevelopersFromGameSettings: contactDevelopersFromGameSettings
+  showDevelopersPressed: showDevelopersPressed

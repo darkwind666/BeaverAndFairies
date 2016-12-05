@@ -206,12 +206,16 @@ public class GameLogicController : MonoBehaviour {
 
 	public void resumeGame()
 	{
-		stopGame = false;
+		GamePlayerDataController playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
+		if(playerData.completedTutorial == true)
+		{
+			stopGame = false;
+		}
 	}
 
 	public void backToSelectLevel()
 	{
-		fadingController.startFade(gameSettings.selectLevelSceneName, false);
+		fadingController.startFade(gameSettings.mainMenuScreenName, false);
 	}
 
 }

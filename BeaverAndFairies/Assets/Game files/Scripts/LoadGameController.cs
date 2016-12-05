@@ -38,6 +38,7 @@ public class LoadGameController : MonoBehaviour {
         else
         {
 			fadingController.startFade(gameSettings.mainMenuScreenName, false);
+			ServicesLocator.setServiceForKey(gameSettings, typeof(GameGlobalSettings).Name);
             ServicesLocator.loadGameServices();
 			createNewPlayer();
             enabled = false;

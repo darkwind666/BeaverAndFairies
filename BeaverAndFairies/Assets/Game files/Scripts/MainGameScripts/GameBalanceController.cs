@@ -3,8 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class GameBalanceController : MonoBehaviour {
+	
+	public List1[] gameDifficultyModes;
 
-	public List1 gameBalaceData;
 	public GameLogicController gameLogicController;
 	public Text stageLabel;
 	public MainGameVkController vkController;
@@ -14,9 +15,13 @@ public class GameBalanceController : MonoBehaviour {
 	int _currentStageTimeInterval;
 	int _currentStageTime;
 
+	List1 _gameBalaceData;
+
 	bool randomStage;
 
 	void Start () {
+		GamePlayerDataController playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
+		_gameBalaceData = gameDifficultyModes[playerData.selectedLevelIndex];
 		_currentStageIndex = 0;
 		_currentPlayerLevel = 0;
 		_currentStageTime = 0;
@@ -34,14 +39,14 @@ public class GameBalanceController : MonoBehaviour {
 				if (randomStage == false) {
 					_currentStageIndex++;
 
-					if(_currentStageIndex >= gameBalaceData.dataArray.Length)
+					if(_currentStageIndex >= _gameBalaceData.dataArray.Length)
 					{
 						randomStage = true;
-						_currentStageIndex = Random.Range(0, gameBalaceData.dataArray.Length);
+						_currentStageIndex = Random.Range(0, _gameBalaceData.dataArray.Length);
 					}
 
 				} else {
-					_currentStageIndex = Random.Range(0, gameBalaceData.dataArray.Length);
+					_currentStageIndex = Random.Range(0, _gameBalaceData.dataArray.Length);
 				}
 
 				_currentPlayerLevel++;
@@ -59,7 +64,7 @@ public class GameBalanceController : MonoBehaviour {
 
 	public void setNewBalance() 
 	{
-		List1Data currentStageData = gameBalaceData.dataArray[_currentStageIndex];
+		List1Data currentStageData = _gameBalaceData.dataArray[_currentStageIndex];
 
 		gameLogicController.setBlocksSpeed(currentStageData.Speed);
 

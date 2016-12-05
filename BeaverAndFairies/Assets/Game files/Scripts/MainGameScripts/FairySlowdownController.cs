@@ -15,7 +15,6 @@ public class FairySlowdownController : MonoBehaviour {
 
 	void Start () {
 		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
-		_currentBonusTime = _bonusRechargeTime;
 		lineRechargeIndicator.fillAmount = 0f;
 
 		if(_playerData.selectedFairyIndex >= 0)
@@ -24,6 +23,8 @@ public class FairySlowdownController : MonoBehaviour {
 			GameFairyModel fairyModel = gameBalanceDataSource.dataArray[_playerData.selectedFairyIndex];
 			_bonusRechargeTime = fairyModel.fairyCreateSlowBonusTime;
 		}
+
+		_currentBonusTime = _bonusRechargeTime;
 	}
 
 	void Update () {

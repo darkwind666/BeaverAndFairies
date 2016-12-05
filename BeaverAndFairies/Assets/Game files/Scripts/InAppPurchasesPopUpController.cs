@@ -35,7 +35,7 @@ public class InAppPurchasesPopUpController : MonoBehaviour {
 
 		#if UNITY_IOS
 
-		restoreInAppsButton.SetActive(true);
+		restoreInAppsButton.gameObject.SetActive(true);
 
 		#endif
 
