@@ -4261,6 +4261,14 @@ Prefab:
       propertyPath: adsController
       value: 
       objectReference: {fileID: 1738844512}
+    - target: {fileID: 1000010231070322, guid: 7694373cfb5a148b887b2fee53e0e5e9, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012646059404, guid: 7694373cfb5a148b887b2fee53e0e5e9, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7694373cfb5a148b887b2fee53e0e5e9, type: 2}
   m_IsPrefabParent: 0
@@ -6748,9 +6756,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameDifficultyModes:
-  - {fileID: 11400000, guid: 0000b887521e349688183e6a585f94ac, type: 2}
-  - {fileID: 11400000, guid: 4afd9ff0411a9462faa65378a7b35894, type: 2}
   - {fileID: 11400000, guid: 5b9c1d011ac744590bf1b19b281efbd0, type: 2}
+  - {fileID: 11400000, guid: 15ff83a1e3eb24d1aa041b1d1a247ec8, type: 2}
+  - {fileID: 11400000, guid: 0000b887521e349688183e6a585f94ac, type: 2}
   gameLogicController: {fileID: 1978387182}
   stageLabel: {fileID: 475022926}
   vkController: {fileID: 1133136509}
