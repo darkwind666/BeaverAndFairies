@@ -6758,7 +6758,7 @@ MonoBehaviour:
   gameDifficultyModes:
   - {fileID: 11400000, guid: 5b9c1d011ac744590bf1b19b281efbd0, type: 2}
   - {fileID: 11400000, guid: 15ff83a1e3eb24d1aa041b1d1a247ec8, type: 2}
-  - {fileID: 11400000, guid: 0000b887521e349688183e6a585f94ac, type: 2}
+  - {fileID: 11400000, guid: 3fd58f4222d634e44acb308e348090eb, type: 2}
   gameLogicController: {fileID: 1978387182}
   stageLabel: {fileID: 475022926}
   vkController: {fileID: 1133136509}

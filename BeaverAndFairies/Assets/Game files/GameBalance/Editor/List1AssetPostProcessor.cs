@@ -9,7 +9,7 @@ using UnityQuickSheet;
 ///
 public class List1AssetPostprocessor : AssetPostprocessor 
 {
-    private static readonly string filePath = "Assets/Game files/GameBalance/GameBalanceNormal.xls";
+    private static readonly string filePath = "Assets/Game files/GameBalance/GameBalanceHard.xls";
     private static readonly string assetFilePath = "Assets/Game files/GameBalance/List1.asset";
     private static readonly string sheetName = "List1";
     

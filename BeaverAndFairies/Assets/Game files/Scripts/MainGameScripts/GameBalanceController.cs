@@ -22,7 +22,7 @@ public class GameBalanceController : MonoBehaviour {
 	void Start () {
 		GamePlayerDataController playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 		_gameBalaceData = gameDifficultyModes[playerData.selectedLevelIndex];
-		_currentStageIndex = 0;
+		_currentStageIndex = 22;
 		_currentPlayerLevel = 0;
 		_currentStageTime = 0;
 	}
