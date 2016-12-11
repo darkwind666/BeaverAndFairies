@@ -41,6 +41,8 @@ public class GamePlayerDataController {
 	public int slowBonusCount { get; set; }
 	public int damageBonusCount { get; set; }
 	public bool blockAdsInAppBought { get; set; }
+	public bool enableSoundsEffects { get; set; }
+	public bool enableBackgroundSound { get; set; }
 
 	public List<int> playerFairies;
 
@@ -113,6 +115,8 @@ public class GamePlayerDataController {
 			slowBonusCount = data.slowBonusCount;
 			damageBonusCount = data.damageBonusCount;
 			blockAdsInAppBought = data.blockAdsInAppBought;
+			enableSoundsEffects = data.enableSoundsEffects;
+			enableBackgroundSound = data.enableBackgroundSound;
 
 			if (playerFairies == null)
 			{
@@ -147,6 +151,8 @@ public class GamePlayerDataController {
 		savingData.slowBonusCount = slowBonusCount;
 		savingData.damageBonusCount = damageBonusCount;
 		savingData.blockAdsInAppBought = blockAdsInAppBought;
+		savingData.enableSoundsEffects = enableSoundsEffects;
+		savingData.enableBackgroundSound = enableBackgroundSound;
 
         formatter.Serialize(file, savingData);
         file.Close();
@@ -169,6 +175,8 @@ public class GamePlayerDataController {
 		inVkGameGroup = false;
 		inFbGameGroup = false;
 		blockAdsInAppBought = false;
+		enableSoundsEffects = true;
+		enableBackgroundSound = true;
         savePlayerData();
     }
 
@@ -208,6 +216,8 @@ public class PlayerData
 	public int slowBonusCount;
 	public int damageBonusCount;
 	public bool blockAdsInAppBought;
+	public bool enableSoundsEffects;
+	public bool enableBackgroundSound;
 }
 
 public class PlayerDataXMLFormatter: IFormatter

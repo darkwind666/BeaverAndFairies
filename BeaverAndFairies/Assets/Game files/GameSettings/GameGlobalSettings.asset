@@ -18,9 +18,18 @@ MonoBehaviour:
   oneBlockAnimationDuration: 0.25
   scaleAnimationDuration: 0.3
   distanceBetweeneTasks: 0.3
-  vkGameGroupId: 
-  vkGamesOfficialGroupId: 
-  vkDeveloperId: 
+  googlePlayLeaderboardId: 
+  inAppProductRemoveAdID: 
+  inAppProductScoreCount1ID: 
+  inAppProductScoreCount2ID: 
+  inAppProductScoreCount3ID: 
+  inAppProductScoreCount4ID: 
+  inAppProductScoreCount5ID: 
+  fbGameGroupId: 
+  facebookPageURL: 
+  vkGameGroupId: 101174315
+  vkGamesOfficialGroupId: 78616012
+  vkDeveloperId: 320495454
   inviteTextKey: 
   addDeveloperToFriendKey: 
   vkURLTemplate: https://vk.com/public
@@ -43,8 +52,10 @@ MonoBehaviour:
   hdOneSignalId: 
   freeOneSignalProjectNumber: 
   hdOneSignalProjectNumber: 
-  freeVKId: 
-  hdVKId: 
+  freeVKId: 5711756
+  hdVKId: 5771769
+  freeFbId: 
+  hdFbId: 
   freeGameName: 
   hdGameName: 
   freeGameBundleId: 

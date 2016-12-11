@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0bdf613941f5d4dadc898ca3212034, type: 3}
   m_Name: VkSettings
   m_EditorClassIdentifier: 
-  VkAppId: 4473713
+  VkAppId: 5711756
   scope:
   - notify
   - friends

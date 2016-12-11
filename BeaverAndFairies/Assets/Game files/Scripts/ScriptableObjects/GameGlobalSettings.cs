@@ -37,11 +37,9 @@ public class GameGlobalSettings : ScriptableObject {
 	public int inviteFriendReward;
 	public int maxStopAdsCount;
 
-	public bool gameSparkLeaderboard;
 	public bool googlePlayServiceLeaderboard;
 	public bool gameCenterLeaderboard;
 	public bool blockAds;
-	public bool showVungleAds;
 	public bool showAppodealAds;
 	public bool paidGame;
 	public string androidFreeAppodealId;
@@ -64,8 +62,4 @@ public class GameGlobalSettings : ScriptableObject {
 	public string googlePlayHD;
 	public string appStoreFree;
 	public string appStoreHD;
-	public string windowsPhoneStoreFree;
-	public string windowsPhoneStoreHD;
-	public string windowsPhoneStoreFreeVungleID;
-	public string windowsPhoneStoreHDVungleID;
 }
