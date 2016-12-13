@@ -41,12 +41,8 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 			url="users.get?",
 			CallBackFunction=OnGetUserInfo
 		};
-		_vkapi.Call (r);
-	}
 
-	public void logInVk()
-	{
-		_vkapi.Login();
+		_vkapi.Call (r);
 	}
 
 	public void OnGetUserInfo (VKRequest request)
@@ -63,8 +59,15 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 
 		if(fbButton.activeSelf == false)
 		{
+			_playerData.notNowPressed = true;
+			_playerData.savePlayerData();
 			gameObject.SetActive(false);
 		}
+	}
+
+	public void logInVk()
+	{
+		_vkapi.Login();
 	}
 
 	public void logInFacebook()
@@ -83,6 +86,8 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 
 		if(vkButton.activeSelf == false)
 		{
+			_playerData.notNowPressed = true;
+			_playerData.savePlayerData();
 			gameObject.SetActive(false);
 		}
 	}
@@ -90,6 +95,7 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 	public void notNowPressed()
 	{
 		_playerData.notNowPressed = true;
+		_playerData.savePlayerData();
 		gameObject.SetActive(false);
 	}
 }

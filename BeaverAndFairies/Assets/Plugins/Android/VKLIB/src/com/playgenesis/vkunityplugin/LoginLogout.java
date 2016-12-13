@@ -19,8 +19,8 @@ import com.vk.sdk.dialogs.VKCaptchaDialog;
 public class LoginLogout extends Activity
 {
   String[] scope;
-  private boolean isResumed = false;
-  private boolean canceledByUser;
+  private Boolean isResumed = false;
+  private Boolean canceledByUser;
   VKAccessTokenTracker vkAccessTokenTracker = new VKAccessTokenTracker() {
       @Override
       public void onVKAccessTokenChanged(VKAccessToken oldToken, VKAccessToken newToken) {

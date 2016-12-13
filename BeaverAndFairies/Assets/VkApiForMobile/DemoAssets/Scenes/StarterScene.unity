@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsUserLoggedIn: 0
-  VkRequestUrlBase: 68747470733a2f2f6170692e766b2e636f6d2f6d6574686f642f
+  VkRequestUrlBase: https://api.vk.com/method/
 --- !u!4 &669308479
 Transform:
   m_ObjectHideFlags: 0

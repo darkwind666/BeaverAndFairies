@@ -150,6 +150,9 @@
 	<data name="BeaverGame.HardGameMode" xml:space="preserve">
 		<value>Сложно</value>
 	</data>
+	<data name="BeaverGame.InviteFriendKey" xml:space="preserve">
+		<value>Привет {0}! Давай играть в космического бобра!</value>
+	</data>
 	<data name="BeaverGame.InviteFriends" xml:space="preserve">
 		<value>Пригласить друзей</value>
 	</data>

@@ -276,10 +276,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadingController: {fileID: 790366832}
   vkLogInPopUp: {fileID: 1277849967}
-  musicSlider: {fileID: 0}
-  effectsSlider: {fileID: 0}
-  buttonClickEffect: {fileID: 0}
-  backgroundSound: {fileID: 0}
   gameGlobalSettings: {fileID: 11400000, guid: bbd941705bb8444f88bf4b5186132ada, type: 2}
 --- !u!1 &70961495
 GameObject:

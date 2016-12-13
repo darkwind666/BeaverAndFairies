@@ -63,7 +63,6 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 		logInVkRewardLabel.text = gameSettings.logInReward.ToString();
 		joinVkGroupRewardLabel.text = gameSettings.joinGroupReward.ToString();
 		inviteVkFriendsRewardLabel.text = (gameSettings.inviteFriendReward * 4).ToString();
-
 	}
 
 	void Update () {
@@ -89,6 +88,22 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 
 	void onVKLogin()
 	{
+		VKRequest r = new VKRequest
+		{
+			url="users.get?",
+			CallBackFunction=tryLogInVk
+		};
+
+		_vkapi.Call (r);
+	}
+
+	public void tryLogInVk (VKRequest request)
+	{
+		if(request.error!=null)
+		{
+			return;
+		}
+
 		logInButton.SetActive (false);
 		logOutButton.SetActive (true);
 		getUserInfo();
@@ -96,6 +111,22 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 
 	void onLogout()
 	{
+		VKRequest r = new VKRequest
+		{
+			url="users.get?",
+			CallBackFunction=tryToLogOut
+		};
+
+		_vkapi.Call (r);
+	}
+
+	public void tryToLogOut (VKRequest request)
+	{
+		if(request.error!=null)
+		{
+			return;
+		}
+
 		logOutButton.SetActive (false);
 		logInButton.SetActive (true);
 		playerName.text = "";
@@ -111,7 +142,6 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 
 		inviteFriendsController.friendsDataSource = new List<BeaverTimeVKFriend>();
 	}
-
 
 
 	public void inviteFriends()
@@ -430,6 +460,7 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 			acceptOperationController.SetActive(true);
 			acceptButton.onClick.AddListener(() => { 
 				_vkapi.Call (r1);
+				acceptOperationController.SetActive(false);
 			});
 
 		} else {

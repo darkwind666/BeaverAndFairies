@@ -9,13 +9,6 @@ public class MainMenuController : MonoBehaviour {
 
     public FadingScript fadingController;
 	public GameObject vkLogInPopUp;
-
-    public Slider musicSlider;
-    public Slider effectsSlider;
-
-    public AudioSource buttonClickEffect;
-    public AudioSource backgroundSound;
-
 	public GameGlobalSettings gameGlobalSettings;
 
 	GamePlayerDataController _playerData;
@@ -55,26 +48,15 @@ public class MainMenuController : MonoBehaviour {
 			OneSignal.StartInit(gameGlobalSettings.freeOneSignalId, gameGlobalSettings.freeOneSignalProjectNumber).EndInit();;
 		}
 			
-		if (_playerData.playerExist == false && _playerData.notNowPressed == false) {
+		if (_playerData.notNowPressed == false) {
 			vkLogInPopUp.SetActive (true);
 			GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
 			analiticsController.showSocialsLogInPopUp();
 		} 
-
-       // setupAudio();
     }
 
 	private static void HandleNotification(string message, Dictionary<string, object> additionalData, bool isActive) {
 	}
-
-    void setupAudio()
-    {
-        musicSlider.value = _playerData.gameMusicVolume;
-        effectsSlider.value = _playerData.gameSoundEffectsVolume;
-
-        backgroundSound.volume = _playerData.gameMusicVolume;
-        buttonClickEffect.volume = _playerData.gameSoundEffectsVolume;
-    }
 
     void Update () {
 

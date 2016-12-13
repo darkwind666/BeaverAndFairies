@@ -106,6 +106,7 @@ public class GamePlayerDataController {
             showReviewSuggestion = data.showReviewSuggestion;
 			showJoinGroupSuggestion = data.showJoinGroupSuggestion;
 			showInviteFriendsSuggestion = data.showInviteFriendsSuggestion;
+			notNowPressed = data.notNowPressed;
 			logInVk = data.logInVk;
 			logInFb = data.logInFb;
 			inVkGameGroup = data.inVkGameGroup;
@@ -142,6 +143,7 @@ public class GamePlayerDataController {
         savingData.showReviewSuggestion = showReviewSuggestion;
 		savingData.showJoinGroupSuggestion = showJoinGroupSuggestion;
 		savingData.showInviteFriendsSuggestion = showInviteFriendsSuggestion;
+		savingData.notNowPressed = notNowPressed;
 		savingData.logInVk = logInVk;
 		savingData.logInFb = logInFb;
 		savingData.inVkGameGroup = inVkGameGroup;
@@ -170,6 +172,7 @@ public class GamePlayerDataController {
         showReviewSuggestion = false;
 		showJoinGroupSuggestion = false;
 		showInviteFriendsSuggestion = false;
+		notNowPressed = false;
 		logInVk = false;
 		logInFb = false;
 		inVkGameGroup = false;
@@ -207,6 +210,7 @@ public class PlayerData
     public bool showReviewSuggestion;
 	public bool showJoinGroupSuggestion;
 	public bool showInviteFriendsSuggestion;
+	public bool notNowPressed;
 	public bool logInVk;
 	public bool logInFb;
 	public bool inVkGameGroup;

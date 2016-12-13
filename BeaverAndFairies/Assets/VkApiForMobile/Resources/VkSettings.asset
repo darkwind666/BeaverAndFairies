@@ -22,7 +22,7 @@ MonoBehaviour:
   - offline
   forceOAuth: 0
   revoke: 1
-  apiVersion: 352e3530
+  apiVersion: 5.50
   notify: 1
   friends: 1
   photos: 1

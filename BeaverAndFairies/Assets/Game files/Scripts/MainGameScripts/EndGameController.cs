@@ -51,7 +51,7 @@ public class EndGameController : MonoBehaviour {
 	{
 		GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
 		
-		if(_playerData.showJoinGroupSuggestion == false)
+		if(_playerData.showJoinGroupSuggestion == false && (_playerData.inVkGameGroup == false || _playerData.inFbGameGroup == false))
 		{
 			joinGameGroupPopUp.SetActive(true);
 			_playerData.showJoinGroupSuggestion = true;

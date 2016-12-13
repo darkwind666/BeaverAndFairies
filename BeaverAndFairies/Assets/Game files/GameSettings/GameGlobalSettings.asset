@@ -18,7 +18,7 @@ MonoBehaviour:
   oneBlockAnimationDuration: 0.25
   scaleAnimationDuration: 0.3
   distanceBetweeneTasks: 0.3
-  googlePlayLeaderboardId: 
+  googlePlayLeaderboardId: grp.grp.grp.grp.
   inAppProductRemoveAdID: 
   inAppProductScoreCount1ID: 
   inAppProductScoreCount2ID: 
@@ -30,18 +30,16 @@ MonoBehaviour:
   vkGameGroupId: 101174315
   vkGamesOfficialGroupId: 78616012
   vkDeveloperId: 320495454
-  inviteTextKey: 
+  inviteTextKey: BeaverGame.InviteFriendKey
   addDeveloperToFriendKey: 
   vkURLTemplate: https://vk.com/public
   logInReward: 0
   joinGroupReward: 0
   inviteFriendReward: 0
   maxStopAdsCount: 0
-  gameSparkLeaderboard: 0
   googlePlayServiceLeaderboard: 0
   gameCenterLeaderboard: 0
   blockAds: 0
-  showVungleAds: 0
   showAppodealAds: 0
   paidGame: 0
   androidFreeAppodealId: 
@@ -64,7 +62,3 @@ MonoBehaviour:
   googlePlayHD: 
   appStoreFree: 
   appStoreHD: 
-  windowsPhoneStoreFree: 
-  windowsPhoneStoreHD: 
-  windowsPhoneStoreFreeVungleID: 
-  windowsPhoneStoreHDVungleID: 
