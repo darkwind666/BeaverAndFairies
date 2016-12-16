@@ -24,6 +24,31 @@ public class FbSettingsPopUpController : MonoBehaviour {
 
 	public GameGlobalSettings gameSettings;
 
+	void Awake ()
+	{
+		if (!FB.IsInitialized) {
+			FB.Init(InitCallback, OnHideUnity);
+		} else {
+			FB.ActivateApp();
+		}
+	}
+
+	private void InitCallback ()
+	{
+		if (FB.IsInitialized) {
+			FB.ActivateApp();
+		}
+	}
+
+	private void OnHideUnity (bool isGameShown)
+	{
+		if (!isGameShown) {
+			Time.timeScale = 0;
+		} else {
+			Time.timeScale = 1;
+		}
+	}
+
 	void Start () {
 		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 		setUpFacebookSettins();
@@ -37,14 +62,26 @@ public class FbSettingsPopUpController : MonoBehaviour {
 			logInButton.SetActive (false);
 			logOutButton.SetActive (true);
 			logInRewardText.gameObject.SetActive (false);
+
+			joinBeaverTimeGroupButton.SetActive (false);
+			goToBeaverTimeGroupButton.SetActive (true);
+
 			getUserInfo();
 			getUserAvatar();
 			getPlayerRewardForLogIn();
 		} 
 		else 
 		{
+			playerName.text = "";
+			DestroyObject(playerImage.sprite);
+			playerImage.sprite = null;
+			playerImage.enabled = false;
+
 			logInButton.SetActive (true);
 			logOutButton.SetActive (false);
+
+			joinBeaverTimeGroupButton.SetActive (true);
+			goToBeaverTimeGroupButton.SetActive (false);
 		}
 	}
 
@@ -120,7 +157,6 @@ public class FbSettingsPopUpController : MonoBehaviour {
 		{
 			logIn();
 		}
-
 	}
 
 	public void joinGameGroup()

@@ -16,6 +16,9 @@ public class MainGameVkController : MonoBehaviour {
 
 	VkApi _vkapi;
 	GamePlayerDataController _playerData;
+	int _vkScore;
+	int _vkLevel;
+	String _vkClientKey;
 
 	void Start () {
 		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
@@ -42,25 +45,80 @@ public class MainGameVkController : MonoBehaviour {
 	}
 
 	public void sendInVkPlayerScore(int aScore)
-	{
+	{ 
 		if (_vkapi.IsUserLoggedIn) {
+			_vkScore = aScore;
+			string fullurl = "https://oauth.vk.com/access_token?client_id=" + VkApi.VkSetts.VkAppId.ToString() + "&client_secret=ar0NKJWK7df9f5czE1za" + "&v=5.60&grant_type=client_credentials";
 			VKRequest r1 = new VKRequest () {
-				url = "secure.addAppEvent?activity_id=2?value=" + aScore.ToString()  
+				url = fullurl,
+				CallBackFunction = getClientKey,
+				data = new Action[] {sendVKScore},
 			};
 
 			_vkapi.Call (r1);
 		}
 	}
 
-	public void sendInVkPlayerLevel(int aLevel)
+	void sendVKScore()
 	{
 		if (_vkapi.IsUserLoggedIn) {
 			VKRequest r1 = new VKRequest () {
-				url = "secure.addAppEvent?activity_id=1?value=" + aLevel.ToString()  
+				url = "https://api.vk.com/method/secure.addAppEvent?user_id=" + VkApi.CurrentToken.user_id + "&activity_id=2&value=" + _vkScore.ToString() + "&client_secret=ar0NKJWK7df9f5czE1za" + "&v=5.50&access_token=" + _vkClientKey + "&https=1",
+				CallBackFunction = checkRequest
 			};
 
 			_vkapi.Call (r1);
+		}
+	}
 
+	void getClientKey(VKRequest request)
+	{
+		if(request.error!=null)
+		{
+			return;
+		}
+
+		var dict = Json.Deserialize(request.response) as Dictionary<string,object>;
+		var resp = (Dictionary<string,object>)dict;
+		var access_token = (String)resp["access_token"];
+		_vkClientKey = access_token;
+
+		Action callback = request.data[0] as Action;
+		callback();
+	}
+
+	void checkRequest(VKRequest r)
+	{
+		if(r.error!=null)
+		{
+			return;
+		}
+	}
+
+	public void sendInVkPlayerLevel(int aLevel)
+	{
+		if (_vkapi.IsUserLoggedIn) {
+			_vkLevel = aLevel;
+			string fullurl = "https://oauth.vk.com/access_token?client_id=" + VkApi.VkSetts.VkAppId.ToString() + "&client_secret=ar0NKJWK7df9f5czE1za" + "&v=5.60&grant_type=client_credentials";
+			VKRequest r1 = new VKRequest () {
+				url = fullurl,
+				CallBackFunction = getClientKey,
+				data = new Action[] {sendVKLevel},
+			};
+
+			_vkapi.Call (r1);
+		}
+	}
+
+	void sendVKLevel()
+	{
+		if (_vkapi.IsUserLoggedIn) {
+			VKRequest r1 = new VKRequest () {
+				url = "https://api.vk.com/method/secure.addAppEvent?user_id=" + VkApi.CurrentToken.user_id + "&activity_id=1&value=" + _vkLevel.ToString() + "&client_secret=ar0NKJWK7df9f5czE1za" + "&v=5.50&access_token=" + _vkClientKey + "&https=1",
+				CallBackFunction = checkRequest
+			};
+
+			_vkapi.Call (r1);
 		}
 	}
 

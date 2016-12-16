@@ -77,6 +77,12 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 	}
 
 	private void AuthCallback (ILoginResult result) {
+
+		if(result.Error != null)
+		{
+			return;
+		}
+
 		if (FB.IsLoggedIn) {
 			_playerData.playerScore += gameGlobalSettings.logInReward;
 			_playerData.logInFb = true;
