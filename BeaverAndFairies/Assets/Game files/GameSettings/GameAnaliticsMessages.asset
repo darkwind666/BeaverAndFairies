@@ -81,3 +81,4 @@ MonoBehaviour:
   contactDevelopersFromMainGame: contactDevelopersFromMainGame
   contactDevelopersFromGameSettings: contactDevelopersFromGameSettings
   showDevelopersPressed: showDevelopersPressed
+  playerAcceptPublishPermissions: playerAcceptPublishPermissions

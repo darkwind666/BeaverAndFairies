@@ -1167,6 +1167,7 @@ MonoBehaviour:
   logOutButton: {fileID: 337978451}
   joinBeaverTimeGroupButton: {fileID: 624204122}
   goToBeaverTimeGroupButton: {fileID: 713627997}
+  gameAnaliticsController: {fileID: 457603851}
   gameSettings: {fileID: 11400000, guid: bbd941705bb8444f88bf4b5186132ada, type: 2}
 --- !u!1 &247332942
 GameObject:
@@ -7367,6 +7368,7 @@ MonoBehaviour:
   fbButton: {fileID: 1572487531}
   vklLogInReward: {fileID: 1516353417}
   fblLogInReward: {fileID: 2020074019}
+  gameAnaliticsController: {fileID: 457603851}
 --- !u!1 &1302294996
 GameObject:
   m_ObjectHideFlags: 0

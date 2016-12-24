@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Facebook.Unity;
 using Facebook.MiniJSON;
 using System;
@@ -21,6 +22,7 @@ public class FbSettingsPopUpController : MonoBehaviour {
 
 	public GameObject joinBeaverTimeGroupButton;
 	public GameObject goToBeaverTimeGroupButton;
+	public GameAnaliticsController gameAnaliticsController;
 
 	public GameGlobalSettings gameSettings;
 
@@ -122,7 +124,7 @@ public class FbSettingsPopUpController : MonoBehaviour {
 
 	public void logIn()
 	{
-		var perms = new List<string>(){"public_profile", "email", "user_friends", "publish_actions"};
+		var perms = new List<string>(){"public_profile", "email", "user_friends"};
 		FB.LogInWithReadPermissions(perms, AuthCallback);
 	}
 
@@ -130,6 +132,13 @@ public class FbSettingsPopUpController : MonoBehaviour {
 		if (FB.IsLoggedIn) {
 			getPlayerRewardForLogIn();
 			setUpFacebookSettins();
+			FB.LogInWithPublishPermissions(new List<string>() {"publish_actions"}, logInWithPublishPermissionsCallback);
+		}
+	}
+
+	private void logInWithPublishPermissionsCallback (ILoginResult result) {
+		if (AccessToken.CurrentAccessToken.Permissions.Contains("publish_actions")) {
+			gameAnaliticsController.playerAcceptPublishPermissions();
 		}
 	}
 

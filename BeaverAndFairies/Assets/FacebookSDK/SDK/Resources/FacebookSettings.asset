@@ -8,14 +8,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -948257129, guid: 27422eaa46c114a7f8873ea027c33fcd, type: 3}
+  m_Script: {fileID: -2115301841, guid: 39e483503d2cf46f9a78c3e844ad04a2, type: 3}
   m_Name: FacebookSettings
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
+  clientTokens:
+  - 9e692616f172afd2c514a8012d67724d
   appIds:
   - 1616365298658068
   appLabels:
-  - App Name
+  - Beaver and Mushrooms
   cookie: 1
   logging: 1
   status: 1
@@ -24,3 +26,4 @@ MonoBehaviour:
   iosURLSuffix: 
   appLinkSchemes:
   - list: []
+  uploadAccessToken: 

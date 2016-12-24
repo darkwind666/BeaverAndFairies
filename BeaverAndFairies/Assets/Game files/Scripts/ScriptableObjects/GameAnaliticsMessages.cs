@@ -84,5 +84,6 @@ public class GameAnaliticsMessages : ScriptableObject {
 	public string contactDevelopersFromMainGame;
 	public string contactDevelopersFromGameSettings;
 	public string showDevelopersPressed;
+	public string playerAcceptPublishPermissions;
 
 }

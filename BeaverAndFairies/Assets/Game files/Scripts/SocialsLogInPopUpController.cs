@@ -4,6 +4,7 @@ using com.playGenesis.VkUnityPlugin;
 using com.playGenesis.VkUnityPlugin.MiniJSON;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Facebook.Unity;
 
 public class SocialsLogInPopUpController : MonoBehaviour {
@@ -13,6 +14,7 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 	public GameObject fbButton;
 	public Text vklLogInReward;
 	public Text fblLogInReward;
+	public GameAnaliticsController gameAnaliticsController;
 
 	GamePlayerDataController _playerData;
 	VkApi _vkapi;
@@ -72,7 +74,7 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 
 	public void logInFacebook()
 	{
-		var perms = new List<string>(){"public_profile", "email", "user_friends", "publish_actions"};
+		var perms = new List<string>(){"public_profile", "email", "user_friends"};
 		FB.LogInWithReadPermissions(perms, AuthCallback);
 	}
 
@@ -88,6 +90,7 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 			_playerData.logInFb = true;
 			_playerData.savePlayerData();
 			fbButton.SetActive(false);
+			FB.LogInWithPublishPermissions(new List<string>() {"publish_actions"}, logInWithPublishPermissionsCallback);
 		}
 
 		if(vkButton.activeSelf == false)
@@ -95,6 +98,12 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 			_playerData.notNowPressed = true;
 			_playerData.savePlayerData();
 			gameObject.SetActive(false);
+		}
+	}
+
+	private void logInWithPublishPermissionsCallback (ILoginResult result) {
+		if (AccessToken.CurrentAccessToken.Permissions.Contains("publish_actions")) {
+			gameAnaliticsController.playerAcceptPublishPermissions();
 		}
 	}
 

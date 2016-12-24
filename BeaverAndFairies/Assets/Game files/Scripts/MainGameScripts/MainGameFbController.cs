@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using Facebook.Unity;
@@ -8,6 +9,8 @@ using Facebook.Unity;
 public class MainGameFbController : MonoBehaviour {
 
 	public GameGlobalSettings gameSettings;
+	public GameAnaliticsController gameAnaliticsController;
+
 	GamePlayerDataController _playerData;
 
 	void Awake ()
@@ -61,13 +64,14 @@ public class MainGameFbController : MonoBehaviour {
 
 	public void logInFb()
 	{
-		var perms = new List<string>(){"public_profile", "email", "user_friends", "publish_actions"};
+		var perms = new List<string>(){"public_profile", "email", "user_friends"};
 		FB.LogInWithReadPermissions(perms, AuthCallback);
 	}
 
 	private void AuthCallback (ILoginResult result) {
 		if (FB.IsLoggedIn) {
 			getPlayerRewardForLogIn();
+			FB.LogInWithPublishPermissions(new List<string>() {"publish_actions"}, logInWithPublishPermissionsCallback);
 		}
 	}
 
@@ -77,6 +81,12 @@ public class MainGameFbController : MonoBehaviour {
 			_playerData.playerScore += gameSettings.logInReward;
 			_playerData.logInFb = true;
 			_playerData.savePlayerData();
+		}
+	}
+
+	private void logInWithPublishPermissionsCallback (ILoginResult result) {
+		if (AccessToken.CurrentAccessToken.Permissions.Contains("publish_actions")) {
+			gameAnaliticsController.playerAcceptPublishPermissions();
 		}
 	}
 

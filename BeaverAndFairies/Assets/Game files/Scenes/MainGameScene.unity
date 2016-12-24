@@ -4590,6 +4590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSettings: {fileID: 11400000, guid: bbd941705bb8444f88bf4b5186132ada, type: 2}
+  gameAnaliticsController: {fileID: 1762379108}
 --- !u!1001 &964013839
 Prefab:
   m_ObjectHideFlags: 0

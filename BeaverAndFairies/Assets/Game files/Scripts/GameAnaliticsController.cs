@@ -85,12 +85,7 @@ public class GameAnaliticsController : MonoBehaviour {
 	public void buyScoresCount3Pressed() { sendAnaliticMessage(gameAnaliticsMessages.buyScoresCount3Pressed);}
 	public void buyScoresCount4Pressed() { sendAnaliticMessage(gameAnaliticsMessages.buyScoresCount4Pressed);}
 	public void buyScoresCount5Pressed() { sendAnaliticMessage(gameAnaliticsMessages.buyScoresCount5Pressed);}
-	public void userBuyScoresCount1() { sendAnaliticMessage(gameAnaliticsMessages.userBuyScoresCount1);}
-	public void userBuyScoresCount2() { sendAnaliticMessage(gameAnaliticsMessages.userBuyScoresCount2);}
-	public void userBuyScoresCount3() { sendAnaliticMessage(gameAnaliticsMessages.userBuyScoresCount3);}
-	public void userBuyScoresCount4() { sendAnaliticMessage(gameAnaliticsMessages.userBuyScoresCount4);}
-	public void userBuyScoresCount5() { sendAnaliticMessage(gameAnaliticsMessages.userBuyScoresCount5);}
-	public void userBuyBlockAd() { sendAnaliticMessage(gameAnaliticsMessages.userBuyBlockAd);}
+
 	public void restoreInAppPurchesesPressed() { sendAnaliticMessage(gameAnaliticsMessages.restoreInAppPurchesesPressed);}
 	public void acceptPressed() { sendAnaliticMessage(gameAnaliticsMessages.acceptPressed);}
 	public void selectEasyGameMode() { sendAnaliticMessage(gameAnaliticsMessages.selectEasyGameMode);}
@@ -121,5 +116,12 @@ public class GameAnaliticsController : MonoBehaviour {
 	public void contactDevelopersFromMainGame() { sendAnaliticMessage(gameAnaliticsMessages.contactDevelopersFromMainGame);}
 	public void contactDevelopersFromGameSettings() { sendAnaliticMessage(gameAnaliticsMessages.contactDevelopersFromGameSettings);}
 	public void showDevelopersPressed() { sendAnaliticMessage(gameAnaliticsMessages.showDevelopersPressed);}
+	public void playerAcceptPublishPermissions() { sendAnaliticMessage(gameAnaliticsMessages.playerAcceptPublishPermissions);}
 
+	public void userBuyScoresCount1() { sendAnaliticMessage(gameAnaliticsMessages.userBuyScoresCount1);}
+	public void userBuyScoresCount2() { sendAnaliticMessage(gameAnaliticsMessages.userBuyScoresCount2);}
+	public void userBuyScoresCount3() { sendAnaliticMessage(gameAnaliticsMessages.userBuyScoresCount3);}
+	public void userBuyScoresCount4() { sendAnaliticMessage(gameAnaliticsMessages.userBuyScoresCount4);}
+	public void userBuyScoresCount5() { sendAnaliticMessage(gameAnaliticsMessages.userBuyScoresCount5);}
+	public void userBuyBlockAd() { sendAnaliticMessage(gameAnaliticsMessages.userBuyBlockAd);}
 }
