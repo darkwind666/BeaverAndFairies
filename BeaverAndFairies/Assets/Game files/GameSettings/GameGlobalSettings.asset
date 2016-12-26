@@ -19,12 +19,12 @@ MonoBehaviour:
   scaleAnimationDuration: 0.3
   distanceBetweeneTasks: 0.3
   googlePlayLeaderboardId: grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.
-  inAppProductRemoveAdID: 
-  inAppProductScoreCount1ID: 
-  inAppProductScoreCount2ID: 
-  inAppProductScoreCount3ID: 
-  inAppProductScoreCount4ID: 
-  inAppProductScoreCount5ID: 
+  inAppProductRemoveAdID: com.darkwind.beaverSpace.removeAd
+  inAppProductScoreCount1ID: com.darkwind.beaverSpace.scoresCount1
+  inAppProductScoreCount2ID: com.darkwind.beaverSpace.scoresCount2
+  inAppProductScoreCount3ID: com.darkwind.beaverSpace.scoresCount3
+  inAppProductScoreCount4ID: com.darkwind.beaverSpace.scoresCount4
+  inAppProductScoreCount5ID: com.darkwind.beaverSpace.scoresCount5
   fbGameGroupId: 1253950101306942
   facebookPageURL: https://www.facebook.com/BeaverTimeRu/
   vkGameGroupId: 101174315

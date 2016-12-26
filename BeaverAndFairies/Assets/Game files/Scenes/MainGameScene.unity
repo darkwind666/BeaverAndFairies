@@ -5721,6 +5721,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000011130407990, guid: 055c7892ce1554046b4b3d3b5fd28326,
     type: 2}
   m_PrefabInternal: {fileID: 1137364534}
+--- !u!1 &1137364536 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011093913950, guid: 055c7892ce1554046b4b3d3b5fd28326,
+    type: 2}
+  m_PrefabInternal: {fileID: 1137364534}
 --- !u!1 &1169467721
 GameObject:
   m_ObjectHideFlags: 0
@@ -8485,6 +8490,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000014157159028, guid: d192c2284828646a7808913c11adea94,
+        type: 2}
+      propertyPath: blockAdButton
+      value: 
+      objectReference: {fileID: 1137364536}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d192c2284828646a7808913c11adea94, type: 2}
   m_IsPrefabParent: 0

@@ -9,6 +9,7 @@ public class InAppPurchasesController : MonoBehaviour, IStoreListener {
 
 	public GameGlobalSettings gameSettings;
 	public FairiesDataList fairiesDataSource;
+	public GameObject blockAdButton;
 
 	static IStoreController m_StoreController;
 	static IExtensionProvider m_StoreExtensionProvider;
@@ -149,44 +150,32 @@ public class InAppPurchasesController : MonoBehaviour, IStoreListener {
 	{
 		if (String.Equals(args.purchasedProduct.definition.id, gameSettings.inAppProductRemoveAdID, StringComparison.Ordinal))
 		{
-			_playerData.blockAdsInAppBought = true;
-			_playerData.playerScore += fairiesDataSource.inAppsDataArray[0].scoresCount;
-			_playerData.savePlayerData();
+			buyBonusForIndex(0);
 			_analiticsController.userBuyBlockAd();
 		}
 		else if (String.Equals(args.purchasedProduct.definition.id, gameSettings.inAppProductScoreCount1ID, StringComparison.Ordinal))
 		{
-			_playerData.blockAdsInAppBought = true;
-			_playerData.playerScore += fairiesDataSource.inAppsDataArray[0].scoresCount;
-			_playerData.savePlayerData();
+			buyBonusForIndex(0);
 			_analiticsController.userBuyScoresCount1();
 		}
 		else if (String.Equals(args.purchasedProduct.definition.id, gameSettings.inAppProductScoreCount2ID, StringComparison.Ordinal))
 		{
-			_playerData.blockAdsInAppBought = true;
-			_playerData.playerScore += fairiesDataSource.inAppsDataArray[1].scoresCount;
-			_playerData.savePlayerData();
+			buyBonusForIndex(1);
 			_analiticsController.userBuyScoresCount2();
 		}
 		else if (String.Equals(args.purchasedProduct.definition.id, gameSettings.inAppProductScoreCount3ID, StringComparison.Ordinal))
 		{
-			_playerData.blockAdsInAppBought = true;
-			_playerData.playerScore += fairiesDataSource.inAppsDataArray[2].scoresCount;
-			_playerData.savePlayerData();
+			buyBonusForIndex(2);
 			_analiticsController.userBuyScoresCount3();
 		}
 		else if (String.Equals(args.purchasedProduct.definition.id, gameSettings.inAppProductScoreCount4ID, StringComparison.Ordinal))
 		{
-			_playerData.blockAdsInAppBought = true;
-			_playerData.playerScore += fairiesDataSource.inAppsDataArray[3].scoresCount;
-			_playerData.savePlayerData();
+			buyBonusForIndex(3);
 			_analiticsController.userBuyScoresCount4();
 		}
 		else if (String.Equals(args.purchasedProduct.definition.id, gameSettings.inAppProductScoreCount5ID, StringComparison.Ordinal))
 		{
-			_playerData.blockAdsInAppBought = true;
-			_playerData.playerScore += fairiesDataSource.inAppsDataArray[4].scoresCount;
-			_playerData.savePlayerData();
+			buyBonusForIndex(4);
 			_analiticsController.userBuyScoresCount5();
 		}
 		else 
@@ -197,6 +186,13 @@ public class InAppPurchasesController : MonoBehaviour, IStoreListener {
 		return PurchaseProcessingResult.Complete;
 	}
 
+	void buyBonusForIndex(int aIndex)
+	{
+		blockAdButton.SetActive(false);
+		_playerData.blockAdsInAppBought = true;
+		_playerData.playerScore += fairiesDataSource.inAppsDataArray[aIndex].scoresCount;
+		_playerData.savePlayerData();
+	}
 
 	public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
 	{
