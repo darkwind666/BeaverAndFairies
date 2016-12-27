@@ -37,8 +37,6 @@ public class GameGlobalSettings : ScriptableObject {
 	public int inviteFriendReward;
 	public int maxStopAdsCount;
 
-	public bool googlePlayServiceLeaderboard;
-	public bool gameCenterLeaderboard;
 	public bool blockAds;
 	public bool showAppodealAds;
 	public bool paidGame;

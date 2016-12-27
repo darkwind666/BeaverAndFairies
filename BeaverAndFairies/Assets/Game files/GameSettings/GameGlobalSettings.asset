@@ -18,7 +18,7 @@ MonoBehaviour:
   oneBlockAnimationDuration: 0.25
   scaleAnimationDuration: 0.3
   distanceBetweeneTasks: 0.3
-  googlePlayLeaderboardId: grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.grp.
+  googlePlayLeaderboardId: CgkIqZnn8MUPEAIQAA
   inAppProductRemoveAdID: com.darkwind.beaverSpace.removeAd
   inAppProductScoreCount1ID: com.darkwind.beaverSpace.scoresCount1
   inAppProductScoreCount2ID: com.darkwind.beaverSpace.scoresCount2
