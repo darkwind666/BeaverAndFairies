@@ -3,7 +3,7 @@ using System.Collections;
 using AppodealAds.Unity.Api;
 using AppodealAds.Unity.Common;
 
-public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
+public class AdsController : MonoBehaviour, IRewardedVideoAdListener {
 
 	public GameGlobalSettings settings;
 	public FinalChanceController chanceController;
@@ -40,24 +40,26 @@ public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
 			#endif 
 		}
 
-		Appodeal.initialize(appodealId, Appodeal.NON_SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL | Appodeal.BANNER_TOP);
-		Appodeal.setNonSkippableVideoCallbacks(this);
+		Appodeal.initialize(appodealId, Appodeal.REWARDED_VIDEO | Appodeal.INTERSTITIAL | Appodeal.BANNER_TOP);
+		Appodeal.setRewardedVideoCallbacks(this);
 	}
 
 	void Update () {
 	
 	}
 
-	public void onNonSkippableVideoFinished() {}
+	public void onRewardedVideoFinished(int amount, string name) {
+		getRewardForAd();
+	}
 
-	public void onNonSkippableVideoLoaded() { }
-	public void onNonSkippableVideoFailedToLoad() { }
-	public void onNonSkippableVideoShown() { }
-	public void onNonSkippableVideoClosed() { }
+	public void onRewardedVideoLoaded() { }
+	public void onRewardedVideoFailedToLoad() { }
+	public void onRewardedVideoShown() { }
+	public void onRewardedVideoClosed() { }
 
 	public bool adAvailable() {
 		bool adAvailable = false;
-		adAvailable = Appodeal.isLoaded(Appodeal.NON_SKIPPABLE_VIDEO);
+		adAvailable = Appodeal.isLoaded(Appodeal.REWARDED_VIDEO);
 		return adAvailable;
 	}
 
@@ -89,28 +91,33 @@ public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
 	}
 
 	public void showFinalChanceAd() {
-
-		_finalChanceAd = true;
-		playGameAd();
+		if (adAvailable() == true) {
+			_finalChanceAd = true;
+			playGameAd();
+		}
 	}
 
 	public void showAdditionalScoreAd() {
-
-		_additionalScoreAd = true;
-		playGameAd();
+		if (adAvailable() == true) {
+			_additionalScoreAd = true;
+			playGameAd();
+		}
 	}
 
 	public void showScoresInShopAd() {
-
-		_scoresInShopAd = true;
-		playGameAd();
+		if (adAvailable() == true) {
+			_scoresInShopAd = true;
+			playGameAd();
+		}
 	}
 
 	public void showAdToBlockAdFromController(BlockAdsController aBlockAdController)
 	{
-		_currentBlockAdsController = aBlockAdController;
-		_adToBlockAd = true;
-		playGameAd();
+		if (adAvailable() == true) {
+			_currentBlockAdsController = aBlockAdController;
+			_adToBlockAd = true;
+			playGameAd();
+		}
 	}
 
 	public void playGameAd()
@@ -120,7 +127,7 @@ public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
 
 	void showAds()
 	{
-		Appodeal.show(Appodeal.NON_SKIPPABLE_VIDEO);
+		Appodeal.show(Appodeal.REWARDED_VIDEO);
 	}
 
 	public void tryShowInterstitial()
