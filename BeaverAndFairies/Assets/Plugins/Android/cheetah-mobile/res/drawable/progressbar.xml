@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="5dp" />
+
+            <gradient
+                android:angle="0"
+                android:centerColor="#FFFFFFFF"
+                android:centerY="0.75"
+                android:endColor="#FFFFFFFF"
+                android:startColor="#FFFFFFFF" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle" >
+                <corners android:radius="0dp" /><!--<span style="font-family: Arial, Helvetica, sans-serif;">设置为0dp就是直角</span>-->
+
+                <solid android:color="#FF37BC84" /><span style="font-family: Arial, Helvetica, sans-serif;"><!--progress的颜色--></span>
+
+            </shape>
+        </clip>
+    </item>
+
+</layer-list><!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/CMAdSdk/res/drawable/progressbar.xml -->

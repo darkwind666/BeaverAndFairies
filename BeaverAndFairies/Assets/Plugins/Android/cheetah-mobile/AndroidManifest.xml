@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cmcm.adsdk"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="22" />
+
+    <application>
+        <activity
+            android:name="com.cmcm.picks.PicksLoadingActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.cmcm.adsdk.nativead"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.cmcm.adsdk.interstitial.PicksInterstitialActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/cm_interstital" />
+        <activity
+            android:name="com.cmcm.picks.webview.PicksBrowser"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+
+        <service
+            android:name="com.cmcm.picks.init.DownloadService"
+            android:exported="false"
+            android:process=":PickService" />
+
+        <activity
+            android:name="com.cmcm.picks.vastvideo.FullScreenVideoActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="landscape" >
+        </activity>
+    </application>
+
+</manifest>

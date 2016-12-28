@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+            <!-- 圆角红色按钮 -->
+            <solid android:color="#FF37BC83" />
+            <corners android:radius="2dip" />
+        </shape>
+    </item>
+
+</selector><!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/cmadsdkextension/src/main/res/drawable/btnstyle.xml -->

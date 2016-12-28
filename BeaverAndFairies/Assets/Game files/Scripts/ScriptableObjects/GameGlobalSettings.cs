@@ -38,7 +38,7 @@ public class GameGlobalSettings : ScriptableObject {
 	public int maxStopAdsCount;
 
 	public bool blockAds;
-	public bool showAppodealAds;
+	public bool showInterstitial;
 	public bool paidGame;
 	public string androidFreeAppodealId;
 	public string androidHdAppodealId;

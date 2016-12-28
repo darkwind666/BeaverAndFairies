@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/root_view"
+    >
+    <RelativeLayout
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_above="@+id/ll_ad_body"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/img_interstitial_close_icon"
+        android:id="@+id/iv_close"
+        />
+    <View
+        android:layout_below="@+id/iv_close"
+        android:layout_width="1dp"
+        android:layout_height="32dp"
+        android:layout_centerHorizontal="true"
+        android:background="#ffffff"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="24dp"
+        android:id="@+id/ll_ad_detail"
+        android:background="@drawable/img_interstitial_adsby_bg"
+        android:layout_alignParentBottom="true">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ad_detail"
+        android:layout_gravity="center_vertical"
+        android:text="Ads by "
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="2dp"
+        />
+        <ImageView
+            android:layout_width="27dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/img_interstitial_ads_cm_icon"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_ad_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/interstital_ad_body_bg"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginLeft="16dp"
+                android:id="@+id/iv_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:id="@+id/tv_title"
+                android:text="Title"
+                android:textColor="#FF252525"
+                android:textSize="16sp"
+                android:singleLine="true"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:id="@+id/iv_coverimage"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/tv_des"
+            android:layout_marginTop="20dp"
+            android:maxLines="2"
+            android:text="Describe text ,this is a samle text bout card info Lorem ipsum sit consectetur adipiscing volutpat…"
+            android:textColor="#FF000000"
+            android:textSize="14sp"
+            />
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Botton"
+            android:id="@+id/btn_calltoaction"
+            android:textColor="#FFFFFFFF"
+            android:textSize="14sp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/btnstyle"/>
+    </LinearLayout>
+
+</RelativeLayout><!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/cmadsdkextension/src/main/res/layout/cm_activity_picks_interstitial.xml -->

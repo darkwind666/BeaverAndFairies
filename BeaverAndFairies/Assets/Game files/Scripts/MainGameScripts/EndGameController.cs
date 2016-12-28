@@ -41,9 +41,10 @@ public class EndGameController : MonoBehaviour {
 
 		int showSocialPopUpIndex = Random.Range(0,2);
 
-		if(showSocialPopUpIndex == 1)
-		{
-			showSocialPopUp();
+		if (showSocialPopUpIndex == 1) {
+			showSocialPopUp ();
+		} else {
+			adsController.tryShowInterstitial();
 		}
 	}
 

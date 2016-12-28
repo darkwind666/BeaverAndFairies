@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/interstital_ad_body_bg"
+    android:id="@+id/ll_parentGroup"
+    >
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+
+            >
+            <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+               />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text ="Piano"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:singleLine="true"
+                    android:textColor="#FF252525"
+                    android:ellipsize="end"/>
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text ="description"
+                    android:textColor="#FF000000"
+                    android:textSize="10sp"
+                    android:layout_marginTop="1dp"
+                    android:singleLine="true"
+                    android:ellipsize="end"/>
+            </LinearLayout>
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="157dp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/img_mainbackground"
+                android:scaleType="fitXY"
+
+                />
+
+            <ImageView
+                    android:layout_width="85dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/ico_banner_mid_cm"
+                    android:layout_gravity="bottom"
+                    android:id="@+id/cm_icon"/>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_btn"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="@drawable/btn_ad_bg"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="7dp"
+            android:text="LEARN MORE"
+            android:textColor="#FFFFFFFF"
+            android:textSize="14sp"
+            android:gravity="center"
+    />
+    </LinearLayout>
+
+    </RelativeLayout><!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/cmadsdkextension/src/main/res/layout/origin_picks_banner_mid.xml -->

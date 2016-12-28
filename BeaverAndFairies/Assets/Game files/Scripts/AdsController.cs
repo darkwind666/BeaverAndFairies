@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using AppodealAds.Unity.Api;
-//using AppodealAds.Unity.Common;
+using AppodealAds.Unity.Api;
+using AppodealAds.Unity.Common;
 
-// , INonSkippableVideoAdListener
-
-public class AdsController : MonoBehaviour {
+public class AdsController : MonoBehaviour, INonSkippableVideoAdListener {
 
 	public GameGlobalSettings settings;
 	public FinalChanceController chanceController;
@@ -13,39 +11,37 @@ public class AdsController : MonoBehaviour {
 	public GameShopPopUpController gameShopPopUpController;
 
 	bool _finalChanceAd;
-	bool _simplifyGameAd;
 	bool _additionalScoreAd;
 	bool _adToBlockAd;
 	bool _scoresInShopAd;
 
 	BlockAdsController _currentBlockAdsController;
+	GamePlayerDataController _playerData;
 
 	void Start () {
+		
+		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 
-		if (settings.showAppodealAds) 
-		{
-			string appodealId;
+		string appodealId;
 
-			if (settings.paidGame) {
+		if (settings.paidGame) {
 
-				appodealId = settings.androidHdAppodealId;
+			appodealId = settings.androidHdAppodealId;
 
-				#if UNITY_IOS
-				appodealId = settings.iosHdAppodealId;
-				#endif 
+			#if UNITY_IOS
+			appodealId = settings.iosHdAppodealId;
+			#endif 
 
-			} else {
-				appodealId = settings.androidFreeAppodealId;
+		} else {
+			appodealId = settings.androidFreeAppodealId;
 
-				#if UNITY_IOS
-				appodealId = settings.iosFreeAppodealId;
-				#endif 
-			}
-
-//			Appodeal.initialize(appodealId, Appodeal.NON_SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL | Appodeal.BANNER_TOP);
-//			Appodeal.setNonSkippableVideoCallbacks(this);
+			#if UNITY_IOS
+			appodealId = settings.iosFreeAppodealId;
+			#endif 
 		}
 
+		Appodeal.initialize(appodealId, Appodeal.NON_SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL | Appodeal.BANNER_TOP);
+		Appodeal.setNonSkippableVideoCallbacks(this);
 	}
 
 	void Update () {
@@ -61,12 +57,7 @@ public class AdsController : MonoBehaviour {
 
 	public bool adAvailable() {
 		bool adAvailable = false;
-
-		if (settings.showAppodealAds) 
-		{
-//			adAvailable = Appodeal.isLoaded(Appodeal.NON_SKIPPABLE_VIDEO);
-		}
-
+		adAvailable = Appodeal.isLoaded(Appodeal.NON_SKIPPABLE_VIDEO);
 		return adAvailable;
 	}
 
@@ -103,12 +94,6 @@ public class AdsController : MonoBehaviour {
 		playGameAd();
 	}
 
-	public void showSimplifyGameAd() {
-
-		_simplifyGameAd = true;
-		playGameAd();
-	}
-
 	public void showAdditionalScoreAd() {
 
 		_additionalScoreAd = true;
@@ -135,54 +120,45 @@ public class AdsController : MonoBehaviour {
 
 	void showAds()
 	{
-		if (settings.showAppodealAds) 
-		{
-//			Appodeal.show(Appodeal.NON_SKIPPABLE_VIDEO);
-		}
+		Appodeal.show(Appodeal.NON_SKIPPABLE_VIDEO);
 	}
 
 	public void tryShowInterstitial()
 	{
 		int randomNumber = UnityEngine.Random.Range(0, 3);
-		if(randomNumber == 0)
+		if(randomNumber == 0 && _playerData.blockAdsInAppBought == false && settings.blockAds == false && settings.paidGame == false && settings.showInterstitial == true)
 		{
-			if (settings.showAppodealAds && settings.paidGame == false) 
+			if (Appodeal.isLoaded (Appodeal.INTERSTITIAL)) 
 			{
-//				if (Appodeal.isLoaded (Appodeal.INTERSTITIAL)) 
-//				{
-//					Appodeal.show(Appodeal.INTERSTITIAL);
-//				}
+				Appodeal.show(Appodeal.INTERSTITIAL);
 			}
 		}
 	}
 
 	public void showInterstitial()
 	{
-		if (settings.showAppodealAds && settings.paidGame == false && settings.blockAds == false) 
+		if (settings.paidGame == false && settings.blockAds == false) 
 		{
-//			if (Appodeal.isLoaded (Appodeal.INTERSTITIAL)) 
-//			{
-//				Appodeal.show(Appodeal.INTERSTITIAL);
-//			}
+			if (Appodeal.isLoaded (Appodeal.INTERSTITIAL)) 
+			{
+				Appodeal.show(Appodeal.INTERSTITIAL);
+			}
 		}
 	}
 
 	public void showBottomBanner()
 	{
-		if (settings.showAppodealAds && settings.paidGame == false && settings.blockAds == false)
+		if (settings.paidGame == false && settings.blockAds == false && _playerData.blockAdsInAppBought == false)
 		{
-//			if (Appodeal.isLoaded (Appodeal.BANNER_TOP))
-//			{
-//				Appodeal.show(Appodeal.BANNER_TOP);
-//			}
+			if (Appodeal.isLoaded (Appodeal.BANNER_TOP))
+			{
+				Appodeal.show(Appodeal.BANNER_TOP);
+			}
 		}
 	}
 
 	public void hideBottomBanner()
 	{
-		if (settings.showAppodealAds) 
-		{
-//			Appodeal.hide(Appodeal.BANNER_TOP);
-		}
+		Appodeal.hide(Appodeal.BANNER_TOP);
 	}
 }

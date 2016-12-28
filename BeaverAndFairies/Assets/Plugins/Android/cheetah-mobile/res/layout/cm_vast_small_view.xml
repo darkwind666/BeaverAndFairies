@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.cmcm.picks.vastvideo.VastTextureView
+        android:id="@+id/vast_small_ad"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/vast_small_view_close"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:layout_alignParentRight="true">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/vast_close"
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout><!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/cmadsdkextension/src/main/res/layout/cm_vast_small_view.xml -->

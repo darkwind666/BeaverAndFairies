@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/cmadsdkextension/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">CMAdSdkExtension</string>
+    <!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/CMAdSdk/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="cancel">Cancel</string>
+    <string name="download">Continue</string>
+    <string name="downloading">Loading...</string>
+    <string name="gps_prompt_context">Downloading with mobile network?</string>
+    <string name="gps_prompt_title">Tips</string>
+    <!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/cmadsdkextension/src/main/res/values/cm_interstitial_style.xml -->
+    <eat-comment/>
+    <style name="cm_interstital">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:alwaysDrawnWithCache">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+</resources>

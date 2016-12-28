@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <rotate
+        android:fromDegrees="0"
+        android:toDegrees="359"
+        android:duration="800"
+        android:repeatCount="infinite"
+        android:repeatMode="restart"
+        android:pivotX="50%"
+        android:pivotY="50%" />
+</set><!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/CMAdSdk/res/anim/loading_animation.xml -->

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <gradient android:startColor="#4f4f4f"
+                android:endColor="#4f4f4f" />
+        </shape>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <gradient  android:startColor="#66ffffff"
+                    android:endColor="#66ffffff" />
+            </shape>
+        </clip>
+    </item>
+</layer-list><!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/cmadsdkextension/src/main/res/drawable/vast_progress_style.xml -->

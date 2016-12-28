@@ -37,16 +37,14 @@ MonoBehaviour:
   joinGroupReward: 0
   inviteFriendReward: 0
   maxStopAdsCount: 0
-  googlePlayServiceLeaderboard: 0
-  gameCenterLeaderboard: 0
   blockAds: 0
-  showAppodealAds: 0
+  showInterstitial: 1
   paidGame: 0
   androidFreeAppodealId: 
   androidHdAppodealId: 
-  iosFreeAppodealId: 
+  iosFreeAppodealId: 01bd2696c3032f9d465a5b458da75123da64d713641460ea
   iosHdAppodealId: 
-  freeOneSignalId: 
+  freeOneSignalId: e2e4212b-1fa5-4923-ae93-683c8ed3a135
   hdOneSignalId: 
   freeOneSignalProjectNumber: 
   hdOneSignalProjectNumber: 

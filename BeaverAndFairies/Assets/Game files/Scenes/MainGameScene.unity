@@ -2238,6 +2238,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1738844512}
+        m_MethodName: showBottomBanner
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &561164640
@@ -3104,6 +3115,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1718603529}
     m_Modifications:
+    - target: {fileID: 114000010170496194, guid: 1cf0ec8a047bd4720805c1d08e0e7000,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 224000010600808524, guid: 1cf0ec8a047bd4720805c1d08e0e7000,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -3218,6 +3234,31 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: playButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010170496194, guid: 1cf0ec8a047bd4720805c1d08e0e7000,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010170496194, guid: 1cf0ec8a047bd4720805c1d08e0e7000,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010170496194, guid: 1cf0ec8a047bd4720805c1d08e0e7000,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1738844512}
+    - target: {fileID: 114000010170496194, guid: 1cf0ec8a047bd4720805c1d08e0e7000,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: hideBottomBanner
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010170496194, guid: 1cf0ec8a047bd4720805c1d08e0e7000,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cf0ec8a047bd4720805c1d08e0e7000, type: 2}
@@ -8677,6 +8718,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 964013840}
         m_MethodName: playButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1738844512}
+        m_MethodName: hideBottomBanner
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <!-- android:ellipsize="end"-->
+        <RelativeLayout
+            android:id="@+id/vast_rl"
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:gravity="center">
+
+            <com.cmcm.picks.vastvideo.VastTextureView
+                android:id="@+id/vast_ad"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/vast_img_stranch"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/vast_stranch" />
+
+            <ImageView
+                android:id="@+id/vast_img_volume"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="8dp"
+                android:layout_toLeftOf="@id/vast_img_stranch"
+                android:src="@drawable/vast_volume_off" />
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/vast_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@id/vast_rl"
+            android:progressDrawable="@drawable/vast_progress_style" />
+
+        <RelativeLayout
+            android:id="@+id/cover_top"
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:background="#99000000"
+            android:visibility="gone"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/vast_watch_again"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="72dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/vast_watchagain" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="watch again"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/vast_install"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/vast_watch_again"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/vast_install" />
+
+                <TextView
+                    android:id="@+id/vast_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="install"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+</RelativeLayout><!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/cmadsdkextension/src/main/res/layout/cm_vast_ad_layout.xml -->

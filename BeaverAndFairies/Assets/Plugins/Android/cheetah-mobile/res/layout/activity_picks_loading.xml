@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+    <ImageView
+        android:layout_width="114dp"
+        android:layout_height="29dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="34dp"
+        android:src="@drawable/cmasdk_market_top_gp"/>
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="28dp"
+        android:id="@+id/wait_progressbar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:progressDrawable="@drawable/progressbar"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginTop="248dp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/downloading"
+        android:textSize="16sp"
+        android:textColor="#FFA8A8A8"/>
+
+</LinearLayout><!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/CMAdSdk/res/layout/activity_picks_loading.xml -->

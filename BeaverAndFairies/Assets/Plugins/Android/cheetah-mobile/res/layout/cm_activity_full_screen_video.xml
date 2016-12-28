@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/full_screen_video"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <ProgressBar
+            android:id="@+id/video_full_screen_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_alignParentBottom="true"
+            android:progressDrawable="@drawable/vast_progress_style" />
+
+        <com.cmcm.picks.vastvideo.VastTextureView
+            android:id="@+id/video_full_screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/video_full_screen_progress"
+            />
+
+        <ImageView
+            android:id="@+id/vast_full_img_stranch"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/vast_shrink" />
+
+        <ImageView
+            android:id="@+id/vast_full_img_volume"
+            android:layout_toLeftOf="@id/vast_full_img_stranch"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="13dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/vast_volume_off" />
+
+    </RelativeLayout>
+</RelativeLayout><!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/cmadsdkextension/src/main/res/layout/cm_activity_full_screen_video.xml -->

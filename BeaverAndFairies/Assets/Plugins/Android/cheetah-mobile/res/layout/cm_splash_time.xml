@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:visibility="invisible"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/rl_time_layout"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="4dp"
+        android:paddingLeft="3dp"
+        android:gravity="center"
+        android:alpha="0.8"
+        android:background="@anim/advertisement">
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text=" "
+            android:gravity="center_horizontal"
+            android:textColor="#FFFFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+        
+        <View
+            android:visibility="gone"
+            android:id="@+id/vertical_line"
+            android:layout_width="2dp"
+            android:layout_height="wrap_content"
+            android:background="#55FFFFFF"
+            android:layout_toRightOf="@id/number"
+            android:layout_marginLeft="7dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="7dp"
+            />
+        
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/jump_to_main"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/vertical_line"
+            android:text="跳过"
+            android:textSize="16sp"
+            android:textColor="#FFFFFFFF"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_contentview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+    </RelativeLayout>
+        
+        
+</RelativeLayout>
+<!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/cmadsdkextension/src/main/res/layout/cm_splash_time.xml -->

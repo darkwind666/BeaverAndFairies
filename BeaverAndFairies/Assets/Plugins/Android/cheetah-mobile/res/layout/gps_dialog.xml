@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#66000000">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#66000000">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="312dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center"
+        android:background="#FFFFFFFF"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gps_prompt_title"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:layout_marginTop="32dp"
+            android:textStyle="bold"
+            android:textColor="#FF252525"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:text="@string/gps_prompt_context"
+            android:textSize="15sp"
+            android:textColor="#FF252525"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:text="-"
+            android:layout_marginTop="20dp"
+            android:background="#FFD6D2D6"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp" >
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/cancel"
+                android:layout_marginLeft="60dp"
+                android:textSize="18sp"
+                android:textColor="#FF666666"
+                android:layout_weight="0.45"/>
+
+
+            <TextView
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:text="|"
+                android:layout_weight="0.01"
+                android:layout_gravity="center"
+                android:background="#FFD6D2D6"/>
+
+            <TextView
+                android:id="@+id/tv_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/download"
+                android:layout_gravity="center"
+                android:layout_marginLeft="60dp"
+                android:textSize="18sp"
+                android:layout_weight="0.45"
+                android:textColor="#49A3EA"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout><!-- From: file:/D:/asd/branches/juhe_sdk_v3.4_fb/juhe_sdk/CMAdSdk/res/layout/gps_dialog.xml -->
