@@ -1,20 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Runtime.InteropServices;
+using UnityEngine.SceneManagement;
 
 /*
  * https://github.com/ChrisMaire/unity-native-sharing 
  */
 
 public class NativeShare : MonoBehaviour {
+	public string CambiaScena = "null";
 	public string ScreenshotName = "screenshot.png";
+	public string screenShotPath = "null";
+	public string Texto = "null";
 
     public void ShareScreenshotWithText(string text)
     {
-        string screenShotPath = Application.persistentDataPath + "/" + ScreenshotName;
-        Application.CaptureScreenshot(ScreenshotName);
+		Texto = text;
+		screenShotPath = Application.persistentDataPath + "/" + ScreenshotName;
+		Application.CaptureScreenshot(ScreenshotName);
 
-        Share(text,screenShotPath,"");
+		StartCoroutine ("SacaFoto");
+		Debug.Log ("Mando el ienumerator");
+		//Share(text,screenShotPath,"");
     }
 
 	public void Share(string shareText, string imagePath, string url, string subject = "")
@@ -28,12 +35,12 @@ public class NativeShare : MonoBehaviour {
 		AndroidJavaObject uriObject = uriClass.CallStatic<AndroidJavaObject>("parse", "file://" + imagePath);
 		intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_STREAM"), uriObject);
 		intentObject.Call<AndroidJavaObject>("setType", "image/png");
-		
+
 		intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"), shareText);
-		
+
 		AndroidJavaClass unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 		AndroidJavaObject currentActivity = unity.GetStatic<AndroidJavaObject>("currentActivity");
-		
+
 		AndroidJavaObject jChooser = intentClass.CallStatic<AndroidJavaObject>("createChooser", intentObject, subject);
 		currentActivity.Call("startActivity", jChooser);
 #elif UNITY_IOS
@@ -51,7 +58,7 @@ public class NativeShare : MonoBehaviour {
 	}
 
 	[DllImport ("__Internal")] private static extern void showAlertMessage(ref ConfigStruct conf);
-	
+
 	public struct SocialSharingStruct
 	{
 		public string text;
@@ -59,9 +66,9 @@ public class NativeShare : MonoBehaviour {
 		public string image;
 		public string subject;
 	}
-	
+
 	[DllImport ("__Internal")] private static extern void showSocialSharing(ref SocialSharingStruct conf);
-	
+
 	public static void CallSocialShare(string title, string message)
 	{
 		ConfigStruct conf = new ConfigStruct();
@@ -70,15 +77,33 @@ public class NativeShare : MonoBehaviour {
 		showAlertMessage(ref conf);
 	}
 
+
 	public static void CallSocialShareAdvanced(string defaultTxt, string subject, string url, string img)
 	{
 		SocialSharingStruct conf = new SocialSharingStruct();
-		conf.text = defaultTxt; 
+		conf.text = defaultTxt;
 		conf.url = url;
 		conf.image = img;
 		conf.subject = subject;
-		
+
 		showSocialSharing(ref conf);
 	}
 #endif
+
+	IEnumerator SacaFoto()
+	{
+		yield return new WaitForSeconds (1);
+		Share(Texto,screenShotPath,"");
+		Debug.Log ("Saco La Foto");
+
+		yield return new WaitForSeconds (1);
+		ChangeScene ();
+		Debug.Log ("Cambia la scena");
+
+	}
+		
+	public void ChangeScene () {
+		SceneManager.LoadScene (CambiaScena);
+	}
+
 }

@@ -18,16 +18,16 @@ MonoBehaviour:
     Id: 570e0b040872451ef200007b
     ApiKey: 192e859af758c035575a858cb3d354fadb830818
     BuildSecret: 0f9dbfd3d1924f435564838bb6e38981805294e8a28ea2df8b1874483d2ebfc5
-  iconUrl: 
-  dashboardUrl: 
+  iconUrl: https://s3.amazonaws.com/assets.crashlytics.com/production/project/6148923/project_icon/2700487/icon.png
+  dashboardUrl: https://www.fabric.io/darkwinddevs-projects/ios/apps/comdarkwind.beaverspace
   initialization: 0
   flowSequence: 0
   conflict: 
   kit: 
   installedKits:
   - Name: Crashlytics
-    InstallationStatus: 1
-    Installed: 0
+    InstallationStatus: 2
+    Installed: 1
     Enabled: 1
     Meta:
     - Key: ConfiguredTimestamp
