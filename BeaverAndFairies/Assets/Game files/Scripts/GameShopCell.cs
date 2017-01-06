@@ -7,7 +7,10 @@ public class GameShopCell : TableViewCell {
 
 	public Button fairyButton;
 	public Text price;
-	public Toggle selectFairyToggle;
+	public Text descriptionSlowdownTime;
+	public Text descriptionDamageTime;
+	public Image selectFairyToggle;
+
 
 	void Start () {
 	

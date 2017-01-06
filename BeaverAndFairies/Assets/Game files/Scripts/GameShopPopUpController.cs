@@ -53,11 +53,21 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 			cell = (GameShopCell)GameObject.Instantiate(m_cellPrefab);
 		}
 
+		Debug.Log (row);
+
 		setUpPrice(cell, row);
+		setUpDescription(cell, row);
 		setUpBuyButton(cell, row);
 		setUpToggle(cell, row);
 
 		return cell;
+	}
+
+	void setUpDescription(GameShopCell cell, int row)
+	{
+		GameFairyModel cellData = fairiesDataSource.dataArray[row];
+		cell.descriptionDamageTime.text = cellData.fairyCreateSlowBonusTime.ToString();
+		cell.descriptionSlowdownTime.text = cellData.fairyCreateDamageBonusTime.ToString();
 	}
 
 	void setUpPrice(GameShopCell cell, int row)
@@ -67,6 +77,7 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 		if (_playerData.playerFairies.Contains (row) == true) {
 			cell.price.gameObject.SetActive(false);
 		} else {
+			cell.price.gameObject.SetActive(true);
 			cell.price.text = cellData.fairyPrice.ToString();
 		}
 	}
@@ -74,7 +85,7 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 	void setUpBuyButton(GameShopCell cell, int row)
 	{
 		GameFairyModel cellData = fairiesDataSource.dataArray[row];
-		cell.fairyButton.image.sprite =  Sprite.Create(cellData.fairyTexture,new Rect(0,0,50,50),new Vector2(0.5f,0.5f));
+		cell.fairyButton.image.sprite =  Sprite.Create(cellData.fairyTexture,new Rect(0,0,cellData.fairyTexture.width,cellData.fairyTexture.height),new Vector2(0.5f,0.5f));
 		cell.fairyButton.onClick.RemoveAllListeners();
 		cell.fairyButton.onClick.AddListener(() => { 
 
@@ -84,21 +95,38 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 				{
 					_playerData.playerFairies.Add(row);
 					_playerData.playerScore -= cellData.fairyPrice;
-					_playerData.selectedFairyIndex = row;
-					_lastSelectedFairyIndex = row;
+					uncheckPreviousFairy();
+					selectFairyOnIndexWithCell(row, cell);
 					_playerData.savePlayerData();
-
-					cell.selectFairyToggle.gameObject.SetActive(false);
-					cell.selectFairyToggle.isOn = true;
+					cell.price.gameObject.SetActive(false);
 
 					GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
 					analiticsController.buyFairyPressed();
 				} else {
 					inAppPurchasesPopUp.SetActive(true);
 				}
+			} else {
+				uncheckPreviousFairy();
+				selectFairyOnIndexWithCell(row, cell);
 			}
 
 		});
+	}
+
+	void selectFairyOnIndexWithCell(int aIndex, GameShopCell aCell)
+	{
+		_playerData.selectedFairyIndex = aIndex;
+		_lastSelectedFairyIndex = aIndex;
+		aCell.selectFairyToggle.gameObject.SetActive(true);
+	}
+
+	void uncheckPreviousFairy()
+	{
+		if(_lastSelectedFairyIndex >= 0)
+		{
+			GameShopCell selectedFairyCell = m_tableView.GetCellAtRow(_lastSelectedFairyIndex) as GameShopCell;
+			selectedFairyCell.selectFairyToggle.gameObject.SetActive(false);
+		}
 	}
 
 	void setUpToggle(GameShopCell cell, int row)
@@ -106,26 +134,15 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 		if(_playerData.playerFairies.Contains(row) == false)
 		{
 			cell.selectFairyToggle.gameObject.SetActive(false);
+			return;
 		}
 
 		if(_lastSelectedFairyIndex == row)
 		{
-			cell.selectFairyToggle.isOn = true;
+			cell.selectFairyToggle.gameObject.SetActive(true);
+		} else {
+			cell.selectFairyToggle.gameObject.SetActive(false);
 		}
-
-		cell.selectFairyToggle.onValueChanged.RemoveAllListeners();
-		cell.selectFairyToggle.onValueChanged.AddListener((bool value) => {
-
-			if(_lastSelectedFairyIndex >= 0)
-			{
-				GameShopCell selectedFairyCell = m_tableView.GetCellAtRow(_lastSelectedFairyIndex) as GameShopCell;
-				selectedFairyCell.selectFairyToggle.isOn = false;
-			}
-
-			_playerData.selectedFairyIndex = row;
-			_lastSelectedFairyIndex = row;
-
-		});
 	}
 
 	public void buySlowBonus()

@@ -12,12 +12,28 @@ MonoBehaviour:
   m_Name: FairiesDataList
   m_EditorClassIdentifier: 
   dataArray:
-  - fairyTexture: {fileID: 2800000, guid: 00636953ddeb3497fb9b2e1bd33eca55, type: 3}
+  - fairyTexture: {fileID: 2800000, guid: 559cb13fbc3484006a0828e40d42de44, type: 3}
     fairyPrice: 100
     fairyCreateSlowBonusTime: 1000
     fairyCreateDamageBonusTime: 2000
-  - fairyTexture: {fileID: 2800000, guid: 00636953ddeb3497fb9b2e1bd33eca55, type: 3}
+  - fairyTexture: {fileID: 2800000, guid: 12ef6f5edf7704e108fcf1eb9e63dd57, type: 3}
     fairyPrice: 200
+    fairyCreateSlowBonusTime: 900
+    fairyCreateDamageBonusTime: 1800
+  - fairyTexture: {fileID: 2800000, guid: 1421d213de8b04b34a28ef9c5854b6d8, type: 3}
+    fairyPrice: 400
+    fairyCreateSlowBonusTime: 900
+    fairyCreateDamageBonusTime: 1800
+  - fairyTexture: {fileID: 2800000, guid: 4920c88dbef1e4657b57d78747862e31, type: 3}
+    fairyPrice: 700
+    fairyCreateSlowBonusTime: 900
+    fairyCreateDamageBonusTime: 1800
+  - fairyTexture: {fileID: 2800000, guid: ce18e80d371a443e29a98422ebc5229c, type: 3}
+    fairyPrice: 1000
+    fairyCreateSlowBonusTime: 900
+    fairyCreateDamageBonusTime: 1800
+  - fairyTexture: {fileID: 2800000, guid: 33a09fd8eeee54beb8532a304e339bcf, type: 3}
+    fairyPrice: 1500
     fairyCreateSlowBonusTime: 900
     fairyCreateDamageBonusTime: 1800
   inAppsDataArray:
