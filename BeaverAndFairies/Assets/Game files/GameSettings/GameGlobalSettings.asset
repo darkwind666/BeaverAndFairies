@@ -17,7 +17,7 @@ MonoBehaviour:
   boardHeight: 9
   oneBlockAnimationDuration: 0.25
   scaleAnimationDuration: 0.3
-  distanceBetweeneTasks: 0.3
+  distanceBetweeneTasks: 0.001
   googlePlayLeaderboardId: CgkIqZnn8MUPEAIQAA
   inAppProductRemoveAdID: com.darkwind.beaverSpace.removeAd
   inAppProductScoreCount1ID: com.darkwind.beaverSpace.scoresCount1

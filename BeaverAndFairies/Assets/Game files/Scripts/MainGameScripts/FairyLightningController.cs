@@ -38,6 +38,8 @@ public class FairyLightningController : MonoBehaviour {
 			{
 				_playerData.damageBonusCount++;
 				_currentBonusTime = 0;
+				GameFairyModel fairyModel = gameBalanceDataSource.dataArray[_playerData.selectedFairyIndex];
+				_bonusRechargeTime = fairyModel.fairyCreateSlowBonusTime;
 			}
 		}
 	}

@@ -38,6 +38,8 @@ public class FairySlowdownController : MonoBehaviour {
 			{
 				_playerData.slowBonusCount++;
 				_currentBonusTime = 0;
+				GameFairyModel fairyModel = gameBalanceDataSource.dataArray[_playerData.selectedFairyIndex];
+				_bonusRechargeTime = fairyModel.fairyCreateSlowBonusTime;
 			}
 		}
 	}

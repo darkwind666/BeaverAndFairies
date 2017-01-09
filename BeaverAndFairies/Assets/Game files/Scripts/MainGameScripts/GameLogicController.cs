@@ -7,6 +7,7 @@ using DG.Tweening;
 public class GameLogicController : MonoBehaviour {
 
 	public GameObject[] blockTemplates;
+	public GameObject[] blockBordersTemplates;
 	public GameObject blockPadTemplate;
 	public GameObject blockExample;
 	public Text scoreLabel;
@@ -37,7 +38,6 @@ public class GameLogicController : MonoBehaviour {
 
 	public GameGlobalSettings gameSettings;
 	public FadingScript fadingController;
-
 	public EndGameController endGameController;
 
 
@@ -83,6 +83,15 @@ public class GameLogicController : MonoBehaviour {
 			block.transform.SetParent(transform.parent, false);
 			block.transform.position = transform.position;
 
+			int borderIndex = Random.Range(0, blockBordersTemplates.Length);
+			Vector3 startBorderPosition = new Vector3(0,blockBordersTemplates[borderIndex].transform.localPosition.y,0);
+			GameObject blockBorder = Instantiate(blockBordersTemplates[borderIndex], startBorderPosition, Quaternion.identity) as GameObject;
+			blockBorder.transform.SetParent(block.transform, false);
+
+			BlockTasksController tasksController = block.GetComponent<BlockTasksController>();
+			Destroy(tasksController.blockRect);
+			tasksController.blockRect = blockBorder;
+
 			BlockTasksController blockTasksController = block.GetComponent<BlockTasksController>();
 
 			int taskCount = blockTasksCount;
@@ -94,16 +103,15 @@ public class GameLogicController : MonoBehaviour {
 			float tasksLength = 0.0f;
 			for(int blockTaskIndex = 0; blockTaskIndex < taskCount; blockTaskIndex++)
 			{
-				Vector3 blockTaskPosition = new Vector3(0,0,0);
-
 				int blockIndex = blockType;
 				if(blockType == 0)
 				{
 					blockIndex = Random.Range(0, blockTemplates.Length);
 				}
 
+				Vector3 newBlockTaskPosition = new Vector3(0,blockTemplates[blockIndex].transform.localPosition.y,0);
 				GameObject blockTaskTemplate = blockTemplates[blockIndex];
-				GameObject blockTask = Instantiate(blockTemplates[blockIndex], blockTaskPosition, blockTaskTemplate.transform.rotation) as GameObject;
+				GameObject blockTask = Instantiate(blockTemplates[blockIndex], newBlockTaskPosition, blockTaskTemplate.transform.rotation) as GameObject;
 				blockTask.transform.SetParent(block.transform, false);
 				blockTasksController.blockTasks.Add(blockTask);
 
@@ -118,7 +126,7 @@ public class GameLogicController : MonoBehaviour {
 			{
 				Renderer renderer = task.GetComponent<Renderer>();
 				float width = renderer.bounds.size.x;
-				task.transform.localPosition = new Vector3(startX + (width / 2) ,0,0);
+				task.transform.localPosition = new Vector3(startX + (width / 2) ,task.transform.localPosition.y,0);
 				startX += (width + gameSettings.distanceBetweeneTasks);
 			}
 

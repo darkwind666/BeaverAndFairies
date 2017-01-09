@@ -7,6 +7,8 @@ public class LoadGameController : MonoBehaviour {
     public FadingScript fadingController;
     public GameAnaliticsController gameAnaliticsController;
 	public GameGlobalSettings gameSettings;
+	public Image englishGameName;
+	public Image russianGameName;
 
     Image circularLoader;
 
@@ -16,6 +18,7 @@ public class LoadGameController : MonoBehaviour {
         circularLoader.fillAmount = 0f;
         gameAnaliticsController.sendPlayerPlatformData();
         setUpGameLanguage();
+		setUpGameName();
     }
 
     void setUpGameLanguage()
@@ -28,6 +31,21 @@ public class LoadGameController : MonoBehaviour {
         }
         SmartLocalization.LanguageManager.SetDontDestroyOnLoad();
     }
+
+	void setUpGameName()
+	{
+		SmartLocalization.LanguageManager languageManager = SmartLocalization.LanguageManager.Instance;
+		SmartLocalization.SmartCultureInfo deviceCulture = languageManager.CurrentlyLoadedCulture;
+
+		if(deviceCulture.languageCode == "ru")
+		{
+			russianGameName.gameObject.SetActive(true);
+			englishGameName.gameObject.SetActive(false);
+		} else {
+			russianGameName.gameObject.SetActive(false);
+			englishGameName.gameObject.SetActive(true);
+		}
+	}
 
     void Update ()
     {
