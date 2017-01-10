@@ -39,6 +39,7 @@ public class GameLogicController : MonoBehaviour {
 	public GameGlobalSettings gameSettings;
 	public FadingScript fadingController;
 	public EndGameController endGameController;
+	public GameObject pauseGamePopUp;
 
 
 	void Start () {
@@ -215,7 +216,7 @@ public class GameLogicController : MonoBehaviour {
 	public void resumeGame()
 	{
 		GamePlayerDataController playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
-		if(playerData.completedTutorial == true)
+		if(playerData.completedTutorial == true && pauseGamePopUp.activeSelf == false)
 		{
 			stopGame = false;
 		}
