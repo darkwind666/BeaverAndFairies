@@ -36,6 +36,8 @@ public class GameGlobalSettings : ScriptableObject {
 	public int joinGroupReward;
 	public int inviteFriendReward;
 	public int maxStopAdsCount;
+	public int promoCodeReward;
+	public string promoCode;
 
 	public bool blockAds;
 	public bool showInterstitial;

@@ -24,7 +24,6 @@ public class BlocksSpawnTimeController : MonoBehaviour {
 	}
 
 	void Update () {
-
 		if(gameLogicController.stopGame == false)
 		{
 			_currentTime++;

@@ -124,4 +124,7 @@ public class GameAnaliticsController : MonoBehaviour {
 	public void userBuyScoresCount4() { sendAnaliticMessage(gameAnaliticsMessages.userBuyScoresCount4);}
 	public void userBuyScoresCount5() { sendAnaliticMessage(gameAnaliticsMessages.userBuyScoresCount5);}
 	public void userBuyBlockAd() { sendAnaliticMessage(gameAnaliticsMessages.userBuyBlockAd);}
+
+	public void showPromoCodePopUp() { sendAnaliticMessage(gameAnaliticsMessages.showPromoCodePopUp);}
+	public void playerUsePromoCode() { sendAnaliticMessage(gameAnaliticsMessages.playerUsePromoCode);}
 }

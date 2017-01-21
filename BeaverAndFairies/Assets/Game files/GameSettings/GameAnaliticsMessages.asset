@@ -82,3 +82,5 @@ MonoBehaviour:
   contactDevelopersFromGameSettings: contactDevelopersFromGameSettings
   showDevelopersPressed: showDevelopersPressed
   playerAcceptPublishPermissions: playerAcceptPublishPermissions
+  showPromoCodePopUp: showPromoCodePopUp
+  playerUsePromoCode: playerUsePromoCode

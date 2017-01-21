@@ -9,11 +9,16 @@ public class LoadGameController : MonoBehaviour {
 	public GameGlobalSettings gameSettings;
 	public Image englishGameName;
 	public Image russianGameName;
+	public int startGameLoadingInterval;
 
     Image circularLoader;
+	bool _startGameLoading;
+	int _currentTimeInterval;
 
     void Start ()
     {
+		_currentTimeInterval = 0;
+		_startGameLoading = false;
         circularLoader = GetComponent<Image>();
         circularLoader.fillAmount = 0f;
         gameAnaliticsController.sendPlayerPlatformData();
@@ -49,18 +54,39 @@ public class LoadGameController : MonoBehaviour {
 
     void Update ()
     {
-        if (circularLoader.fillAmount < 1f)
-        {
-            circularLoader.fillAmount += Time.deltaTime / time;
-        }
-        else
-        {
-			fadingController.startFade(gameSettings.mainMenuScreenName, false);
-			ServicesLocator.setServiceForKey(gameSettings, typeof(GameGlobalSettings).Name);
-            ServicesLocator.loadGameServices();
-			createNewPlayer();
-            enabled = false;
-        }
+		checkStartGameLoading();
+		checkLoadIndicatorFillAmmount();
+	}
+
+	void checkStartGameLoading()
+	{
+		if(_startGameLoading == false)
+		{
+			_currentTimeInterval++;
+			if(_currentTimeInterval == startGameLoadingInterval)
+			{
+				_startGameLoading = true;
+			}
+		}
+	}
+
+	void checkLoadIndicatorFillAmmount()
+	{
+		if(_startGameLoading == true)
+		{
+			if (circularLoader.fillAmount < 1f)
+			{
+				circularLoader.fillAmount += Time.deltaTime / time;
+			}
+			else
+			{
+				fadingController.startFade(gameSettings.mainMenuScreenName, false);
+				ServicesLocator.setServiceForKey(gameSettings, typeof(GameGlobalSettings).Name);
+				ServicesLocator.loadGameServices();
+				createNewPlayer();
+				enabled = false;
+			}
+		}
 	}
 
 	void createNewPlayer()

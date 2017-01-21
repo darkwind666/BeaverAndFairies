@@ -3,12 +3,19 @@ using System.Collections;
 
 public class GameSettingsPopUpController : MonoBehaviour {
 
-	// Use this for initialization
+	public GameObject promoCodeButton;
+
+	GamePlayerDataController _playerData;
+
 	void Start () {
-	
+		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
+
+		if(_playerData.playerUsePromocode == true)
+		{
+			promoCodeButton.SetActive(false);
+		}
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 	
 	}

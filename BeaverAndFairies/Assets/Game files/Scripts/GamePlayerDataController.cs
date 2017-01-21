@@ -43,6 +43,7 @@ public class GamePlayerDataController {
 	public bool blockAdsInAppBought { get; set; }
 	public bool enableSoundsEffects { get; set; }
 	public bool enableBackgroundSound { get; set; }
+	public bool playerUsePromocode { get; set; }
 
 	public List<int> playerFairies;
 
@@ -118,6 +119,7 @@ public class GamePlayerDataController {
 			blockAdsInAppBought = data.blockAdsInAppBought;
 			enableSoundsEffects = data.enableSoundsEffects;
 			enableBackgroundSound = data.enableBackgroundSound;
+			playerUsePromocode = data.playerUsePromocode;
 
 			if (playerFairies == null)
 			{
@@ -155,6 +157,7 @@ public class GamePlayerDataController {
 		savingData.blockAdsInAppBought = blockAdsInAppBought;
 		savingData.enableSoundsEffects = enableSoundsEffects;
 		savingData.enableBackgroundSound = enableBackgroundSound;
+		savingData.playerUsePromocode = playerUsePromocode;
 
         formatter.Serialize(file, savingData);
         file.Close();
@@ -180,6 +183,7 @@ public class GamePlayerDataController {
 		blockAdsInAppBought = false;
 		enableSoundsEffects = true;
 		enableBackgroundSound = true;
+		playerUsePromocode = false;
         savePlayerData();
     }
 
@@ -222,6 +226,7 @@ public class PlayerData
 	public bool blockAdsInAppBought;
 	public bool enableSoundsEffects;
 	public bool enableBackgroundSound;
+	public bool playerUsePromocode;
 }
 
 public class PlayerDataXMLFormatter: IFormatter

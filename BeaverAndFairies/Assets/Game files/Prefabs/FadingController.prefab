@@ -56,4 +56,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadePrefab: {fileID: 22391042, guid: 4244dc465eafe4bc4b127fb5e4cb5ec3, type: 2}
-  speed: 2
+  speed: 8

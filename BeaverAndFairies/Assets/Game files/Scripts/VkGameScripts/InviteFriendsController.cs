@@ -58,9 +58,9 @@ public class InviteFriendsController : MonoBehaviour, ITableViewDataSource {
 		cell.friendName.text = cellData.first_name + " " + cellData.last_name;
 
 		if (friendsDataSource [row].invited == true) {
-			cell.inviteButton.gameObject.SetActive (false);
+			cell.inviteImage.gameObject.SetActive (false);
 		} else {
-			cell.inviteButton.gameObject.SetActive (true);
+			cell.inviteImage.gameObject.SetActive (true);
 		}
 
 		Action<DownloadRequest> doOnFinish =(downloadRequest)=>
@@ -80,7 +80,7 @@ public class InviteFriendsController : MonoBehaviour, ITableViewDataSource {
 		cell.inviteButton.onClick.RemoveAllListeners();
 		cell.inviteButton.onClick.AddListener(() => { 
 			_vkontakteGameController.inviteFriend(cellData.id.ToString(), cellData.first_name, () => {
-				cell.inviteButton.gameObject.SetActive(false);
+				cell.inviteImage.gameObject.SetActive(false);
 				friendsDataSource[row].invited = true;
 			});
 		});

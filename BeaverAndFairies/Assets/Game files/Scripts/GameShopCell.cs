@@ -10,7 +10,7 @@ public class GameShopCell : TableViewCell {
 	public Text descriptionSlowdownTime;
 	public Text descriptionDamageTime;
 	public Image selectFairyToggle;
-
+	public Image fairyImage;
 
 	void Start () {
 	

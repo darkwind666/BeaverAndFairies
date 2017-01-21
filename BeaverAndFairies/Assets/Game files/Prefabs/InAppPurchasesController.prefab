@@ -53,3 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSettings: {fileID: 11400000, guid: bbd941705bb8444f88bf4b5186132ada, type: 2}
   fairiesDataSource: {fileID: 11400000, guid: 37bcedd5f6e614a1d9cdf4a651071193, type: 2}
+  blockAdButton: {fileID: 0}

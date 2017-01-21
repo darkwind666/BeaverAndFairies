@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using com.playGenesis.VkUnityPlugin;
 using com.playGenesis.VkUnityPlugin.MiniJSON;
 
-public class MainGameVkController : MonoBehaviour {
+public class MainGameVkController : MonoBehaviour, VKontakteInviteFriendsInterface {
 
 	public GameGlobalSettings gameSettings;
 	public GameObject acceptOperationController;
@@ -19,11 +19,13 @@ public class MainGameVkController : MonoBehaviour {
 	int _vkScore;
 	int _vkLevel;
 	String _vkClientKey;
+	Downloader _downloader;
 
 	void Start () {
 		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 		_vkapi = VkApi.VkApiInstance;
 		_vkapi.LoggedIn += onVKLogin;
+		_downloader = _vkapi.gameObject.GetComponent<Downloader> ();
 	}
 
 	void Update () {
@@ -200,6 +202,44 @@ public class MainGameVkController : MonoBehaviour {
 		{
 			inviteFriendsController.m_tableView.ReloadData();
 		}
+	}
+
+	public void loadImageWithUrlAndCallback (string aUrl, Action<DownloadRequest> aCallback)
+	{
+		var request = new DownloadRequest
+		{
+			url = aUrl,
+			onFinished = aCallback,
+		};
+
+		_downloader.download(request);
+	}
+
+	public void inviteFriend(string friendId, string friendName, Action aCallback)
+	{
+		string inviteTextTemplate = SmartLocalization.LanguageManager.Instance.GetTextValue(gameSettings.inviteTextKey);
+		string inviteText = string.Format(inviteTextTemplate, friendName);
+
+		VKRequest r1 = new VKRequest (){
+			url="apps.sendRequest?user_id="+friendId+"&text=" + inviteText + "&type=invite&name=BeaverTime",
+			CallBackFunction=inviteFriendHandler,
+			data = new Action[] {aCallback},
+		};
+
+		_vkapi.Call (r1);
+	}
+
+	void inviteFriendHandler(VKRequest request)
+	{
+		if(request.error!=null)
+		{
+			return;
+		}
+
+		_playerData.playerScore += gameSettings.inviteFriendReward;
+		_playerData.savePlayerData();
+		Action callback = request.data[0] as Action;
+		callback();
 	}
 
 }

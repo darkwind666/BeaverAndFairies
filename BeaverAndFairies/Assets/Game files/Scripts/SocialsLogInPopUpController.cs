@@ -12,8 +12,10 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 	public GameGlobalSettings gameGlobalSettings;
 	public GameObject vkButton;
 	public GameObject fbButton;
+	public GameObject promoCodeButton;
 	public Text vklLogInReward;
 	public Text fblLogInReward;
+	public Text promoCodeReward;
 	public GameAnaliticsController gameAnaliticsController;
 
 	GamePlayerDataController _playerData;
@@ -23,8 +25,14 @@ public class SocialsLogInPopUpController : MonoBehaviour {
 		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 		_vkapi = VkApi.VkApiInstance;
 		_vkapi.LoggedIn += onVKLogin;
-		vklLogInReward.text = gameGlobalSettings.logInReward.ToString();
-		fblLogInReward.text = gameGlobalSettings.logInReward.ToString();
+		vklLogInReward.text = "+" + gameGlobalSettings.logInReward.ToString();
+		fblLogInReward.text = "+" + gameGlobalSettings.logInReward.ToString();
+		promoCodeReward.text = "+" + gameGlobalSettings.promoCodeReward.ToString();
+
+		if(_playerData.playerUsePromocode == true)
+		{
+			promoCodeButton.SetActive(false);
+		}
 	}
 
 	void OnDisable()

@@ -44,7 +44,7 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 		_vkapi = VkApi.VkApiInstance;
 		_vkapi.LoggedIn += onVKLogin;
 		_vkapi.LoggedOut += onLogout;
-		_downloader = _vkapi.gameObject.GetComponent<Downloader> ();
+		_downloader = _vkapi.gameObject.GetComponent<Downloader>();
 
 		playerImage.enabled = false;
 

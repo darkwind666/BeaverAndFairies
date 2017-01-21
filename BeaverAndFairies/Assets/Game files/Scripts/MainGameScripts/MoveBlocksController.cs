@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class MoveBlocksController {
 
@@ -36,14 +37,16 @@ public class MoveBlocksController {
 			{
 				if (aBlock != blockForCollision) 
 				{
-
 					BlockTasksController blockTasksControllerForCollision = blockForCollision.GetComponent<BlockTasksController>();
 					Renderer blockForCollisionRenderer = blockTasksControllerForCollision.blockRect.GetComponent<Renderer>();
 
 					if(renderer.bounds.Intersects(blockForCollisionRenderer.bounds) == true || aBlock.transform.localPosition.y < loseHeight)
 					{
+						int index =  Array.IndexOf(gameLogicController._currentBlocks.ToArray(), aBlock);
 						blockTypeComponent.placed = true;
-						Vector3 finalPosition = new Vector3(blockForCollision.transform.localPosition.x, blockForCollision.transform.localPosition.y + gameLogicController._blockHeight + 0.01f, 0);
+						float blockHeight = renderer.bounds.size.y;
+						//Debug.Log(blockHeight);
+						Vector3 finalPosition = new Vector3(blockForCollision.transform.localPosition.x, blockForCollision.transform.localPosition.y + gameLogicController.blocksSpeed + blockHeight + 0.01f, 0);
 						aBlock.transform.localPosition = finalPosition;
 						break;
 					}

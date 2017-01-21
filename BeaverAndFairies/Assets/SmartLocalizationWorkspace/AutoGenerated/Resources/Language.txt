@@ -199,4 +199,10 @@ Name</value>
 		<value>Connect 
 social account!</value>
 	</data>
+	<data name="BeaverGame.LogInVkProposal" xml:space="preserve">
+		<value>Log in vk</value>
+	</data>
+	<data name="BeaverGame.LogInFacebookProposal" xml:space="preserve">
+		<value>Log in facebook</value>
+	</data>
 </root>

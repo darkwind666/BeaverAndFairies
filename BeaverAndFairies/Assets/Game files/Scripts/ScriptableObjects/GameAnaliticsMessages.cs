@@ -85,5 +85,7 @@ public class GameAnaliticsMessages : ScriptableObject {
 	public string contactDevelopersFromGameSettings;
 	public string showDevelopersPressed;
 	public string playerAcceptPublishPermissions;
+	public string showPromoCodePopUp;
+	public string playerUsePromoCode;
 
 }
