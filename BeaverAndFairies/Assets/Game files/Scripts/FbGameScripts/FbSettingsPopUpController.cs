@@ -58,7 +58,7 @@ public class FbSettingsPopUpController : MonoBehaviour {
 
 	void setUpFacebookSettins()
 	{
-		logInRewardText.text = gameSettings.logInReward.ToString();
+		logInRewardText.text = "+" + gameSettings.logInReward.ToString();
 
 		if (FB.IsLoggedIn == true) {
 			logInButton.SetActive (false);

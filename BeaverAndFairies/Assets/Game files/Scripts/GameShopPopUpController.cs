@@ -53,8 +53,6 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 			cell = (GameShopCell)GameObject.Instantiate(m_cellPrefab);
 		}
 
-		Debug.Log (row);
-
 		setUpPrice(cell, row);
 		setUpDescription(cell, row);
 		setUpBuyButton(cell, row);

@@ -13,6 +13,8 @@ public class MainGameVkController : MonoBehaviour, VKontakteInviteFriendsInterfa
 	public Button acceptButton;
 	public GameObject inviteFriendsPopUp;
 	public InviteFriendsController inviteFriendsController;
+	public Text joinVkGroupAward;
+	public Text inviteVkFriendsAward;
 
 	VkApi _vkapi;
 	GamePlayerDataController _playerData;
@@ -25,7 +27,10 @@ public class MainGameVkController : MonoBehaviour, VKontakteInviteFriendsInterfa
 		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 		_vkapi = VkApi.VkApiInstance;
 		_vkapi.LoggedIn += onVKLogin;
-		_downloader = _vkapi.gameObject.GetComponent<Downloader> ();
+		_downloader = _vkapi.gameObject.GetComponent<Downloader>();
+
+		joinVkGroupAward.text = "+" + gameSettings.joinGroupReward.ToString();
+		inviteVkFriendsAward.text = "+" + (gameSettings.inviteFriendReward * 4).ToString();
 	}
 
 	void Update () {

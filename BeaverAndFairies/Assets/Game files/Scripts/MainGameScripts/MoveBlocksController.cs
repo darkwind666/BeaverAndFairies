@@ -45,7 +45,6 @@ public class MoveBlocksController {
 						int index =  Array.IndexOf(gameLogicController._currentBlocks.ToArray(), aBlock);
 						blockTypeComponent.placed = true;
 						float blockHeight = renderer.bounds.size.y;
-						//Debug.Log(blockHeight);
 						Vector3 finalPosition = new Vector3(blockForCollision.transform.localPosition.x, blockForCollision.transform.localPosition.y + gameLogicController.blocksSpeed + blockHeight + 0.01f, 0);
 						aBlock.transform.localPosition = finalPosition;
 						break;

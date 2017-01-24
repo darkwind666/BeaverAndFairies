@@ -60,9 +60,9 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 			logOutButton.SetActive (false);
 		}
 
-		logInVkRewardLabel.text = gameSettings.logInReward.ToString();
-		joinVkGroupRewardLabel.text = gameSettings.joinGroupReward.ToString();
-		inviteVkFriendsRewardLabel.text = (gameSettings.inviteFriendReward * 4).ToString();
+		logInVkRewardLabel.text = "+" + gameSettings.logInReward.ToString();
+		joinVkGroupRewardLabel.text = "+" + gameSettings.joinGroupReward.ToString();
+		inviteVkFriendsRewardLabel.text = "+" + (gameSettings.inviteFriendReward * 4).ToString();
 	}
 
 	void Update () {

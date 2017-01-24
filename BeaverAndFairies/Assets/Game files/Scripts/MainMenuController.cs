@@ -42,11 +42,16 @@ public class MainMenuController : MonoBehaviour {
 
         _playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 
+		#if UNITY_ANDROID
+
 		if(gameGlobalSettings.paidGame){
-			OneSignal.StartInit(gameGlobalSettings.hdOneSignalId, gameGlobalSettings.hdOneSignalProjectNumber).EndInit();
+		OneSignal.StartInit(gameGlobalSettings.hdOneSignalId, gameGlobalSettings.hdOneSignalProjectNumber).EndInit();
 		} else {
-			OneSignal.StartInit(gameGlobalSettings.freeOneSignalId, gameGlobalSettings.freeOneSignalProjectNumber).EndInit();;
+		OneSignal.StartInit(gameGlobalSettings.freeOneSignalId, gameGlobalSettings.freeOneSignalProjectNumber).EndInit();;
 		}
+
+		#endif
+
 			
 		if (_playerData.notNowPressed == false) {
 			vkLogInPopUp.SetActive (true);

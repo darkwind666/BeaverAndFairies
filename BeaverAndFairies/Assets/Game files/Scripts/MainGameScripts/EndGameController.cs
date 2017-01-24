@@ -12,6 +12,7 @@ public class EndGameController : MonoBehaviour {
 	public AdsController adsController;
 	public Button doubleScoreButton;
 	public Text gameResultScoreLabel;
+	public GameGlobalSettings gameGlobalSettings;
 
 	public GameObject joinGameGroupPopUp;
 	public GameObject inviteFriendsPopUp;
@@ -29,8 +30,7 @@ public class EndGameController : MonoBehaviour {
 
 	public void endMainGame()
 	{
-		_playerData.playerScore += gameLogicController._score;
-		_playerData.savePlayerData();
+		gameLogicController.saveCollectedPlayerScore();
 		endGamePopUp.SetActive(true);
 		vkController.sendInVkPlayerScore(gameLogicController._score);
 		fbController.sendInFbPlayerScore(gameLogicController._score);
@@ -43,28 +43,44 @@ public class EndGameController : MonoBehaviour {
 
 		if (showSocialPopUpIndex == 1) {
 			showSocialPopUp ();
+			trySubscribeUsersForPushes();
 		} else {
 			adsController.tryShowInterstitial();
 		}
+	}
+
+	void trySubscribeUsersForPushes()
+	{
+		#if UNITY_IOS
+
+		if(gameLogicController._score >= 200) {
+			if(gameGlobalSettings.paidGame){
+				OneSignal.StartInit(gameGlobalSettings.hdOneSignalId, gameGlobalSettings.hdOneSignalProjectNumber).EndInit();
+			} else {
+				OneSignal.StartInit(gameGlobalSettings.freeOneSignalId, gameGlobalSettings.freeOneSignalProjectNumber).EndInit();;
+			}
+		}
+
+		#endif
 	}
 
 	void showSocialPopUp()
 	{
 		GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
 		
-		if(_playerData.showJoinGroupSuggestion == false && (_playerData.inVkGameGroup == false || _playerData.inFbGameGroup == false))
+		if(_playerData.showJoinGroupSuggestion == false && (_playerData.inVkGameGroup == false || _playerData.inFbGameGroup == false) && gameLogicController._score >= 200)
 		{
 			joinGameGroupPopUp.SetActive(true);
 			_playerData.showJoinGroupSuggestion = true;
 			analiticsController.showJoinGroupMainGamePopUp();
 		} 
-		else if (_playerData.showInviteFriendsSuggestion == false)
+		else if (_playerData.showInviteFriendsSuggestion == false && gameLogicController._score >= 200)
 		{
 			inviteFriendsPopUp.SetActive(true);
 			_playerData.showInviteFriendsSuggestion = true;
 			analiticsController.showInviteFriendsMainGamePopUp();
 		}
-		else if(_playerData.showReviewSuggestion == false)
+		else if(_playerData.showReviewSuggestion == false && gameLogicController._score >= 200)
 		{
 			rateGamePopUp.SetActive(true);
 			_playerData.showReviewSuggestion = true;

@@ -9,19 +9,27 @@ public class RegulateSoundPadController : MonoBehaviour {
 	public Toggle soundEffectsToggle;
 
 	GamePlayerDataController _playerData;
+	bool firstSetUpBackgroundMusic;
+	bool firstSetUpSoundEffects;
 
 	void Start () {
 		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 
-		if(_playerData.enableBackgroundSound == false)
-		{
+		if (_playerData.enableBackgroundSound == false) {
+			backgroundMusicToggle.isOn = true;
+		} else {
 			backgroundMusicToggle.isOn = false;
 		}
 
-		if(_playerData.enableSoundsEffects == false)
-		{
+		firstSetUpBackgroundMusic = true;
+
+		if (_playerData.enableSoundsEffects == false) {
+			soundEffectsToggle.isOn = true;
+		} else {
 			soundEffectsToggle.isOn = false;
 		}
+
+		firstSetUpSoundEffects = true;
 	}
 	
 
@@ -31,20 +39,24 @@ public class RegulateSoundPadController : MonoBehaviour {
 
 	public void enableSoundEffects()
 	{
-		_playerData.enableSoundsEffects = !_playerData.enableSoundsEffects;
+		if (firstSetUpSoundEffects == true) {
+			_playerData.enableSoundsEffects = !_playerData.enableSoundsEffects;
+		}
 	}
 
 	public void enableBackgroundMusic()
 	{
-		_playerData.enableBackgroundSound = !_playerData.enableBackgroundSound;
+		if (firstSetUpBackgroundMusic == true) {
+			_playerData.enableBackgroundSound = !_playerData.enableBackgroundSound;
 
-		if(_playerData.enableBackgroundSound == true)
-		{
-			gameSoundsController.currentBackgroundSound.volume = 1.0f;
-		} 
-		else 
-		{
-			gameSoundsController.currentBackgroundSound.volume = 0;
+			if(_playerData.enableBackgroundSound == true)
+			{
+				gameSoundsController.currentBackgroundSound.volume = 1.0f;
+			} 
+			else 
+			{
+				gameSoundsController.currentBackgroundSound.volume = 0;
+			}
 		}
 	}
 

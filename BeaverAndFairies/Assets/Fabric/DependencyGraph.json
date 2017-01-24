@@ -1,21 +1,21 @@
 {
-    "version":"0.1.8",
+    "version":"0.1.10",
     "plugin": {
-	"version":"1.2.3",
+	"version":"1.2.4",
 	"manifest":"Fabric/Manifest",
-	"packageUrl":"https://fabric.io/unity-fabric/fabric/1.2.3/Fabric.unitypackage",
+	"packageUrl":"https://fabric.io/unity-fabric/fabric/1.2.4/Fabric.unitypackage",
 	"packageName":"Fabric.unitypackage",
-	"releaseNotesUrl":"https://fabric.io/unity-fabric/fabric/1.2.3/Fabric.releasenotes"
+	"releaseNotesUrl":"https://fabric.io/unity-fabric/fabric/1.2.4/Fabric.releasenotes"
     },
     "dependencies": {
 	"kits":[
 	    {
 		"name":"Crashlytics",
-		"version":"1.2.1",
-		"packageUrl":"https://fabric.io/unity-fabric/crashlytics/1.2.1/Crashlytics.unitypackage",
+		"version":"1.2.3",
+		"packageUrl":"https://fabric.io/unity-fabric/crashlytics/1.2.3/Crashlytics.unitypackage",
 		"packageName":"Crashlytics.unitypackage",
 		"manifest":"Fabric/Kits/Crashlytics/Manifest",
-		"releaseNotesUrl":"https://fabric.io/unity-fabric/crashlytics/1.2.1/Crashlytics.releasenotes",
+		"releaseNotesUrl":"https://fabric.io/unity-fabric/crashlytics/1.2.3/Crashlytics.releasenotes",
 		"dependsOn":[
 				"Crashlytics-Android",
 				"Crashlytics-iOS",
@@ -26,11 +26,11 @@
 	    },
 	    {
 		"name":"Twitter",
-		"version":"2.0.1",
-		"packageUrl":"https://fabric.io/unity-fabric/twitter/2.0.1/Twitter.unitypackage",
+		"version":"2.0.2",
+		"packageUrl":"https://fabric.io/unity-fabric/twitter/2.0.2/Twitter.unitypackage",
 		"packageName":"Twitter.unitypackage",
 		"manifest":"Fabric/Kits/Twitter/Manifest",
-		"releaseNotesUrl":"https://fabric.io/unity-fabric/twitter/2.0.1/Twitter.releasenotes",
+		"releaseNotesUrl":"https://fabric.io/unity-fabric/twitter/2.0.2/Twitter.releasenotes",
 		"dependsOn":[
 				"Tweet-Composer-Android",
 				"TwitterKit-Wrapper-Android",

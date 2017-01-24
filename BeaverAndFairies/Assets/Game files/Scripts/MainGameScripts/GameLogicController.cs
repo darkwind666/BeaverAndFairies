@@ -224,7 +224,32 @@ public class GameLogicController : MonoBehaviour {
 
 	public void backToSelectLevel()
 	{
+		saveCollectedPlayerScore();
 		fadingController.startFade(gameSettings.mainMenuScreenName, false);
+	}
+
+	public void saveCollectedPlayerScore()
+	{
+		GamePlayerDataController playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
+		int scoreCount = 0;
+
+		if(playerData.selectedLevelIndex == 0)
+		{
+			scoreCount = _score;
+		}
+
+		if(playerData.selectedLevelIndex == 1)
+		{
+			scoreCount = _score * 2;
+		}
+
+		if(playerData.selectedLevelIndex == 2)
+		{
+			scoreCount = _score * 3;
+		}
+
+		playerData.playerScore += scoreCount;
+		playerData.savePlayerData();
 	}
 
 }

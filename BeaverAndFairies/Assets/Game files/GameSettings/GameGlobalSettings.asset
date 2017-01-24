@@ -33,11 +33,11 @@ MonoBehaviour:
   inviteTextKey: BeaverGame.InviteFriendKey
   addDeveloperToFriendKey: 
   vkURLTemplate: https://vk.com/public
-  logInReward: 100
-  joinGroupReward: 0
-  inviteFriendReward: 0
-  maxStopAdsCount: 0
-  promoCodeReward: 200
+  logInReward: 200
+  joinGroupReward: 200
+  inviteFriendReward: 50
+  maxStopAdsCount: 2
+  promoCodeReward: 250
   promoCode: black
   blockAds: 0
   showInterstitial: 1

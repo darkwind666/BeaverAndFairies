@@ -456,7 +456,7 @@ MonoBehaviour:
   gameSettings: {fileID: 11400000, guid: bbd941705bb8444f88bf4b5186132ada, type: 2}
   englishGameName: {fileID: 1159655683}
   russianGameName: {fileID: 489375623}
-  startGameLoadingInterval: 270
+  startGameLoadingInterval: 150
 --- !u!1 &1071382046
 GameObject:
   m_ObjectHideFlags: 0
