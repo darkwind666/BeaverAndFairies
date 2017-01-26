@@ -122,6 +122,9 @@
 	<data name="BeaverGame.AddDeveloperToFriend" xml:space="preserve">
 		<value>Добавь друга!</value>
 	</data>
+	<data name="BeaverGame.AddDeveloperToFriendProposal" xml:space="preserve">
+		<value>(Из игры Космический Бобёр) Привет! Спасибо за игру)</value>
+	</data>
 	<data name="BeaverGame.AllowMessages" xml:space="preserve">
 		<value>Разрешить уведомления</value>
 	</data>

@@ -122,6 +122,9 @@
 	<data name="BeaverGame.AddDeveloperToFriend" xml:space="preserve">
 		<value>Add friend</value>
 	</data>
+	<data name="BeaverGame.AddDeveloperToFriendProposal" xml:space="preserve">
+		<value>(From Beaver Space game) Hi! Thank a lot for game)</value>
+	</data>
 	<data name="BeaverGame.AllowMessages" xml:space="preserve">
 		<value>Allow messages</value>
 	</data>
@@ -151,7 +154,7 @@ Name</value>
 		<value>Hard</value>
 	</data>
 	<data name="BeaverGame.InviteFriendKey" xml:space="preserve">
-		<value>Hi {0}! Let play in Beaver Space!</value>
+		<value>Hi {0}! Let play in Space Beaver!</value>
 	</data>
 	<data name="BeaverGame.InviteFriends" xml:space="preserve">
 		<value>Invite friends</value>

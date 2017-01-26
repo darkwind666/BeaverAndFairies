@@ -67,12 +67,6 @@ public class MainMenuController : MonoBehaviour {
 
 	}
 
-    public void goToMapButtonPressed()
-    {
-		_playerData.savePlayerData();
-		fadingController.startFade(gameGlobalSettings.selectLevelSceneName, false);
-    }
-
     public void exitButtonPressed()
     {
         Application.Quit();

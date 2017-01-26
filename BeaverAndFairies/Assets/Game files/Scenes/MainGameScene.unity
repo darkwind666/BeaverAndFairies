@@ -5877,6 +5877,11 @@ Prefab:
       propertyPath: playMainGameBackgroundSound
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013145472096, guid: 1b7eb6891b37943ebb305a8bcb8fef06,
+        type: 2}
+      propertyPath: playMainMenuBackgroundSound
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b7eb6891b37943ebb305a8bcb8fef06, type: 2}
   m_IsPrefabParent: 0
@@ -10008,6 +10013,7 @@ MonoBehaviour:
   adsController: {fileID: 1738844512}
   doubleScoreButton: {fileID: 838227036}
   gameResultScoreLabel: {fileID: 1995019573}
+  gameGlobalSettings: {fileID: 0}
   joinGameGroupPopUp: {fileID: 2130560268}
   inviteFriendsPopUp: {fileID: 737244517}
   rateGamePopUp: {fileID: 1809043816}

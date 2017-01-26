@@ -273,7 +273,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e37ce4d855d6b47b6a31d4131c34f9c8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 88817debcee51477aba729e523a28cc9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -347,7 +347,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c09f0fa25ef6b44c99666e194f908af1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fec3f8b741bea4162bed0a83d43b36ce, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -389,7 +389,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -411,7 +411,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!82 &82000011807130314
 AudioSource:
   m_ObjectHideFlags: 1
@@ -421,7 +421,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5337802199556439d8ddc06ed293ecf2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 097d2a31c279d4834a20832015c99cd1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -495,7 +495,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d6a327aab1e9d42c5bbb9abd9f6fbd5f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1e868749ccebb42a8a4933a01d68e74b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -537,7 +537,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -559,7 +559,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &114000013145472096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -579,6 +579,6 @@ MonoBehaviour:
   - {fileID: 82000012668225406}
   removeBlockEffect: {fileID: 82000010225273996}
   endGameBackgroundSound: {fileID: 82000010225273996}
-  playMainMenuBackgroundSound: 0
+  playMainMenuBackgroundSound: 1
   playMainGameBackgroundSound: 0
   currentBackgroundSound: {fileID: 0}
