@@ -30,6 +30,7 @@ public class GameGlobalSettings : ScriptableObject {
 
 	public string inviteTextKey;
 	public string addDeveloperToFriendKey;
+	public string shareGameRecordKey;
 	public string vkURLTemplate;
 
 	public int logInReward;

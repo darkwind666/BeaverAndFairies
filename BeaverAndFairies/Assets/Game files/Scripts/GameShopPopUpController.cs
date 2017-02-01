@@ -24,7 +24,7 @@ public class GameShopPopUpController : MonoBehaviour, ITableViewDataSource {
 		_lastSelectedFairyIndex = _playerData.selectedFairyIndex;
 		slowBonusPrice.text = fairiesDataSource.slowBonusPrice.ToString();
 		damageBonusPrice.text = fairiesDataSource.damageBonusPrice.ToString();
-		bonusesForAdsCountLabel.text = fairiesDataSource.scoresForAdsCount.ToString();
+		bonusesForAdsCountLabel.text = "+" + fairiesDataSource.scoresForAdsCount.ToString();
 	}
 
 	void Update () {

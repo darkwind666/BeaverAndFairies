@@ -204,6 +204,9 @@
 	<data name="BeaverGame.RestoreInApps" xml:space="preserve">
 		<value>Восстановить</value>
 	</data>
+	<data name="BeaverGame.ShareGameRecordKey" xml:space="preserve">
+		<value>#SpaceBeaver Я получил {0} очков в игре Космический Бобёр!</value>
+	</data>
 	<data name="BeaverGame.SocialLogInProposal" xml:space="preserve">
 		<value>Подключи 
 социальный сети!</value>

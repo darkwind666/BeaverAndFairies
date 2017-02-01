@@ -32,6 +32,7 @@ MonoBehaviour:
   vkDeveloperId: 320495454
   inviteTextKey: BeaverGame.InviteFriendKey
   addDeveloperToFriendKey: BeaverGame.AddDeveloperToFriendProposal
+  shareGameRecordKey: BeaverGame.ShareGameRecordKey
   vkURLTemplate: https://vk.com/public
   logInReward: 200
   joinGroupReward: 200

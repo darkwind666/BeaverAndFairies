@@ -204,6 +204,9 @@ Name</value>
 	<data name="BeaverGame.RestoreInApps" xml:space="preserve">
 		<value>Restore</value>
 	</data>
+	<data name="BeaverGame.ShareGameRecordKey" xml:space="preserve">
+		<value>#SpaceBeaver  I get {0} scores in Space Beaver!</value>
+	</data>
 	<data name="BeaverGame.SocialLogInProposal" xml:space="preserve">
 		<value>Connect 
 social account!</value>

@@ -48,7 +48,7 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 
 		playerImage.enabled = false;
 
-		if (_vkapi.IsUserLoggedIn == true) {
+		if (_vkapi.IsUserLoggedIn == true && VkApi.CurrentToken != null) {
 			logInButton.SetActive (false);
 			logOutButton.SetActive (true);
 			logInRewardText.SetActive (false);
@@ -69,12 +69,20 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 
 	}
 
+	void OnEnable()
+	{
+		if(_vkapi != null)
+		{
+			_vkapi.LoggedIn += onVKLogin;
+			_vkapi.LoggedOut += onLogout;
+		}
+	}
+
 	void OnDisable()
 	{
 		_vkapi.LoggedIn -= onVKLogin;
 		_vkapi.LoggedOut -= onLogout;
 	}
-
 
 	public void logIn()
 	{
@@ -99,7 +107,12 @@ public class VkSettingsPopUpController : MonoBehaviour, VKontakteInviteFriendsIn
 
 	public void tryLogInVk (VKRequest request)
 	{
-		if(request.error!=null)
+		if(request.error != null)
+		{
+			return;
+		}
+
+		if(VkApi.CurrentToken == null)
 		{
 			return;
 		}

@@ -208,4 +208,7 @@ Name</value>
 		<value>Connect 
 social account!</value>
 	</data>
+	<data name="BeaverGame.ShareGameRecordKey" xml:space="preserve">
+		<value>I get {0} scores in Space Beaver!</value>
+	</data>
 </root>

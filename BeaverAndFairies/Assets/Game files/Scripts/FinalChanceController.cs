@@ -16,11 +16,11 @@ public class FinalChanceController : MonoBehaviour {
 	}
 
 	void Update () {
-		if(gameLogicController.stopGame == false && adsController.adAvailable() && gameLogicController._currentBlocks.Count < (gameSettings.boardHeight - 2))
+		if(gameLogicController.stopGame == false && adsController.adAvailable() == true && gameLogicController._currentBlocks.Count > (gameSettings.boardHeight - 3))
 		{
 			if (button.activeSelf == false)
 			{
-				int randomExplosionIndex = Random.Range(0, 4);
+				int randomExplosionIndex = Random.Range(0, 4000);
 				if(adsController.adAvailable() == true && randomExplosionIndex == 2)
 				{
 					button.SetActive (true);
@@ -50,7 +50,7 @@ public class FinalChanceController : MonoBehaviour {
 	public void getReward()
 	{
 		int explosionsCount = gameBalanceData.finalChanceExplosionsBonusCount;
-		if (gameLogicController._currentBlocks.Count < gameBalanceData.damageExplosionsBonusCount) {
+		if (gameLogicController._currentBlocks.Count < explosionsCount) {
 			explosionsCount = gameLogicController._currentBlocks.Count;
 		}
 

@@ -42,8 +42,8 @@ public class EndGameController : MonoBehaviour {
 		int showSocialPopUpIndex = Random.Range(0,2);
 
 		if (showSocialPopUpIndex == 1) {
-			showSocialPopUp ();
 			trySubscribeUsersForPushes();
+			showSocialPopUp ();
 		} else {
 			adsController.tryShowInterstitial();
 		}
@@ -53,7 +53,7 @@ public class EndGameController : MonoBehaviour {
 	{
 		#if UNITY_IOS
 
-		if(gameLogicController._score >= 200) {
+		if(gameLogicController._score >= 100) {
 			if(gameGlobalSettings.paidGame){
 				OneSignal.StartInit(gameGlobalSettings.hdOneSignalId, gameGlobalSettings.hdOneSignalProjectNumber).EndInit();
 			} else {
@@ -68,19 +68,19 @@ public class EndGameController : MonoBehaviour {
 	{
 		GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
 		
-		if(_playerData.showJoinGroupSuggestion == false && (_playerData.inVkGameGroup == false || _playerData.inFbGameGroup == false) && gameLogicController._score >= 200)
+		if(_playerData.showJoinGroupSuggestion == false && (_playerData.inVkGameGroup == false || _playerData.inFbGameGroup == false) && gameLogicController._score >= 100)
 		{
 			joinGameGroupPopUp.SetActive(true);
 			_playerData.showJoinGroupSuggestion = true;
 			analiticsController.showJoinGroupMainGamePopUp();
 		} 
-		else if (_playerData.showInviteFriendsSuggestion == false && gameLogicController._score >= 200)
+		else if (_playerData.showInviteFriendsSuggestion == false && gameLogicController._score >= 100)
 		{
 			inviteFriendsPopUp.SetActive(true);
 			_playerData.showInviteFriendsSuggestion = true;
 			analiticsController.showInviteFriendsMainGamePopUp();
 		}
-		else if(_playerData.showReviewSuggestion == false && gameLogicController._score >= 200)
+		else if(_playerData.showReviewSuggestion == false && gameLogicController._score >= 100)
 		{
 			rateGamePopUp.SetActive(true);
 			_playerData.showReviewSuggestion = true;

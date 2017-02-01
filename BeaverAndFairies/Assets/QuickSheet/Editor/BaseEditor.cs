@@ -7,7 +7,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 using UnityEngine;
 using UnityEditor;
-using System;
 using System.Collections;
 
 namespace UnityQuickSheet
@@ -81,16 +80,16 @@ namespace UnityQuickSheet
             if (useGUIStyle)
                 GUIHelper.DrawSerializedProperty(serializedData, brown);
             else
-                GUIHelper.DrawSerializedProperty(serializedData);
+                GUIHelper.DrawSerializedProperty(serializedData, brown);
         }
 
-        /// <summary>
+        /// 
         /// Called when 'Update'(or 'Download' for google data) button is pressed. 
         /// It should be reimplemented in the derived class.
-        /// </summary>
+        /// 
         public virtual bool Load()
         {
-            throw new NotImplementedException();
+            return false;
         }
     }
 }

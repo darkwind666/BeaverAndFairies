@@ -30,6 +30,7 @@ public class LoadGameController : MonoBehaviour {
     {
         SmartLocalization.LanguageManager languageManager = SmartLocalization.LanguageManager.Instance;
         SmartLocalization.SmartCultureInfo deviceCulture = languageManager.GetDeviceCultureIfSupported();
+		//deviceCulture.languageCode = "ru";
         if (deviceCulture != null)
         {
             languageManager.ChangeLanguage(deviceCulture);

@@ -6,6 +6,7 @@ public class GameEndPopUpController : MonoBehaviour {
 	public FadingScript fadingController;
 	public GameGlobalSettings gameSettings;
 	public NativeShare shareController;
+	public GameLogicController gameLogicController;
 
 	void Start () {
 	
@@ -25,8 +26,10 @@ public class GameEndPopUpController : MonoBehaviour {
 		fadingController.startFade(gameSettings.mainGameScreenName, false);
 	}
 
-	public void sharePressed()
+	public void sharePressed ()
 	{
-		shareController.ShareScreenshotWithText("Sasha");
+		string shareTextTemplate = SmartLocalization.LanguageManager.Instance.GetTextValue (gameSettings.inviteTextKey);
+		string shareText = string.Format (shareTextTemplate, gameLogicController._score);
+		shareController.ShareScreenshotWithText (shareText);
 	}
 }

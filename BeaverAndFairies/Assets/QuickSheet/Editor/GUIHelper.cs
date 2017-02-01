@@ -72,7 +72,7 @@ namespace UnityQuickSheet
                         {
                             if (guiStyle != null)
                             {
-                                using (new GUILayout.VerticalScope(guiStyle))
+                                using (new GUILayout.VerticalScope())
                                 {
                                     DrawSerializedProperty(prop.GetArrayElementAtIndex(i));
                                 }
