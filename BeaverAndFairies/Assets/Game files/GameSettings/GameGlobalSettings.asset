@@ -25,8 +25,8 @@ MonoBehaviour:
   inAppProductScoreCount3ID: com.darkwind.beaverSpace.scoresCount3
   inAppProductScoreCount4ID: com.darkwind.beaverSpace.scoresCount4
   inAppProductScoreCount5ID: com.darkwind.beaverSpace.scoresCount5
-  fbGameGroupId: 1253950101306942
-  facebookPageURL: https://www.facebook.com/BeaverTimeRu/
+  fbGameGroupId: 1142315629199685
+  facebookPageURL: https://www.facebook.com/SpaceBeaver/
   vkGameGroupId: 101174315
   vkGamesOfficialGroupId: 78616012
   vkDeveloperId: 320495454
@@ -61,5 +61,5 @@ MonoBehaviour:
   hdGameBundleId: 
   googlePlayFree: 
   googlePlayHD: 
-  appStoreFree: 
+  appStoreFree: https://itunes.apple.com/us/app/space-beaver-quick-reaction-game-with-gestures/id1189833629?ls=1&mt=8
   appStoreHD: 

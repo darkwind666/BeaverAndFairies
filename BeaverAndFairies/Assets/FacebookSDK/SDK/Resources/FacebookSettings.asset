@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 9e692616f172afd2c514a8012d67724d
+  - 8ac0611b43014f520d5d48b21577668f
   appIds:
-  - 1616365298658068
+  - 1218419351598504
   appLabels:
   - Beaver and Mushrooms
   cookie: 1

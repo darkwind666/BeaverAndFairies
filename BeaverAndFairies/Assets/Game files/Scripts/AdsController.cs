@@ -105,13 +105,10 @@ public class AdsController : MonoBehaviour, IRewardedVideoAdListener {
 	}
 
 	public void showScoresInShopAd() {
-//		if (adAvailable() == true) {
-//			_scoresInShopAd = true;
-//			playGameAd();
-//		}
-
-		_scoresInShopAd = true;
-		playGameAd();
+		if (adAvailable() == true) {
+			_scoresInShopAd = true;
+			playGameAd();
+		}
 	}
 
 	public void showAdToBlockAdFromController(BlockAdsController aBlockAdController)

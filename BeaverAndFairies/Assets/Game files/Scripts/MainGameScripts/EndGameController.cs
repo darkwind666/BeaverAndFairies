@@ -96,6 +96,7 @@ public class EndGameController : MonoBehaviour {
 	public void getAdditionalScores()
 	{
 		_playerData.playerScore += gameLogicController._score;
+		gameResultScoreLabel.text = _playerData.playerScore.ToString();
 		doubleScoreButton.gameObject.SetActive(false);
 		_playerData.savePlayerData();
 	}

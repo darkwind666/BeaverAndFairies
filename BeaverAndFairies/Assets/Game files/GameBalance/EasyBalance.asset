@@ -15,56 +15,56 @@ MonoBehaviour:
   WorksheetName: List1
   dataArray:
   - stage: 0
-    timeinterval: 4
+    timeinterval: 2
     speed: 0.02
     distancebetweeneblocks: 1.3
     blocktype: 0
     taskcount: 1
     randomtaskcount: 0
   - stage: 1
-    timeinterval: 5
+    timeinterval: 2
     speed: 0.04
     distancebetweeneblocks: 1.3
     blocktype: 0
     taskcount: 1
     randomtaskcount: 0
   - stage: 2
-    timeinterval: 6
+    timeinterval: 2
     speed: 0.06
     distancebetweeneblocks: 1.3
     blocktype: 0
     taskcount: 1
     randomtaskcount: 0
   - stage: 3
-    timeinterval: 5
+    timeinterval: 2
     speed: 0.02
     distancebetweeneblocks: 0.7
     blocktype: 0
     taskcount: 1
     randomtaskcount: 0
   - stage: 4
-    timeinterval: 3
+    timeinterval: 2
     speed: 0.06
     distancebetweeneblocks: 0.25
     blocktype: 1
     taskcount: 1
     randomtaskcount: 0
   - stage: 5
-    timeinterval: 5
+    timeinterval: 2
     speed: 0.02
     distancebetweeneblocks: 0.7
     blocktype: 0
     taskcount: 1
     randomtaskcount: 0
   - stage: 6
-    timeinterval: 6
+    timeinterval: 2
     speed: 0.04
     distancebetweeneblocks: 0.7
     blocktype: 0
     taskcount: 1
     randomtaskcount: 0
   - stage: 7
-    timeinterval: 3
+    timeinterval: 2
     speed: 0.06
     distancebetweeneblocks: 1.3
     blocktype: 0
@@ -78,28 +78,28 @@ MonoBehaviour:
     taskcount: 1
     randomtaskcount: 0
   - stage: 9
-    timeinterval: 5
+    timeinterval: 2
     speed: 0.02
     distancebetweeneblocks: 0.7
     blocktype: 0
     taskcount: 1
     randomtaskcount: 0
   - stage: 10
-    timeinterval: 4
+    timeinterval: 2
     speed: 0.04
     distancebetweeneblocks: 0.7
     blocktype: 0
     taskcount: 1
     randomtaskcount: 0
   - stage: 11
-    timeinterval: 3
+    timeinterval: 2
     speed: 0.06
     distancebetweeneblocks: 0.7
     blocktype: 0
     taskcount: 1
     randomtaskcount: 0
   - stage: 12
-    timeinterval: 5
+    timeinterval: 3
     speed: 0.02
     distancebetweeneblocks: 1.3
     blocktype: 1

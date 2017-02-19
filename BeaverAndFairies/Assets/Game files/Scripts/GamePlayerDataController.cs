@@ -184,6 +184,8 @@ public class GamePlayerDataController {
 		enableSoundsEffects = true;
 		enableBackgroundSound = true;
 		playerUsePromocode = false;
+		slowBonusCount = 2;
+		damageBonusCount = 2;
         savePlayerData();
     }
 

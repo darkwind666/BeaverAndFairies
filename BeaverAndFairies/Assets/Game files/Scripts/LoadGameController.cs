@@ -1,6 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+//using UnityEditor;
+//
+//public class TakeScreenshot
+//{
+//
+//	[MenuItem("Tools/Take Screenshot")]
+//	static public void OnTakeScreenshot()
+//	{
+//		Application.CaptureScreenshot(EditorUtility.SaveFilePanel("Save Screenshot As", "", "", "png"));
+//	}
+//}
+
 public class LoadGameController : MonoBehaviour {
 
     public float time;
