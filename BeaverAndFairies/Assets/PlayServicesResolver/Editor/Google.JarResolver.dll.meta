@@ -4,13 +4,14 @@ labels:
 - gvh
 - gvh_teditor
 - gvh_v1.2.9.0
-timeCreated: 1482269638
+timeCreated: 1487515170
 licenseType: Free
 PluginImporter:
   serializedVersion: 1
   iconMap: {}
   executionOrder: {}
   isPreloaded: 0
+  isOverridable: 0
   platformData:
     Any:
       enabled: 0

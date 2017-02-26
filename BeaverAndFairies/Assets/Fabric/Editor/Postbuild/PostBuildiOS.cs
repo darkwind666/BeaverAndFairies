@@ -143,7 +143,6 @@
 			return installedKits.Exists (installedKit => installedKit.Name == kitName);
 		}
 
-		// Shim proxy for MoPub's post-build script
 		protected static void DirectoryCopy(string fro, string to, bool recurse)
 		{
 			Fabric.Internal.Editor.Utils.DirectoryCopy (fro, to, recurse);

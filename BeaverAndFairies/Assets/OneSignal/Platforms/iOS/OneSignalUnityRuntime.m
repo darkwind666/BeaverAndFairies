@@ -95,8 +95,7 @@ static Class delegateClass = nil;
 }
 
 - (BOOL)oneSignalApplication:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {
-    if ([launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey] != nil)
-        initOneSignalObject(launchOptions, nil, 1, true, true);
+    initOneSignalObject(launchOptions, nil, 1, true, false, true);
     
     if ([self respondsToSelector:@selector(oneSignalApplication:didFinishLaunchingWithOptions:)])
         return [self oneSignalApplication:application didFinishLaunchingWithOptions:launchOptions];
@@ -112,34 +111,35 @@ void processNotificationReceived(NSString* notificationString) {
     UnitySendMessage(unityListener, "onPushNotificationReceived", [notificationString UTF8String]);
 }
 
-void initOneSignalObject(NSDictionary* launchOptions, const char* appId, int displayOption, BOOL inAppLaunchURL, BOOL autoPrompt) {
+void initOneSignalObject(NSDictionary* launchOptions, const char* appId, int displayOption, BOOL inAppLaunchURL, BOOL autoPrompt, BOOL fromColdStart) {
     
     NSString* appIdStr = (appId ? [NSString stringWithUTF8String: appId] : nil);
     
     [OneSignal setValue:@"unity" forKey:@"mSDKType"];
     
     [OneSignal initWithLaunchOptions:launchOptions appId:appIdStr handleNotificationReceived:^(OSNotification* notification) {
-        if (unityListener)
-            processNotificationReceived([notification stringify]);
-    }
-            handleNotificationAction:^(OSNotificationOpenedResult* openResult) {
-                actionNotification = openResult;
-                if (unityListener)
-                    processNotificationOpened([openResult stringify]);
-            } settings:@{kOSSettingsKeyAutoPrompt : @(autoPrompt), kOSSettingsKeyInFocusDisplayOption : @(displayOption), kOSSettingsKeyInAppLaunchURL : @(inAppLaunchURL)}];
+          if (unityListener)
+              processNotificationReceived([notification stringify]);
+        }
+        handleNotificationAction:^(OSNotificationOpenedResult* openResult) {
+            actionNotification = openResult;
+            if (unityListener)
+                processNotificationOpened([openResult stringify]);
+        } settings:@{kOSSettingsKeyAutoPrompt: @(autoPrompt),
+                     kOSSettingsKeyInFocusDisplayOption: @(displayOption),
+                     kOSSettingsKeyInAppLaunchURL: @(inAppLaunchURL),
+                     @"kOSSettingsKeyInOmitNoAppIdLogging": @(fromColdStart)}];
     
 }
 
 void _init(const char* listenerName, const char* appId, BOOL autoPrompt, BOOL inAppLaunchURL, int displayOption, int logLevel, int visualLogLevel) {
-    
-    
     [OneSignal setLogLevel:logLevel visualLevel: visualLogLevel];
     
     unsigned long len = strlen(listenerName);
     unityListener = malloc(len + 1);
     strcpy(unityListener, listenerName);
     
-    initOneSignalObject(nil, appId, displayOption, inAppLaunchURL, autoPrompt);
+    initOneSignalObject(nil, appId, displayOption, inAppLaunchURL, autoPrompt, false);
     
     if (actionNotification)
         processNotificationOpened([actionNotification stringify]);
@@ -155,7 +155,6 @@ void _sendTag(const char* tagName, const char* tagValue) {
 }
 
 void _sendTags(const char* tags) {
-    
     NSString * jsonString = CreateNSString(tags);
     
     NSError* jsonError;
@@ -164,7 +163,6 @@ void _sendTags(const char* tags) {
     NSDictionary* keyValuePairs = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
     if (jsonError == nil)
         [OneSignal sendTags:keyValuePairs];
-    else {}
 }
 
 void _deleteTag(const char* key) {
@@ -180,7 +178,6 @@ void _deleteTags(const char* keys) {
     NSArray* kk = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
     if (jsonError == nil)
         [OneSignal deleteTags:kk];
-    else { }
 }
 
 void _getTags() {
@@ -191,7 +188,7 @@ void _getTags() {
 
 void _idsAvailable() {
     [OneSignal IdsAvailable:^(NSString* userId, NSString* pushToken) {
-        if(pushToken == nil)
+        if (pushToken == nil)
             pushToken = @"";
         
         UnitySendMessage(unityListener, "onIdsAvailable",
@@ -213,10 +210,8 @@ void _postNotification(const char* jsonData) {
         [OneSignal postNotification:jsd onSuccess:^(NSDictionary* results) {
             UnitySendMessage(unityListener, "onPostNotificationSuccess", dictionaryToJsonChar(results));
         } onFailure:^(NSError* error) {
-            if (error.userInfo && error.userInfo[@"returned"])
-                UnitySendMessage(unityListener, "onPostNotificationFailed", dictionaryToJsonChar(error.userInfo[@"returned"]));
-            else
-                UnitySendMessage(unityListener, "onPostNotificationFailed", "{\"error\": \"HTTP no response error\"}");
+            NSString* parsedError = [OneSignal parseNSErrorAsJsonString:error];
+            UnitySendMessage(unityListener, "onPostNotificationFailed", [parsedError UTF8String]);
         }];
 }
 

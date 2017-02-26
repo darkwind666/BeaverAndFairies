@@ -2,6 +2,6 @@
 {
 	public static class Info
 	{
-		public static readonly System.Version Version = new System.Version ("1.2.1");
+		public static readonly System.Version Version = new System.Version ("1.2.3");
 	}
 }
