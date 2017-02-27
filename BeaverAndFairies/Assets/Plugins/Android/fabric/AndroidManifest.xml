@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="io.fabric.sdk.android.unity">
   <application>
     <meta-data android:name="io.fabric.ApiKey" android:value="192e859af758c035575a858cb3d354fadb830818" />
-    <meta-data android:name="io.fabric.unity.crashlytics.version" android:value="1.2.1" />
     <meta-data android:name="io.fabric.crashlytics.qualified" android:value="com.crashlytics.android.Crashlytics" />
     <meta-data android:name="io.fabric.crashlytics.unqualified" android:value="Crashlytics" />
     <meta-data android:name="io.fabric.kits" android:value="crashlytics" />
+    <meta-data android:name="io.fabric.unity.crashlytics.version" android:value="1.2.3" />
   </application>
 </manifest>

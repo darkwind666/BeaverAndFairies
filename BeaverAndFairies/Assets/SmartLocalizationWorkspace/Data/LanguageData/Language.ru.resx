@@ -120,7 +120,7 @@
 		<value>Вы уверенны?</value>
 	</data>
 	<data name="BeaverGame.AddDeveloperToFriend" xml:space="preserve">
-		<value>Добавь друга!</value>
+		<value>Добавить разработчика в друзья!</value>
 	</data>
 	<data name="BeaverGame.AddDeveloperToFriendProposal" xml:space="preserve">
 		<value>(Из игры Космический Бобёр) Привет! Спасибо за игру)</value>

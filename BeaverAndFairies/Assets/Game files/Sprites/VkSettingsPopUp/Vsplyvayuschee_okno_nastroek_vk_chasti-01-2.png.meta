@@ -67,7 +67,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: iPhone
-    maxTextureSize: 256
+    maxTextureSize: 512
     textureFormat: 33
     textureCompression: 1
     compressionQuality: 50
@@ -86,7 +86,7 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
     outline: []
-  spritePackingTag: UIFacebook
+  spritePackingTag: 
   userData: 
   assetBundleName: 
   assetBundleVariant: 
