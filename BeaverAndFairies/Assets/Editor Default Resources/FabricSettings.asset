@@ -11,17 +11,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ad9ddc0e5b942a98ec392b434d39bd, type: 3}
   m_Name: FabricSettings
   m_EditorClassIdentifier: 
-  email: 
-  rawToken: 
+  email: darkwinddev@gmail.com
+  rawToken: '{"access_token":"9070552a535ade967542e9a09459d3b5e0f615c0cc727d5ddfb4beae90b415d7","refresh_token":"569e5866f50b3e08aae25de4cc8e2bda107106a9db70d5eadb13909c7be3067d","token_type":"bearer","expires_in":86400}'
   organization:
-    Name: 
-    Id: 
-    ApiKey: 
-    BuildSecret: 
-  iconUrl: 
-  dashboardUrl: 
+    Name: "darkwinddev\u2019s Projects"
+    Id: 570e0b040872451ef200007b
+    ApiKey: 192e859af758c035575a858cb3d354fadb830818
+    BuildSecret: 0f9dbfd3d1924f435564838bb6e38981805294e8a28ea2df8b1874483d2ebfc5
+  iconUrl: "https://s3.amazonaws.com/assets.crashlytics.com/production/project/6148923/project_icon/2700487/\u0438\u043A\u043E\u043D\u043A\u04301024
+    \u043A\u0432-01 copy.png"
+  dashboardUrl: https://www.fabric.io/darkwinddevs-projects/ios/apps/comdarkwind.beaverspace
   initialization: 0
   flowSequence: 0
   conflict: 
   kit: 
-  installedKits: []
+  installedKits:
+  - Name: Crashlytics
+    InstallationStatus: 2
+    Installed: 1
+    Enabled: 1
+    Meta:
+    - Key: ConfiguredTimestamp
+      Value: 1488233045
+      Platform: 
+    - Key: Dependencies
+      Value: '[{"name":"Crashlytics-Android","version":"2.6.3"},{"name":"Crashlytics-Core-Android","version":"2.3.12"},{"name":"Fabric-Android","version":"1.3.14"},{"name":"Answers-Android","version":"1.3.10"},{"name":"Beta-Android","version":"1.1.4"},{"name":"Crashlytics-iOS","version":"3.8.3"},{"name":"Crashlytics-Wrapper-iOS","version":"0.0.0"},{"name":"Crashlytics-Wrapper-Android","version":"0.0.0"}]'
+      Platform: 

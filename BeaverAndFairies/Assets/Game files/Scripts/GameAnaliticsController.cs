@@ -31,6 +31,7 @@ public class GameAnaliticsController : MonoBehaviour {
     {
         Analytics.CustomEvent(aMessage, new Dictionary<string, object> { });
 		FB.LogAppEvent(aMessage);
+		Firebase.Analytics.FirebaseAnalytics.LogEvent(aMessage);
     }
 
 	public void sendFinishLevelWithScore(int aScore)

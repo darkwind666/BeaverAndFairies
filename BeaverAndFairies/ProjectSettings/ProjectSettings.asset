@@ -7,7 +7,7 @@ PlayerSettings:
   productGUID: 5b98991f380224c83b38f0ee16487484
   AndroidProfiler: 0
   defaultScreenOrientation: 0
-  targetDevice: 0
+  targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DarkWind
@@ -119,7 +119,7 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: comDarkWind.BeaverSpace
-  bundleVersion: 1.0
+  bundleVersion: 2.0
   preloadedAssets: []
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
