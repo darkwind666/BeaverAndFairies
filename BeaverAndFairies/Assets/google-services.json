@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "534154693801",
+    "firebase_url": "https://beaver-space-97217605.firebaseio.com",
+    "project_id": "beaver-space-97217605",
+    "storage_bucket": "beaver-space-97217605.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534154693801:android:df0b94490230daa3",
+        "android_client_info": {
+          "package_name": "comDarkWind.BeaverSpace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "534154693801-74ke6msf57ivf8t6ridf0n1rmt3q0e5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByB6pWckJjxEplsUMks1Fxsd1_1BZ6TJQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

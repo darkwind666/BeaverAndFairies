@@ -133,7 +133,7 @@ public class AdsController : MonoBehaviour, IRewardedVideoAdListener {
 	public void tryShowInterstitial()
 	{
 		int randomNumber = UnityEngine.Random.Range(0, 3);
-		if(randomNumber == 0 && _playerData.blockAdsInAppBought == false && settings.blockAds == false && settings.paidGame == false && settings.showInterstitial == true)
+		if(randomNumber == 1 && _playerData.blockAdsInAppBought == false && settings.blockAds == false && settings.paidGame == false && settings.showInterstitial == true)
 		{
 			if (Appodeal.isLoaded (Appodeal.INTERSTITIAL)) 
 			{
@@ -144,7 +144,7 @@ public class AdsController : MonoBehaviour, IRewardedVideoAdListener {
 
 	public void showInterstitial()
 	{
-		if (settings.paidGame == false && settings.blockAds == false) 
+		if (_playerData.blockAdsInAppBought == false && settings.blockAds == false && settings.paidGame == false && settings.showInterstitial == true) 
 		{
 			if (Appodeal.isLoaded (Appodeal.INTERSTITIAL)) 
 			{

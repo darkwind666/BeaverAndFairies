@@ -51,7 +51,7 @@ public class GameBalanceController : MonoBehaviour {
 
 				_currentPlayerLevel++;
 
-				if((_currentPlayerLevel % 5) == 0)
+				if((_currentPlayerLevel % 2) == 0)
 				{
 					vkController.sendInVkPlayerLevel(_currentPlayerLevel);
 				}

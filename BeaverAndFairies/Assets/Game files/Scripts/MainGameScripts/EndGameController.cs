@@ -39,13 +39,13 @@ public class EndGameController : MonoBehaviour {
 		GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
 		analiticsController.sendFinishLevelWithScore(gameLogicController._score);
 
-		int showSocialPopUpIndex = Random.Range(0,2);
+		int showSocialPopUpIndex = Random.Range(0,3);
 
-		if (showSocialPopUpIndex == 1) {
+		if (showSocialPopUpIndex == 0) {
 			trySubscribeUsersForPushes();
 			showSocialPopUp ();
-		} else {
-			adsController.tryShowInterstitial();
+		} else if (showSocialPopUpIndex == 1) {
+			adsController.showInterstitial();
 		}
 	}
 
@@ -53,7 +53,7 @@ public class EndGameController : MonoBehaviour {
 	{
 		#if UNITY_IOS
 
-		if(gameLogicController._score >= 100) {
+		if(gameLogicController._score >= 20) {
 			if(gameGlobalSettings.paidGame){
 				OneSignal.StartInit(gameGlobalSettings.hdOneSignalId, gameGlobalSettings.hdOneSignalProjectNumber).EndInit();
 			} else {
@@ -68,19 +68,19 @@ public class EndGameController : MonoBehaviour {
 	{
 		GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
 		
-		if(_playerData.showJoinGroupSuggestion == false && (_playerData.inVkGameGroup == false || _playerData.inFbGameGroup == false) && gameLogicController._score >= 100)
+		if(_playerData.showJoinGroupSuggestion == false && (_playerData.inVkGameGroup == false || _playerData.inFbGameGroup == false) && gameLogicController._score >= 20)
 		{
 			joinGameGroupPopUp.SetActive(true);
 			_playerData.showJoinGroupSuggestion = true;
 			analiticsController.showJoinGroupMainGamePopUp();
 		} 
-		else if (_playerData.showInviteFriendsSuggestion == false && gameLogicController._score >= 100)
+		else if (_playerData.showInviteFriendsSuggestion == false && gameLogicController._score >= 20)
 		{
 			inviteFriendsPopUp.SetActive(true);
 			_playerData.showInviteFriendsSuggestion = true;
 			analiticsController.showInviteFriendsMainGamePopUp();
 		}
-		else if(_playerData.showReviewSuggestion == false && gameLogicController._score >= 100)
+		else if(_playerData.showReviewSuggestion == false && gameLogicController._score >= 20)
 		{
 			rateGamePopUp.SetActive(true);
 			_playerData.showReviewSuggestion = true;
