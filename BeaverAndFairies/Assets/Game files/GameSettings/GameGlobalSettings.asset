@@ -43,7 +43,7 @@ MonoBehaviour:
   blockAds: 0
   showInterstitial: 1
   paidGame: 0
-  androidFreeAppodealId: 
+  androidFreeAppodealId: 13080614bf27ac9c206d67b0560356c7815f53b40992a6ab
   androidHdAppodealId: 
   iosFreeAppodealId: 01bd2696c3032f9d465a5b458da75123da64d713641460ea
   iosHdAppodealId: 
@@ -59,7 +59,7 @@ MonoBehaviour:
   hdGameName: 
   freeGameBundleId: 
   hdGameBundleId: 
-  googlePlayFree: 
+  googlePlayFree: https://play.google.com/store/apps/details?id=comDarkWind.BeaverSpace
   googlePlayHD: 
   appStoreFree: https://itunes.apple.com/us/app/space-beaver-quick-reaction-game-with-gestures/id1189833629?ls=1&mt=8
   appStoreHD: 

@@ -424,7 +424,7 @@ isPublishPermLogin:(BOOL)isPublishPermLogin
 
 extern "C" {
 
-  void IOSFBInit(const char *_appId, bool _frictionlessRequests, const char *_urlSuffix, const char *_userAgentSuffix)
+  void IOSInit(const char *_appId, bool _frictionlessRequests, const char *_urlSuffix, const char *_userAgentSuffix)
   {
     // Set the user agent before calling init to ensure that calls made during
     // init use the user agent suffix.
@@ -435,29 +435,29 @@ extern "C" {
                                             urlSuffix:_urlSuffix];
   }
 
-  void IOSFBLogInWithReadPermissions(int requestId,
+  void IOSLogInWithReadPermissions(int requestId,
                                    const char *scope)
   {
     [[FBUnityInterface sharedInstance] logInWithReadPermissions:requestId scope:scope];
   }
 
-  void IOSFBLogInWithPublishPermissions(int requestId,
+  void IOSLogInWithPublishPermissions(int requestId,
                                       const char *scope)
   {
     [[FBUnityInterface sharedInstance] logInWithPublishPermissions:requestId scope:scope];
   }
 
-  void IOSFBLogOut()
+  void IOSLogOut()
   {
     [[FBUnityInterface sharedInstance] logOut];
   }
 
-  void IOSFBSetShareDialogMode(int mode)
+  void IOSSetShareDialogMode(int mode)
   {
     [FBUnityInterface sharedInstance].shareDialogMode = static_cast<ShareDialogMode>(mode);
   }
 
-  void IOSFBAppRequest(int requestId,
+  void IOSAppRequest(int requestId,
                      const char *message,
                      const char *actionType,
                      const char *objectId,
@@ -482,7 +482,7 @@ extern "C" {
                                                          title: title];
   }
 
-  void IOSFBAppInvite(int requestId,
+  void IOSAppInvite(int requestId,
                     const char *appLinkUrl,
                     const char *previewImageUrl)
   {
@@ -491,7 +491,7 @@ extern "C" {
                                               previewImageUrl:previewImageUrl];
   }
 
-  void IOSFBGetAppLink(int requestId)
+  void IOSGetAppLink(int requestId)
   {
     NSURL *url = [NSURL URLWithString:[FBUnityInterface sharedInstance].openURLString];
     [FBUnityUtility sendMessageToUnity:FBUnityMessageName_OnGetAppLinkComplete
@@ -500,7 +500,7 @@ extern "C" {
     [FBUnityInterface sharedInstance].openURLString = nil;
   }
 
-  void IOSFBShareLink(int requestId,
+  void IOSShareLink(int requestId,
                     const char *contentURL,
                     const char *contentTitle,
                     const char *contentDescription,
@@ -513,7 +513,7 @@ extern "C" {
                                                      photoURL:photoURL];
   }
 
-  void IOSFBFeedShare(int requestId,
+  void IOSFeedShare(int requestId,
                     const char *toId,
                     const char *link,
                     const char *linkName,
@@ -532,12 +532,12 @@ extern "C" {
                                                   mediaSource:mediaSource];
   }
 
-  void IOSFBJoinGameGroup(int requestId, const char *groupId)
+  void IOSJoinGameGroup(int requestId, const char *groupId)
   {
     [[FBUnityInterface sharedInstance] showJoinAppGroupDialogWithRequestId:requestId groupId:groupId];
   }
 
-  void IOSFBCreateGameGroup(int requestId, const char *groupName, const char *groupDescription, const char *groupPrivacy)
+  void IOSCreateGameGroup(int requestId, const char *groupName, const char *groupDescription, const char *groupPrivacy)
   {
     [[FBUnityInterface sharedInstance] showCreateAppGroupDialogWithRequestId:requestId groupName:groupName groupDescription:groupDescription groupPrivacy:groupPrivacy];
   }
@@ -580,7 +580,7 @@ extern "C" {
     return res;
   }
 
-  void IOSFBFetchDeferredAppLink(int requestId)
+  void IOSFetchDeferredAppLink(int requestId)
   {
     [FBSDKAppLinkUtility fetchDeferredAppLink:^(NSURL *url, NSError *error) {
       if (error) {
@@ -594,7 +594,7 @@ extern "C" {
     }];
   }
 
-  void IOSFBRefreshCurrentAccessToken(int requestId)
+  void IOSRefreshCurrentAccessToken(int requestId)
   {
     [FBSDKAccessToken refreshCurrentAccessToken:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
       if (error) {

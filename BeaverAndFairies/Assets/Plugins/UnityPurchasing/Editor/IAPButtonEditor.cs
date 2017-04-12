@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+#if UNITY_PURCHASING
+using UnityEditor;
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
@@ -32,11 +33,20 @@ namespace UnityEngine.Purchasing
 
 
 	[CustomEditor(typeof(IAPButton))]
+	[CanEditMultipleObjects]
 	public class IAPButtonEditor : Editor 
 	{
 		private static readonly string[] excludedFields = new string[] { "m_Script" };
+		private static readonly string[] restoreButtonExcludedFields = new string[] { "m_Script", "consumePurchase", "onPurchaseComplete", "onPurchaseFailed", "titleText", "descriptionText", "priceText" };
 		private const string kNoProduct = "<None>";
-		private List<string> validIDs = null;
+
+		private List<string> m_ValidIDs = new List<string>();
+		private SerializedProperty m_ProductIDProperty;
+
+		public void OnEnable()
+		{
+			m_ProductIDProperty = serializedObject.FindProperty("productId");
+		}
 
 		public override void OnInspectorGUI()
 		{
@@ -44,34 +54,34 @@ namespace UnityEngine.Purchasing
 
 			serializedObject.Update();
 
-			EditorGUILayout.LabelField(new GUIContent("Product ID:", "Select a product from the IAP catalog"));
+			if (button.buttonType == IAPButton.ButtonType.Purchase) {
+				EditorGUILayout.LabelField(new GUIContent("Product ID:", "Select a product from the IAP catalog"));
 
-			if (validIDs == null) {
 				var catalog = ProductCatalog.LoadDefaultCatalog();
 
-				validIDs = new List<string>();
-				validIDs.Add(kNoProduct);
+				m_ValidIDs.Clear();
+				m_ValidIDs.Add(kNoProduct);
 				foreach (var product in catalog.allProducts) {
-					validIDs.Add(product.id);
+					m_ValidIDs.Add(product.id);
+				}
+
+				int currentIndex = string.IsNullOrEmpty(button.productId) ? 0 : m_ValidIDs.IndexOf(button.productId);
+				int newIndex = EditorGUILayout.Popup(currentIndex, m_ValidIDs.ToArray());
+				if (newIndex > 0 && newIndex < m_ValidIDs.Count) {
+					m_ProductIDProperty.stringValue = m_ValidIDs[newIndex];
+				} else {
+					m_ProductIDProperty.stringValue = string.Empty;
+				}
+
+				if (GUILayout.Button("IAP Catalog...")) {
+					ProductCatalogEditor.ShowWindow();
 				}
 			}
-
-			int currentIndex = string.IsNullOrEmpty(button.productId) ? 0 : validIDs.IndexOf(button.productId);
-			int newIndex = EditorGUILayout.Popup(currentIndex, validIDs.ToArray());
-			if (newIndex > 0 && newIndex < validIDs.Count) {
-				button.productId = validIDs[newIndex];
-			} else {
-				button.productId = string.Empty;
-			}
-
-			if (GUILayout.Button("IAP Catalog...")) {
-				ProductCatalogEditor.ShowWindow();
-			}
 			
-			DrawPropertiesExcluding(serializedObject, excludedFields);
+			DrawPropertiesExcluding(serializedObject, button.buttonType == IAPButton.ButtonType.Restore ? restoreButtonExcludedFields : excludedFields);
 
 			serializedObject.ApplyModifiedProperties();
 		}
 	}
 }
-
+#endif

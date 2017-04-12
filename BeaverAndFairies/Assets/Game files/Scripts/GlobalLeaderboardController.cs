@@ -2,9 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using GooglePlayGames;
+
 using UnityEngine.SocialPlatforms;
 using System;
+
+#if UNITY_ANDROID
+using GooglePlayGames;
+#endif
 
 public class GlobalLeaderboardController : MonoBehaviour {
 

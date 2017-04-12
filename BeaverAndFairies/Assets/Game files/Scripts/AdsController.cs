@@ -40,6 +40,15 @@ public class AdsController : MonoBehaviour, IRewardedVideoAdListener {
 			#endif 
 		}
 
+		#if UNITY_ANDROID
+
+		Appodeal.disableNetwork("mopub");
+		Appodeal.disableNetwork("amazon_ads");
+		Appodeal.disableNetwork("cheetah");
+		Appodeal.disableNetwork ("yandex");
+
+		#endif
+
 		Appodeal.initialize(appodealId, Appodeal.REWARDED_VIDEO | Appodeal.INTERSTITIAL | Appodeal.BANNER_TOP);
 		Appodeal.setRewardedVideoCallbacks(this);
 	}
@@ -132,7 +141,7 @@ public class AdsController : MonoBehaviour, IRewardedVideoAdListener {
 
 	public void tryShowInterstitial()
 	{
-		int randomNumber = UnityEngine.Random.Range(0, 3);
+		int randomNumber = UnityEngine.Random.Range(0, 4);
 		if(randomNumber == 1 && _playerData.blockAdsInAppBought == false && settings.blockAds == false && settings.paidGame == false && settings.showInterstitial == true)
 		{
 			if (Appodeal.isLoaded (Appodeal.INTERSTITIAL)) 

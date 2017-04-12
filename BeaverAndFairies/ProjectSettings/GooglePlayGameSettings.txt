@@ -1,2 +1,10 @@
 lastUpgrade=00936
 proj.pluginVersion=0.9.36
+proj.AppId=534154693801
+proj.classDir=Assets
+proj.ConstantsClassName=ConstantsSpaceBeaver
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0a%3c%21--%0aGoogle+Play+game+services+IDs.%0aSave+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.%0a--%3e%0a%3cresources%3e%0a++%3cstring+name%3d%22app_id%22%3e534154693801%3c%2fstring%3e%0a++%3cstring+name%3d%22package_name%22%3ecomDarkWind.BeaverSpace%3c%2fstring%3e%0a++%3cstring+name%3d%22achievement_achievement_1%22%3eCgkIqZnn8MUPEAIQAQ%3c%2fstring%3e%0a++%3cstring+name%3d%22achievement_achievement_2%22%3eCgkIqZnn8MUPEAIQAg%3c%2fstring%3e%0a++%3cstring+name%3d%22achievement_achievement_3%22%3eCgkIqZnn8MUPEAIQAw%3c%2fstring%3e%0a++%3cstring+name%3d%22achievement_achievement_4%22%3eCgkIqZnn8MUPEAIQBA%3c%2fstring%3e%0a++%3cstring+name%3d%22achievement_achievement_5%22%3eCgkIqZnn8MUPEAIQBQ%3c%2fstring%3e%0a++%3cstring+name%3d%22leaderboard_beaver_space%22%3eCgkIqZnn8MUPEAIQAA%3c%2fstring%3e%0a%3c%2fresources%3e
+and.ClientId=534154693801-6127uhpo541i53ifi9qv075idim2i099.apps.googleusercontent.com
+proj.requireGPlus=false
+android.SetupDone=true
+and.BundleId=comDarkWind.BeaverSpace

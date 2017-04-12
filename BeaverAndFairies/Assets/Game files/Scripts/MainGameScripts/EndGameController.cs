@@ -39,13 +39,20 @@ public class EndGameController : MonoBehaviour {
 		GameAnaliticsController analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
 		analiticsController.sendFinishLevelWithScore(gameLogicController._score);
 
-		int showSocialPopUpIndex = Random.Range(0,3);
-
-		if (showSocialPopUpIndex == 0) {
-			trySubscribeUsersForPushes();
-			showSocialPopUp ();
-		} else if (showSocialPopUpIndex == 1) {
-			adsController.showInterstitial();
+		if( _playerData.showJoinGroupSuggestion == false || _playerData.showInviteFriendsSuggestion == false || _playerData.showReviewSuggestion == false)
+		{
+			int showSocialPopUpIndex = Random.Range(0,2);
+			if (showSocialPopUpIndex == 0) {
+				trySubscribeUsersForPushes ();
+				showSocialPopUp ();
+			} else {
+				int showAdIndex = Random.Range(0,2);
+				if (showAdIndex == 0) {
+					adsController.showInterstitial();
+				}
+			}
+		} else {
+			adsController.tryShowInterstitial();
 		}
 	}
 

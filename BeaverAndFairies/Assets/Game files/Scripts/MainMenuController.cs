@@ -51,7 +51,6 @@ public class MainMenuController : MonoBehaviour {
 		}
 
 		#endif
-
 			
 		if (_playerData.notNowPressed == false) {
 			vkLogInPopUp.SetActive (true);

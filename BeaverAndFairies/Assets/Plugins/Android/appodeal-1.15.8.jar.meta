@@ -1,12 +1,13 @@
 fileFormatVersion: 2
-guid: 3505b3d562a664aa5b41a32cd8d3ccfc
-timeCreated: 1482255285
-licenseType: Pro
+guid: b7df766cf471d445bb0c64b5a7a08059
+timeCreated: 1490181234
+licenseType: Free
 PluginImporter:
   serializedVersion: 1
   iconMap: {}
   executionOrder: {}
   isPreloaded: 0
+  isOverridable: 0
   platformData:
     Android:
       enabled: 1

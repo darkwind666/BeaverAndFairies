@@ -22,6 +22,17 @@ public class InAppPurchasesController : MonoBehaviour, IStoreListener {
 		_analiticsController = GameObject.FindObjectOfType<GameAnaliticsController>();
 		_playerData = ServicesLocator.getServiceForKey(typeof(GamePlayerDataController).Name) as GamePlayerDataController;
 
+		#if UNITY_ANDROID
+
+		gameSettings.inAppProductRemoveAdID = gameSettings.inAppProductRemoveAdID.ToLower();
+		gameSettings.inAppProductScoreCount1ID = gameSettings.inAppProductScoreCount1ID.ToLower();
+		gameSettings.inAppProductScoreCount2ID = gameSettings.inAppProductScoreCount2ID.ToLower();
+		gameSettings.inAppProductScoreCount3ID = gameSettings.inAppProductScoreCount3ID.ToLower();
+		gameSettings.inAppProductScoreCount4ID = gameSettings.inAppProductScoreCount4ID.ToLower();
+		gameSettings.inAppProductScoreCount5ID = gameSettings.inAppProductScoreCount5ID.ToLower();
+
+		#endif
+
 		if (m_StoreController == null)
 		{
 			initializePurchasing();
