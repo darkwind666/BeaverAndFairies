@@ -2,10 +2,9 @@
 
 ![alt tag](http://i68.tinypic.com/dcf1it.jpg)
 
-# Apple store: [ios](https://itunes.apple.com/app/apple-store/id1189833629?pt=118281202&ct=appleWatchGit&mt=8)    Play Market: [Android](https://play.google.com/store/apps/details?id=comDarkWind.BeaverSpace)
+# Apple store: [ios](https://itunes.apple.com/app/apple-store/id1189833629?pt=118281202&ct=appleWatchGit&mt=8)    
+# Play Market: [Android](https://play.google.com/store/apps/details?id=comDarkWind.BeaverSpace)
 ![alt tag](http://i64.tinypic.com/15xsf0o.jpg) ![alt tag](http://i66.tinypic.com/168x7vo.jpg)
-
-
 
 ![alt tag](http://i67.tinypic.com/1y3f9x.jpg)
 ![alt tag](http://i68.tinypic.com/4gjmlx.jpg)
@@ -33,3 +32,5 @@ Features:
 - the game does not require any purchases (not even to unlock features!)
 
 The game is convenient to use in the subway, or while waiting for any meeting to start.
+
+I used plugins from this list: [link](https://github.com/darkwind666/awesome-unity-plugins-assets-tools-services-games-projects-resources) 
